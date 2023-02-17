@@ -1,0 +1,24 @@
+ <div class="card border-0 col-sm-4 p-0">
+          {/* <img class="card-img-top" src="https://images.unsplash.com/photo-1584937248081-634bb38393fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Card image cap"> */}
+          <div class="card-body">
+            <h4 class="card-title h4">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-date">20/04/2020</h5>
+          </div>
+        </div>
+        <div class="card border-0 col-sm-4 p-0">
+          {/* <img class="card-img-top" src="https://images.unsplash.com/photo-1584937247987-07276272d215?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80" alt="Card image cap"> */}
+          <div class="card-body">
+            <h4 class="card-title h4">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-date">20/04/2020</h5>
+          </div>
+        </div>
+        <div class="card border-0 col-sm-4 p-0">
+          {/* <img class="card-img-top" src="https://images.unsplash.com/photo-1584937248081-634bb38393fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Card image cap"> */}
+          <div class="card-body">
+            <h4 class="card-title h4">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-date">20/04/2020</h5>
+          </div>
+        </div>

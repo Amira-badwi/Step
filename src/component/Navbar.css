@@ -1,0 +1,15 @@
+.img{
+    height:70px;
+}
+.Textcolor{
+    color: rgb(1, 1, 73);
+}
+.bgcolor{
+    background-color: rgb(1, 1, 73) ;
+    color: #FFF;
+    }
+    .bgcolor:hover{
+        cursor: pointer;
+        background-color:  #1eb2a6;
+        color: #FFF;
+    }

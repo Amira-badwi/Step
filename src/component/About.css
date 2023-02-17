@@ -1,0 +1,30 @@
+.imgStyle2{
+    height: 400px;
+}
+.h1Styles{
+    color: rgb(1, 1, 73);
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: (255,255,255,.3);
+    color: rgb(1, 1, 73);
+    transition: 0.5s;
+  }
+.icon:hover{
+    cursor: pointer;
+    background-color:  #1eb2a6;
+    color: #FFF;
+}
+.bgcolor{
+background-color: rgb(1, 1, 73) ;
+color: #FFF;
+}
+.bgcolor:hover{
+    cursor: pointer;
+    background-color:  #1eb2a6;
+    color: #FFF;
+}
