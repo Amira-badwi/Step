@@ -4,9 +4,10 @@ import bg1 from '../images/bg1.jpg'
 import bg2 from '../images/bg2.jpg'
 import './carsoularStyle.css'
 function CarouselFadeExample() {
-  return (
+  return (<div className='container'>
     <Carousel fade >
       <Carousel.Item>
+        
         <img
           className="d-block w-100 imgStyle"
           src={bg}
@@ -14,7 +15,7 @@ function CarouselFadeExample() {
         />
         <Carousel.Caption>
           <h3 className='Textcolor' >Educate</h3>
-          <p>Smart is great</p>
+          <p>A teacher affects eternity; he can never tell where his influence stops</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -26,7 +27,7 @@ function CarouselFadeExample() {
 
         <Carousel.Caption>
         <h3 className='Textcolor' >Educate</h3>
-          <p>Smart is great</p>
+          <p>A teacher affects eternity; he can never tell where his influence stops</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -38,10 +39,12 @@ function CarouselFadeExample() {
 
         <Carousel.Caption>
         <h3 className='Textcolor' >Educate</h3>
-          <p>Smart is great</p>
+          <p>A teacher affects eternity; he can never tell where his influence stops</p>
         </Carousel.Caption>
+        
       </Carousel.Item>
     </Carousel>
+    </div>
   );
 }
 

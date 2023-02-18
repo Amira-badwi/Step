@@ -1,5 +1,6 @@
 .img{
     height:70px;
+   width: 130px;
 }
 .Textcolor{
     color: rgb(1, 1, 73);
@@ -13,3 +14,7 @@
         background-color:  #1eb2a6;
         color: #FFF;
     }
+ .NavbarLogo{
+    background-color: #FFF ;
+    padding: 10px ;
+ }   

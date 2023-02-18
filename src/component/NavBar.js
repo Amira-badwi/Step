@@ -1,15 +1,17 @@
-import logo from '../images/logo.jpg'
+import logo from '../images/logo2.png'
 import'./Navbar.css'
 export default function NavBar(){
     return (<>
  <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
+    
     <a class="navbar-brand" href="#">
+    <div className='NavbarLogo'>
          <img 
-          className="d-block w-100 img"
+          className="d-block img"
           src={logo}
           alt="Step logo"
-        /></a>
+        /></div></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

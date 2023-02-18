@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap');
 .h1Style{
     color: red;
     text-align: center;
@@ -8,6 +9,7 @@
     
 }
 .card {
+    width: 200px;
     margin-top: 5%;
     border-bottom: 2.5px solid rgb(1, 1, 73) !important; 
     border-radius: 0;
@@ -55,10 +57,16 @@
   
   .card-img, .card-img-top {
     z-index: 1;
+    height: 200px;
+    width: 200px;
   }
   
   .card-text {
     margin-bottom: 1rem;
   }
   
-  
+ .homeCardTitle{
+    text-align: center;
+    color: rgb(1, 1, 73) ;
+    font-family: "Poppins", sans-serif;
+ } 

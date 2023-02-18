@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap');
+
+.Homerow {
+    padding-top: 3rem;
+}
+
+.Homecourse {
+    overflow: hidden;
+    width: 255px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #F0F2F3;
+    box-shadow: 0 3px 24px rgb(0 0 0 / 4%);
+    border-radius: 8px;
+}
+
+.homeCourse-thumb {
+    width: 100%;
+    height: auto;
+}
+
+.homeCourseTitle h6 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: rgb(1, 1, 73);
+}
+
+.details {
+    margin: 15px 0;
+}
+
+.details span {
+    color: rgb(87, 87, 93);
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.homeStar i {
+    margin-right: 5px;
+    font-size: 12px;
+    color: aqua;
+}
+
+.homefooter {
+    margin-top: 20px;
+}
+
+.Homebtn {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Homebtn-Custom {
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(1, 1, 73);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    padding: 12px 30px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.Homebtn .homePrimary {
+    color: #fff;
+}
+
+.Homebtn .homePrimary:hover {
+    background-color: #1eb2a6;
+}
+
+.Homebtn .homePrimary2 {
+    background-color: rgb(1, 1, 73);
+    color: #fff;
+}
+
+.Homebtn .homePrimary2:hover {
+    background-color: #1eb2a6;
+}
+.homeCourseHeader{
+    color: rgb(1, 1, 73) ;
+    text-align: center;
+    margin-top: 5%;
+}
+@media screen and(max-width:669px) {
+    .Homecourse {
+        width: 355px;
+    }
+
+    .Homebtn-Custom {
+        padding: 20px 30px;
+    }
+}
+
+@media screen and(max-width:350px) {
+    .Homecourse {
+        width: 355px;
+    }
+
+    .Homebtn-Custom {
+        padding: 10px 30px;
+    }
+}

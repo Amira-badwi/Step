@@ -9,7 +9,7 @@ const AboutCard = () => {
         <h1 class="textcolor fw-bold fs-1 mt-4 h1Styles" >
          About us
         </h1>
-        <p class="text-secondary " >
+        <p class="text-dark " >
         We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters
         </p>
         
