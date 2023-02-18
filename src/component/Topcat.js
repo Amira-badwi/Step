@@ -15,8 +15,8 @@ export default function TopCATEGORIES(){
     <div className="container">
         <div className="row">
             <div className="col-12">
-<h1 className="h1Style">Top categories</h1>
-<p className="fs-3 pStyle">Pick the right category for you</p>
+<h1 className="h1Style fw-bold">Top categories</h1>
+<p className="fs-3 pStyle text-dark">Pick the right category for you</p>
             </div>
 
         </div>

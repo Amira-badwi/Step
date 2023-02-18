@@ -20,7 +20,7 @@ export default function Courses() {
     return (<>
         <div className='container'>
             <Fragment>
-                <h2 className="homeCourseHeader">Start learning with free courses</h2>
+                <h2 className="homeCourseHeader fw-bold">Start learning with free courses</h2>
                 <section>
 
                     <div className='Homerow'>

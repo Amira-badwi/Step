@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap');
 .imgStyle2{
     height: 400px;
 }
 .h1Styles{
     color: rgb(1, 1, 73);
+    font-family: "Poppins", sans-serif;
 }
 .icon{
     width: 40px;
