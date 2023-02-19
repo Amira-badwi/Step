@@ -6,7 +6,7 @@ const AboutCard = () => {
     <> 
     <div class="container text-center mt-3">
     <div class="row">
-      <div class="col-6 mt-5 ">
+      <div class="col-12 mt-5 col-md-6 col-lg-6 m-auto">
         <h1 class="textcolor fw-bold fs-1 mt-4 h1Styles" >
          About us
         </h1>
