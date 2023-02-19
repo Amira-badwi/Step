@@ -1,4 +1,5 @@
-import logo from '../images/logo2.png'
+// import logo from '../images/logo2.png'
+import logo from '../images/Step.png'
 import'./Navbar.css'
 export default function NavBar(){
     return (<>

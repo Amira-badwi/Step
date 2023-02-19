@@ -1,11 +1,12 @@
 import'./About.css'
 import photo from '../images/photo.jpg'
+import photo2 from '../images/education.jpg'
 const AboutCard = () => {
   return (
     <> 
     <div class="container text-center mt-3">
     <div class="row">
-      <div class="col-6 mt-5">
+      <div class="col-6 mt-5 ">
         <h1 class="textcolor fw-bold fs-1 mt-4 h1Styles" >
          About us
         </h1>
@@ -28,7 +29,7 @@ const AboutCard = () => {
         <div class="col-6 d-none d-lg-block mt-5">
         <img 
           className="d-block w-100 imgStyle2"
-          src={photo}
+          src={photo2}
           alt="step photo"
         />
         </div>
