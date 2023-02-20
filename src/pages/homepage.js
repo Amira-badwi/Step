@@ -1,10 +1,11 @@
-import AboutCard from "../component/About";
-import CarouselFadeExample from "../component/carsoul";
-import CoursesSwipper from "../component/CoursesSwipper";
-import Footer from "../component/Footer";
-import NavBar from "../component/NavBar";
-import News from "../component/News";
-import TopCATEGORIES from "../component/Topcat";
+import AboutCard from "../component/Homepage/About";
+import Button from "../component/button";
+import CarouselFadeExample from "../component/Homepage/carsoul";
+import CoursesSwipper from "../component/Homepage/CoursesSwipper";
+import Footer from "../component/Homepage/Footer";
+import NavBar from "../component/Homepage/NavBar";
+import News from "../component/Homepage/News";
+import TopCATEGORIES from "../component/Homepage/Topcat";
 
 export default function Home(){
     return (<>

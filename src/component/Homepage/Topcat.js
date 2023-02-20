@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Topcat.css";
-import course1 from '../images/course1.jpg'
-import cate2 from '../images/cate2.jpg'
+import course1 from '../../images/course1.jpg'
+import cate2 from '../../images/cate2.jpg'
 export default function TopCATEGORIES(){
     const [data, setData] = useState(
         [
@@ -34,7 +34,7 @@ export default function TopCATEGORIES(){
                 <div className="row">          
     {
         data.map((item)=>{
-            return <div className="col-lg-3">
+            return <div className="col-lg-3 col-6 col-md-4 ">
             <div class="Homecard border-0 col-sm-4 p-0 col-lg-3" >
              <img class="Homecard-img-top" src={item.Cardimg} alt="Card image cap"/> 
             <div class="Homecard-body">

@@ -1,6 +1,6 @@
 import'./About.css'
-import photo from '../images/photo.jpg'
-import photo2 from '../images/education.jpg'
+import photo from '../../images/photo.jpg'
+import photo2 from '../../images/education.jpg'
 const AboutCard = () => {
   return (
     <> 

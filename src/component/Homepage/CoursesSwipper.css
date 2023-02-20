@@ -1,0 +1,25 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap');
+.homeCourseCardTitle{
+    text-align: center;
+    color: rgb(1, 1, 73) ;
+     font-family: "Poppins", sans-serif; 
+     font-weight: 200;
+     font-size: 20px;
+   
+ } 
+ .h1HomeCoursesStyle{
+    color:  rgb(1, 1, 73);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.bgcolor{
+    background-color: rgb(1, 1, 73) ;
+    color: #FFF;
+    }
+    .bgcolor:hover{
+        cursor: pointer;
+        background-color:  #1eb2a6;
+        color: #FFF;
+    }

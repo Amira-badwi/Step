@@ -1,7 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
-import bg from '../images/bg.jpg'
-import bg1 from '../images/bg1.jpg'
-import bg2 from '../images/bg2.jpg'
+import bg from '../../images/bg.jpg'
+import bg1 from '../../images/bg1.jpg'
+import bg2 from '../../images/bg2.jpg'
+
 import './carsoularStyle.css'
 
 function CarouselFadeExample() {

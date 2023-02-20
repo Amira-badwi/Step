@@ -3,9 +3,9 @@ import {Swiper,SwiperSlide} from 'swiper/react'
 import { FreeMode } from 'swiper'
 import'swiper/css'
 import'swiper/css/free-mode'
-import course1 from '../images/course1.jpg'
+import course1 from '../../images/course1.jpg'
 import {Card,Button} from 'react-bootstrap'
-import cate2 from '../images/cate2.jpg'
+import cate2 from '../../images/cate2.jpg'
 import'./CoursesSwipper.css'
 import { useState } from "react";
 import Carousel from 'react-bootstrap/Carousel';
