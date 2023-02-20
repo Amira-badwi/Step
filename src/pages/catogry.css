@@ -1,0 +1,4 @@
+h2{
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+background-color: rgb(44, 97, 183);
+}

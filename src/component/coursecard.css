@@ -1,0 +1,21 @@
+.hoverdiv{
+    background-color: rgba(13, 26, 26, 0.372);
+    height: 248px;
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+    transition: all .4s ease-in;
+    box-shadow: 1px 5px 10px black ;
+}
+
+.hoverdiv h5{
+    margin-top: 30%;
+}
+.hoverdiv:hover {
+opacity: 1;
+}
+
+.card-titlee{
+    box-shadow: 1px 5px 10px rgb(91, 85, 85) ;
+
+}

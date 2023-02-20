@@ -1,7 +1,5 @@
 import AboutCard from "../component/About";
-import Button from "../component/button";
 import CarouselFadeExample from "../component/carsoul";
-import Course_Catogry from "../component/coursecatogery";
 import CoursesSwipper from "../component/CoursesSwipper";
 import Footer from "../component/Footer";
 import NavBar from "../component/NavBar";

@@ -29,6 +29,7 @@ export default function NavBar(){
             categories
           </a>
           <ul class="dropdown-menu">
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"/></li>
