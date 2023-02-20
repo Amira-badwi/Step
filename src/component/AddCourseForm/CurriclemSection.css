@@ -1,0 +1,6 @@
+.course-section-container{
+    border:1px solid black;
+    background-color: rgb(236, 236, 236);
+    padding:20px 30px;
+    margin: 20px;
+}
