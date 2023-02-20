@@ -1,0 +1,12 @@
+.Twobtn{
+    color: #000033;
+    border:none;
+    border-radius:5px;
+    background-color:#ccccff ;
+    padding: 5px;
+    margin: 10px;
+    width:10%;
+}	
+.Twobtn:hover{
+    background-color:#6666ff;
+}
