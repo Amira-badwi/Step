@@ -1,4 +1,4 @@
-import notfound from "./../assets/notfound.jpg";
+import notfound from "../../assets/notfound.jpg";
 function Notfound(){
 return(
     <>

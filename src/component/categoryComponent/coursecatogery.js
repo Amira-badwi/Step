@@ -1,7 +1,7 @@
 import "./catogery.css";
 import { Link} from "react-router-dom/cjs/react-router-dom";
 
-export default  function CourseCatogry(props){
+export default  function Course_Catogry(props){
     return(<>
 
 <div className="col-md-6 col-lg-4 ">

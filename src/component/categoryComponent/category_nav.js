@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "./category_nav.css";
 import List from "./sidenav_ul";
-import logo from "./../assets/undraw_selected_options_re_vtjd.svg"
+import logo from "../../assets/undraw_selected_options_re_vtjd.svg"
 
 export default function NavCategory(){
    const content_category=[ { title:"Courses" ,to:"/"  ,icon:"fa-solid fa-list " },{ title:"Books" ,to:"/book" ,icon:"fa-solid fa-book" },{ title:"Videos" ,to:"/videos" ,icon:"fa-solid fa-video" }];

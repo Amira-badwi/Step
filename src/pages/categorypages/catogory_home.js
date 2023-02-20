@@ -1,11 +1,11 @@
 import { BrowserRouter,Route ,Switch } from "react-router-dom";
 import Books_category from "./books-category";
+import CourseCatogry from "./course_catogrey";
 import Notfound from "./notfound";
 import Videos_category from "./video_catogry";
 import Courses_details from "./courses_details";
 import React from "react";
-import NavCategory from "../component/category_nav";
-import CourseCatogrypage from "./coursecatogreyA";
+import NavCategory from "../../component/categoryComponent/category_nav";
 
 
 export default function Catecory_home(){
@@ -19,9 +19,9 @@ export default function Catecory_home(){
 
         </div>
      <div className="col-lg-9 col-md-6 col-7 ">
-     <Switch> 
-        <Route  exact path="/" component={CourseCatogrypage}/>
-         <Route exact path="/book"   component={Books_category}/>
+     <Switch>
+        <Route  exact path="/" component={CourseCatogry}/>
+        <Route exact path="/book"   component={Books_category}/>
         <Route exact path="/courses"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
         <Route exact path="*"   component={Notfound}/>
