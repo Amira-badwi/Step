@@ -20,9 +20,9 @@ export default function Catecory_home(){
         </div>
      <div className="col-lg-9 col-md-6 col-7 ">
      <Switch>
-        <Route  exact path="/" component={CourseCatogry}/>
+        <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>
-        <Route exact path="/courses"   component={Courses_details}/>
+        <Route exact path="/courseDetails"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>

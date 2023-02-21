@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import "./SignUp.css";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../../../firebase";
 import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from "@firebase/util";
 import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 function Pg1() {
   const [userData, setuserData] = useState({
     userName: "",

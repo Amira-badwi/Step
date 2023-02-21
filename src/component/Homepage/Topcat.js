@@ -35,7 +35,7 @@ export default function TopCATEGORIES(){
     {
         data.map((item)=>{
             return <div className="col-lg-3 col-6 col-md-4 ">
-            <div class="Homecard border-0 col-sm-4 p-0 col-lg-3" >
+            <div class="Homecard border-0  p-0 col-12" >
              <img class="Homecard-img-top" src={item.Cardimg} alt="Card image cap"/> 
             <div class="Homecard-body">
               <h4 class="card-title h4 homeCardTitle">{item.CardTitle}</h4>
