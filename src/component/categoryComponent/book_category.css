@@ -1,10 +1,11 @@
 
-
 .btnStyle{
-    font-size: 13px;
+font-size: 13px;
 background-color: #E74C3C;
 border: none;
 border-radius: 25px;
+margin-left:2px;
+ 
 
 }
 .btnStyle:hover{

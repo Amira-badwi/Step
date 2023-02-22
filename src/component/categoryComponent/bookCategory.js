@@ -10,7 +10,7 @@ export default function BookCategory(props){
             </div>
             <div className="content ">
          
-         <div className="text-center m-auto ">
+         <div className="text-center m-auto d-flex justify-content-center">
          <button className="  btnStyle "  >Open Book</button>
           <button className="  btnStyle  "> Book Details</button>  
          </div>

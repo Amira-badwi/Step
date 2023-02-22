@@ -36,9 +36,9 @@ function Sign_Up() {
     administration:"",
     school:"",
     yearsNo:null,
-    Graduation:Number,
+    Graduation:0,
     specialization:"",
-    phone:Number,
+    phone:"",
     user:""
 
   });
@@ -124,7 +124,7 @@ function Sign_Up() {
     }
 
   return (
-    <Form className="mb-4 container"  onSubmit={handleSubmit}>
+    <Form className="mb-4 container logContainer"  onSubmit={handleSubmit}>
       <center>
         <h2 className="logHedear">SIGN UP</h2>
       </center>
