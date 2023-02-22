@@ -11,7 +11,7 @@
   /* border: 2px solid #8080ff;  */
    border-radius: 20px;  
    padding:40px; 
-   box-shadow:3px 3px 5px 5px #f6f6f8 ;
+   box-shadow:5px 5px 5px 5px #cdcdd1 ;
    margin-top: 10px;
 }
 .btnlogin{
@@ -38,4 +38,16 @@
 content:"*";
 color: #ee2720;
 font-size:20px;
+}
+.Twobtn{
+    color: #000033;
+    border:none;
+    border-radius:5px;
+    background-color:#ccccff ;
+    padding: 5px;
+    margin: 10px;
+    width:10%;
+}	
+.Twobtn:hover{
+    background-color:#6666ff;
 }
