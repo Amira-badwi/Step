@@ -1,0 +1,45 @@
+.header{
+    height: 150px;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+/* Top Header */
+.top-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background-color: var(--secondry-color);
+    height: 20%;
+    color: var(--main-color);
+}
+
+.top-header-menu{
+    display: none;
+}
+
+.top-header-logo{
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.top-header-logo i{
+    margin-left: 4px;
+}
+
+.top-header-text{
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--warning-color);
+
+    /* i add */
+    margin-top: 50px;
+}
+
+.top-header-phone{
+    font-size: 24px;
+    font-weight: 500;
+}
+
