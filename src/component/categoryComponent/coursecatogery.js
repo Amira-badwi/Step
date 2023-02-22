@@ -5,7 +5,7 @@ export default  function Course_Catogry(props){
     return(<>
 
 <div className="col-md-6 col-lg-4 ">
-    <Link to="/courseDetails">
+    <Link to="/courses">
     <div className="profile-card-6">
         <img src={props.src} height={220} width={"100%"} />
         <div className="profile-name category_fonts">

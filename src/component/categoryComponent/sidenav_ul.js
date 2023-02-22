@@ -5,7 +5,7 @@ import Li from "./nav_li";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function List(props) {
   const catogry = [
-    "calendar methods",
+    "evaluation methods",
     "Dealing children with special needs ",
     "Teaching strategy",
     "mathematics",
