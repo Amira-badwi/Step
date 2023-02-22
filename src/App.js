@@ -8,7 +8,7 @@ import NavBar from "./component/Homepage/NavBar";
 import Login from "./pages/auth/Login";
 import AddCourse from "./pages/AddCourse";
 import Banner from "./component/banner/Banner";
-
+import ViewNews from "./pages/viewNews";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
    <NavBar/>   
      <Switch>
         <Route  exact path="/" component={Home}/>
+        <Route exact path="/view/:id" component={ViewNews}/>
         <Route exact path="/courses"   component={Catecory_home}/>
         <Route exact path="/review_course" component={Banner}/>
         <Route exact path="/register"   component={Sign_Up}/>

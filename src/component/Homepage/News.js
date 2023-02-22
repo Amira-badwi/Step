@@ -5,7 +5,7 @@ import {Swiper,SwiperSlide} from 'swiper/react'
 import { FreeMode } from 'swiper'
 import'swiper/css'
 import'swiper/css/free-mode'
-import {Card,Button} from 'react-bootstrap'
+import {Card} from 'react-bootstrap'
 import'./CoursesSwipper.css'
 
 function News(){
@@ -19,7 +19,7 @@ function News(){
             }
         )
          .then((data) => setNewsData(data.data.articles))
-        // .then((data) => console.log(data.data.articles))
+        //  .then((data) => console.log(data.data.articles))
         .catch((err) => console.log(err))
     }, [])
 
@@ -59,6 +59,7 @@ breakpoints={{
 }}
 >
                 {NewsData.map((singleNews) =>   {
+                    console.log(singleNews)
                     return(
                   
                     <SwiperSlide >
@@ -71,7 +72,7 @@ breakpoints={{
 </div>
 
 <Card.Body className='text-center'>
-<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden'>{singleNews.title}</Card.Title>
+<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' key={singleNews.id}><Link to={`/view/${singleNews.id}`}>{singleNews.title}</Link></Card.Title>
 <Card.Title className='text-dark mt-1 ' >{singleNews.description}</Card.Title>
 </Card.Body>
         </Card>  
