@@ -5,14 +5,14 @@ export default function BookCategory(props){
             <div className="photo m-auto">
                 <img  src={props.img} alt=""/>
                 <div className="photos">The originals</div>
+                <p className="txt4 " >{props.title}</p>
+
             </div>
-            <div className="content">
-                <p className="txt4">{props.title}</p>
+            <div className="content ">
          
-         <div className="flex justifiy-content-around ">
-         <button className="btn btn-outline-info btnstyle ">Open Book</button>
-          <button className="btn btn-outline-warning  btnstyle "> Book Details</button>
-            
+         <div className="text-center m-auto ">
+         <button className="  btnStyle "  >Open Book</button>
+          <button className="  btnStyle  "> Book Details</button>  
          </div>
           </div>
           
