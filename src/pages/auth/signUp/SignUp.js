@@ -153,7 +153,7 @@ function Sign_Up() {
         Back
       </button>
     )}
-     {err&<span>somthing wrong</span>}
+     {err && <span>somthing wrong</span>}
     </div>
   );
 }

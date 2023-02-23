@@ -54,7 +54,7 @@ function Login() {
             Login
           </button>
         </div>
-        {/* <p>Not a user<Link to={"/register"}>Sign Up</Link></p> */}
+        <p>Don't have an account? <Link to={"/register"}>Sign Up</Link></p>
       </Form>
       {err && <span>somthing error</span>}
     </div>
