@@ -7,7 +7,7 @@
     margin:20px 0 40px 0;
 }
 .logContainer{
-   width:60%; 
+   width:50%; 
   /* border: 2px solid #8080ff;  */
    border-radius: 20px;  
    padding:40px; 
@@ -50,4 +50,10 @@ font-size:20px;
 }	
 .Twobtn:hover{
     background-color:#6666ff;
+}
+@media screen and(max-width:700px) {
+    .logContainer{
+         width:100%;
+    }
+    
 }
