@@ -124,12 +124,9 @@ function Sign_Up() {
   
 
   return (
-<<<<<<< HEAD
-    <Form className="mb-4 container logContainer "  onSubmit={handleSubmit}>
-=======
+
     <div  className=" mb-4 container logContainer">
     <Form  className=""  onSubmit={handleSubmit}>
->>>>>>> 5b824393ea02c448118f16cdbf436f61986ec2cd
       <center>
         <h2 className="logHedear">SIGN UP</h2>
       </center>
