@@ -20,15 +20,5 @@
     margin:30px;
    
 }
- 
-@media screen and (max-width:700px){
-    .imgs{
-         
-        display: none;
-        visibility: hidden;
-    }
-    .contain{
-     width: 100%;
-    }
-}
+
  

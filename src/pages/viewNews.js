@@ -16,9 +16,9 @@ function ViewNews(){
         .catch((err) => console.log(err))
 
     }, [])
- Mynew.find((ele)=>{
-    console.log(ele.author);
-})
+//  Mynew.find((ele)=>{
+//     console.log(ele.author);
+// })
 // console.log(s);
 
     return(
