@@ -31,7 +31,7 @@ const changeUserData=(e)=>{
       <>
       <Form.Group className="mb-3 " controlId="formBasicText">
         <Form.Label>Administration Name</Form.Label>
-        <Form.Control type="text" name="administration"  onChange={(e) => changeUserData(e)}   placeholder="Enter your administration" />
+        <Form.Control type="text" name="administration" value={props.userData.administration}  onChange={(e) => changeUserData(e)}   placeholder="Enter your administration" />
          
       </Form.Group>
       <Form.Group className="mb-3 " controlId="formBasicText">
@@ -42,7 +42,7 @@ const changeUserData=(e)=>{
 
       <Form.Group className="mb-3">
           <Form.Label htmlFor="disabledSelect">Number of years</Form.Label>
-          <Form.Select id="disabledSelect" name="yearsNo" onChange={(e) => changeUserData(e)}>
+          <Form.Select id="disabledSelect" name="yearsNo"  value={props.userData.yearsNo} onChange={(e) => changeUserData(e)}>
             <option >0-1</option>
             <option >2-5</option>
             <option  >6-15</option>

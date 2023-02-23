@@ -43,7 +43,7 @@ function Sign_Up() {
 
   });
   const [error, setError] = useState({
-    userName: null,
+    userName: null,   
     email: null,
     password: null,
     confirmPassword: null,
@@ -54,12 +54,13 @@ function Sign_Up() {
   });
   //////////////////handleSubmit////////////////
   const [err, setErr] = useState(false);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     //console.log(e.target[0])
-   // console.log(userData)
-    
+    console.log(userData)
+     
       const displayName = userData.userName;
       const email = userData.email;
       const password = userData.password;
@@ -88,17 +89,15 @@ function Sign_Up() {
             setErr(true);
           },
           () => {
-            // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          
             getDownloadURL(uploadTask.snapshot.ref).then(
               async (downloadURL) => {
                 await updateProfile(res.user, {
                   displayName,
                   photoURL: downloadURL,
                 });
-              
-            
-                await setDoc(doc(db,"users",res.user.uid),{
+             
+            await setDoc(doc(db,"users",res.user.uid),{
                   uid:res.user.uid,
                   displayName,
                   email,
@@ -122,9 +121,11 @@ function Sign_Up() {
       }
  
     }
+  
 
   return (
-    <Form className="mb-4 container logContainer"  onSubmit={handleSubmit}>
+    <div  className=" mb-4 container logContainer">
+    <Form  className=""  onSubmit={handleSubmit}>
       <center>
         <h2 className="logHedear">SIGN UP</h2>
       </center>
@@ -134,23 +135,26 @@ function Sign_Up() {
       </div>
       {Page == 1 ? <Pg1 userData={userData} setuserData={setuserData} error={error} setError={setError}/> : Page == 2 ? <Pg2 userData={userData} setuserData={setuserData} error={error} setError={setError} /> 
       : Page == 3 ? <Pg3 userData={userData} setuserData={setuserData} error={error} setError={setError} /> : null}
-      {Page < 3 && Page >= 1 && (
-        <button className="Twobtn" onClick={() => changePageinc()}>
-          Next
-        </button>
-      )}
-      {Page > 1 && (
-        <button className="Twobtn" onClick={() => changePagedec()}>
-          Back
-        </button>
-      )}
-        <div className="btnS">
+     
+        <div className="btnS" disabled = {error.password || error.email || error.phone}>
         <button className="btnlogin" type="submit"  >
           Submit
         </button>
       </div>
       
     </Form>
+     {Page < 3 && Page >= 1 && (
+      <button className="Twobtn" onClick={() => changePageinc()}>
+        Next
+      </button>
+    )}
+    {Page > 1 && (
+      <button className="Twobtn" onClick={() => changePagedec()}>
+        Back
+      </button>
+    )}
+     {err&<span>somthing wrong</span>}
+    </div>
   );
 }
 export default Sign_Up;

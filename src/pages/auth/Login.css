@@ -13,14 +13,22 @@
     height:400px;
     
 }
-.content{
+.contentlog{
     display: flex;
     justify-content: center;
     align-items: center;
     margin:30px;
    
 }
-.imgs{
  
+@media screen and (max-width:700px){
+    .imgs{
+         
+        display: none;
+        visibility: hidden;
+    }
+    .contain{
+     width: 100%;
+    }
 }
  

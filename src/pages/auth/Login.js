@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import "./Login.css";
+import { auth } from "../../firebase";
 function Login() {
   
  const [login,setLogin]=useState({
@@ -12,11 +14,24 @@ function Login() {
  const handelChange=()=>{
 
  }
- const handleSubmit=(e)=>{
-  e.preventDefault()
- }
+ const [err, setErr] = useState(false);
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+      const email = e.target[0].value;
+      const password = e.target[1].value;
+       
+      try {
+         await signInWithEmailAndPassword(auth, email, password)
+       
+      } catch (err) {
+        setErr(true);
+      }
+ 
+    }
   return (
-    <div className="content">
+    <div className="contentlog">
       <div className="imgs">
         <img src={require('../../../src/login.png')} width="400px"/>
       </div>
@@ -39,8 +54,9 @@ function Login() {
             Login
           </button>
         </div>
-        {/* <p>Not a user<Link to={"/"}>Sign Up</Link></p> */}
+        {/* <p>Not a user<Link to={"/register"}>Sign Up</Link></p> */}
       </Form>
+      {err && <span>somthing error</span>}
     </div>
     </div>
   );

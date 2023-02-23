@@ -54,6 +54,7 @@ function Pg3(props) {
       <Form.Group className="mb-3 must" controlId="formBasicText">
         <Form.Label>Specialization</Form.Label>
         <Form.Control
+        value={props.userData.specialization}
           type="text"
           placeholder="Enter your specialization"
           name="specialization"
@@ -64,6 +65,7 @@ function Pg3(props) {
       <Form.Group className="mb-3">
         <Form.Label htmlFor="disabledSelect">Graduation Year</Form.Label>
         <Form.Select
+        value={props.userData.Graduation}
           id="disabledSelect"
           onChange={(e) => changeUserData(e)}
           name="Graduation"
@@ -76,6 +78,7 @@ function Pg3(props) {
       <Form.Group className="mb-3 must" controlId="formBasicText">
         <Form.Label>Phone</Form.Label>
         <Form.Control
+        value={props.userData.phone}
           type="text"
           placeholder="Enter your Phone number"
           name="phone"
@@ -83,12 +86,12 @@ function Pg3(props) {
         />
         <p className="text-danger">{props.error.phone}</p>
       </Form.Group>
-      <Form.Group className="mb-3" onChange={(e) => changeUserData(e)}>
+      <Form.Group className="mb-3" onChange={(e) => changeUserData(e)}  >
         <Form.Label htmlFor="disabledSelect" className="diff">
           Choose
         </Form.Label>
         <br />
-        <input type="radio" id="trainer" name="user" value="trainer" />
+        <input type="radio" id="trainer" name="user"  value="trainer" />
         <label htmlFor="trainer">Trainer</label>
         <br />
         <input type="radio" id="trainee" name="user" value="trainee" />

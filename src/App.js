@@ -4,7 +4,7 @@ import Home from "./pages/homepage";
 import { BrowserRouter,Route ,Switch } from "react-router-dom";
 import Notfound from "./pages/categorypages/notfound";
 import NavBar from "./component/Homepage/NavBar";
- import Sign_Up from "./pages/auth/signUp/SignUp";
+import Sign_Up from "./pages/auth/signUp/SignUp";
 import Login from "./pages/auth/Login";
 import AddCourse from "./pages/AddCourse";
 import Banner from "./component/banner/Banner";
