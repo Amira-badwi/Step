@@ -39,7 +39,6 @@ function Login() {
             Login
           </button>
         </div>
-        {/* <p>Not a user<Link to={"/"}>Sign Up</Link></p> */}
       </Form>
     </div>
     </div>

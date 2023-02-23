@@ -64,15 +64,15 @@ margin-left:2px;
 }
 
 .cardcontainer:hover > .photo{
-    height: 100px;
+    height: 150px;
     animation: move1 0.5s ease both;
 }
 @keyframes move1{
     0%{height: 300px}
-    100%{height: 200px}
+    100%{height: 250px}
 }
 .cardcontainer:hover > .content{
-    height: 130px;
+    height: 50px;
 }
 
 

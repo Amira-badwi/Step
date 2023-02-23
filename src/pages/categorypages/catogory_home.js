@@ -6,13 +6,14 @@ import Videos_category from "./video_catogry";
 import Courses_details from "./courses_details";
 import React from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
-
-
+import Banner from "../../component/banner/Banner.jsx"
+import "./categoryHome.css"
 export default function Catecory_home(){
     return(
         <>
-        <React.Fragment>
+      
         <BrowserRouter>
+        <p className="split"></p>
         <div className=" row">
         <div className="col-lg-2 col-md-5 col-4 mx-3 m-auto ">
         <NavCategory/>
@@ -20,17 +21,18 @@ export default function Catecory_home(){
         </div>
      <div className="col-lg-9 col-md-6 col-7 ">
      <Switch>
-        <Route  exact path="/" component={CourseCatogry}/>
+        <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>
-        <Route exact path="/courses"   component={Courses_details}/>
+        <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
+        <Route exact path="/viewCourse"   component={Banner}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>
      </div>
 
         </div>
         </BrowserRouter>  
-        </React.Fragment>
+   
         </>
     )
 }

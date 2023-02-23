@@ -14,12 +14,9 @@ function News(){
 
     useEffect(() => {
         axios.get("https://newsapi.org/v2/everything?q=Apple&from=2023-02-18&sortBy=popularity&apiKey=9af35b4a4fd741f8b76e9f7f51486ac7", 
-            {
-             
-            }
+            
         )
          .then((data) => setNewsData(data.data.articles))
-        //  .then((data) => console.log(data.data.articles))
         .catch((err) => console.log(err))
     }, [])
 
@@ -59,7 +56,7 @@ breakpoints={{
 }}
 >
                 {NewsData.map((singleNews) =>   {
-                    console.log(singleNews)
+                    
                     return(
                   
                     <SwiperSlide >
@@ -72,7 +69,7 @@ breakpoints={{
 </div>
 
 <Card.Body className='text-center'>
-<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' key={singleNews.id}><Link to={`/view/${singleNews.id}`}>{singleNews.title}</Link></Card.Title>
+<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden'><Link  to={`/viewNews/${singleNews.author}`}> {singleNews.title}</Link></Card.Title>
 <Card.Title className='text-dark mt-1 ' >{singleNews.description}</Card.Title>
 </Card.Body>
         </Card>  

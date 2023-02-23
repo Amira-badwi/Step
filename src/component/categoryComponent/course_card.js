@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import "./coursecard.css"
 export default function Card(props){
     return(
         <>
+        <Link to={props.to}>
      <div className="row g-2 w-100 bg-white">
 
     <div className="col-md-4  " >
@@ -27,6 +29,7 @@ export default function Card(props){
   </div>
   </div>
 </div>
+</Link>
         </>
     )
 }

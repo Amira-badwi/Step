@@ -20,7 +20,7 @@ src: logo5 , count:6}
     return(<>
        
         
-        <h2 className="text-center text-light clip "><strong>Courses Categories</strong></h2>   
+        <h2 className="text-center text-light clip  "><strong>Courses Categories</strong></h2>   
 
     <div className="container ">
 
