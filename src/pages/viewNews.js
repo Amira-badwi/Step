@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -16,10 +17,10 @@ function ViewNews(){
         .catch((err) => console.log(err))
 
     }, [])
-//  Mynew.find((ele)=>{
-//     console.log(ele.author);
+// var s= Mynew.find((ele)=>{
+//     ele.author  ==param.id
 // })
-// console.log(s);
+// console.log(Mynew.find((ele)=>{ele.author==param.author}));
 
     return(
         <>
