@@ -23,10 +23,15 @@ function CourseInfo(props) {
         <div className="mb-3">
             <label htmlFor='course-category' className='form-label' name='courseCategory'>Course Category:</label>
             <select className="form-select" aria-label="Default select example" id="course-category" onChange={handleInputChange}>
-                <option selected>Course Category</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Dealing with children with special needs">Dealing with children with special needs</option>
+                <option value="Teaching strategies">Teaching strategies</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Mental Skills">Mental Skills</option>
+                <option value="Human Development">Human Development</option>
+                <option value="Science">Science</option>
+                <option value="Educational games">Educational games</option>
+                <option value="Digital transformation">Digital transformation</option>
+                <option value="Discipline methods">Discipline methods</option>
             </select></div>
         <div className="mb-3">
             <label htmlFor="course-img" className="form-label" name='courseImage'>Course Image:</label>
