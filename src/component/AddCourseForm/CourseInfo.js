@@ -8,7 +8,9 @@ function CourseInfo(props) {
         }else if(e.target.name=='courseDescription'){
             props.setCourseData({...props.courseData,courseDescription:e.target.value})
         }else if(e.target.name=='courseImage'){
-            props.setCourseData({...props.courseData,courseImage:e.target.value})
+            console.log(e.target);
+            console.log(e.target.files[0]);
+            props.setCourseData({...props.courseData,courseImage:e.target.files[0]})
         }else{
             props.setCourseData({...props.courseData,courseCategory:e.target.value})
         }
@@ -34,7 +36,7 @@ function CourseInfo(props) {
                 <option value="Discipline methods">Discipline methods</option>
             </select></div>
         <div className="mb-3">
-            <label htmlFor="course-img" className="form-label" name='courseImage'>Course Image:</label>
+            <label  htmlFor="course-img" className="form-label" name='courseImage'>Course Image:</label>
             <input type="file" accept="image/*" placeholder='CourseImage' className="form-control" id="course-img" name='courseImage' onChange={handleInputChange}></input>
         </div>
         <div className="mb-3">

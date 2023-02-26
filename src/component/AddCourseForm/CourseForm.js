@@ -1,9 +1,10 @@
 import { addDoc, collection } from 'firebase/firestore'
 import React, { useState } from 'react'
-import { db } from '../../firebase'
+import { db, storage } from '../../firebase'
 import CourseContent from './CourseContent'
 import CourseInfo from './CourseInfo'
-
+import {ref,uploadBytes,getDownloadURL, uploadBytesResumable} from 'firebase/storage'
+import { v4 } from 'uuid'
 function CourseForm() {
     const [page,setPage]=useState(0)
     const formTitles=['Course Info','Course Curriclem']
@@ -15,14 +16,27 @@ function CourseForm() {
         courseSections:[]
     })
     const coursesCollectionRef=collection(db,"courses")
+    const imageURL=`courseImages/${courseData.courseImage.name+v4()}`
+
+    const handleNext=async(e)=>{
+        setPage((current)=>(current+1))
+        const imageRef=ref(storage,imageURL);
+        const imageUpload=uploadBytesResumable(imageRef,courseData.courseImage);
+        ////buggy
+        imageUpload.then(()=>{
+            console.log('image uploaded!');
+            getDownloadURL(imageUpload.snapshot.ref).then(
+                (url)=>{
+                    console.log(url);
+                setCourseData({...courseData,courseImage:url})
+                }
+            )
+        })
+        
+    }
+
     const handleSubmit=async (e)=>{
-        console.log(courseData);
-console.log(coursesCollectionRef);
-    //     const courseName = courseData.courseName;
-    //   const courseDescription = courseData.courseDescription;
-    //   const courseCategory = courseData.courseCategory;
-    //   const courseImage = courseData.courseImage;
-    //   const courseSections = courseData.courseSections;
+    
 await addDoc(coursesCollectionRef,courseData)
 
     }
@@ -36,7 +50,7 @@ await addDoc(coursesCollectionRef,courseData)
             <form onSubmit={(e)=>{e.preventDefault()}}>
             {page==0?<CourseInfo courseData={courseData} setCourseData={setCourseData}/>:<CourseContent courseData={courseData} setCourseData={setCourseData}/>}
             <button className='btn btn-primary me-3' disabled={page==0} onClick={()=>{setPage((current)=>(current-1))}}>Prev</button>
-            <button className='btn btn-primary me-3' onClick={()=>{(formTitles.length-1)==page?handleSubmit():setPage((current)=>(current+1))}}>{(formTitles.length-1)==page?'Submit':'Next'}</button>
+            <button className='btn btn-primary me-3' onClick={()=>{(formTitles.length-1)==page?handleSubmit():handleNext()}}>{(formTitles.length-1)==page?'Submit':'Next'}</button>
             </form>
         </div>
         </div>
