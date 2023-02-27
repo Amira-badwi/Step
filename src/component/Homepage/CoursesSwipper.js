@@ -82,7 +82,7 @@ breakpoints={{
     },
 }}
 >
-  
+
  
         {/* data.map((item)=>{ */}
            { courses.map((course)=>{
