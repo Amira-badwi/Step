@@ -14,12 +14,11 @@ function News(){
 
     useEffect(() => {
         axios.get("https://newsapi.org/v2/everything?q=Apple&from=2023-02-18&sortBy=popularity&apiKey=9af35b4a4fd741f8b76e9f7f51486ac7", 
-            {
-             
-            }
+            
         )
-         .then((data) => setNewsData(data.data.articles))
-        //  .then((data) => console.log(data.data.articles))
+         .then((data) =>setNewsData(data.data.articles
+
+            ))
         .catch((err) => console.log(err))
     }, [])
 
@@ -58,8 +57,8 @@ breakpoints={{
     },
 }}
 >
-                {NewsData.map((singleNews) =>   {
-                    console.log(singleNews)
+             {NewsData.map((singleNews) =>   {
+                    
                     return(
                   
                     <SwiperSlide >
@@ -68,12 +67,12 @@ breakpoints={{
           
         <Card className='p-0 overflow-hidden  shadow' style={{height:'500px'}}>
 <div className='overflow-hidden rounded p-0 bg-light'>
-  <Card.Img variant='top' src={singleNews.urlToImage} className='img-fluid'/>  
+  <Card.Img variant='top' src={singleNews.urlToImage} className='img-fluid ' style={{height:200}}/>  
 </div>
-
+{/* b5d8444461bc40e88995a3a38e943f3c */}
 <Card.Body className='text-center'>
-<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' key={singleNews.id}><Link to={`/view/${singleNews.id}`}>{singleNews.title}</Link></Card.Title>
-<Card.Title className='text-dark mt-1 ' >{singleNews.description}</Card.Title>
+<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' style={{height:100}}><a  href= {singleNews.url} target="_blank" className="text-decoration-none" > {singleNews.title}</a></Card.Title>
+<Card.Title className='text-dark mt-1 ' style={{height:200}}>{singleNews.description}</Card.Title>
 </Card.Body>
         </Card>  
        
@@ -90,3 +89,4 @@ breakpoints={{
 }
 
 export default News;
+// /viewNews/${singleNews.author}

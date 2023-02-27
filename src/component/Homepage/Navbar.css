@@ -2,18 +2,21 @@
     height:70px;
    width: 130px;
 }
-.Textcolor{
-    color: rgb(1, 1, 73);
-}
-.bgcolor{
-    background-color: rgb(1, 1, 73) ;
-    color: #FFF;
-    }
-    .bgcolor:hover{
-        cursor: pointer;
-        background-color:  #1eb2a6;
-        color: #FFF;
-    }
+
+
+  
  .NavbarLogo{
     height: 60px;
  }   
+ .main_nav {
+    z-index: 99;
+    position: fixed;
+    top: 0px;
+    height: 70px;
+    background-color: #0927525c;
+  
+ }
+ .main_nav  li:hover{
+background-color: #1e2aa9;
+border-radius: 25px;
+ }

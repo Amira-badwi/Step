@@ -1,14 +1,24 @@
-import "./coursecard.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import "./coursecard.css";
+import {useFirestore} from "./usefirebase";
 export default function Card(props){
+ const {items}=useFirestore()
+
     return(
         <>
+        <Link to={props.to}>
      <div className="row g-2 w-100 bg-white">
 
     <div className="col-md-4  " >
 
     <div className="hoverdiv text-center w-100  ">
       <h6 className="bg-danger text-white">
-     deal with children with  special needs
+     {/* deal with children with  special needs */}
+     {items.map((course)=>{
+      return(<>
+      <div>{course.courseCategory}</div>
+      </>)
+     })}
       </h6>
  <h5 className="text-white">Preview Course</h5>
     </div>
@@ -27,6 +37,7 @@ export default function Card(props){
   </div>
   </div>
 </div>
+</Link>
         </>
     )
 }

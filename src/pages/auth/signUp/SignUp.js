@@ -124,6 +124,7 @@ function Sign_Up() {
   
 
   return (
+
     <div  className=" mb-4 container logContainer">
     <Form  className=""  onSubmit={handleSubmit}>
       <center>
