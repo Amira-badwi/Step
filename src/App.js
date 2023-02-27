@@ -7,7 +7,6 @@ import NavBar from "./component/Homepage/NavBar";
 import Sign_Up from "./pages/auth/signUp/SignUp";
 import AddCourse from "./pages/AddCourse";
 import Banner from "./component/banner/Banner";
-import ViewNews from "./pages/viewNews";
 import Login from "./pages/auth/Login";
 import CourseCatogry from "./pages/categorypages/course_catogrey";
 import Books_category from "./pages/categorypages/books-category";
@@ -31,7 +30,6 @@ function App() {
         <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/viewCourse"   component={Banner}/>
         <Route exact path="/videos"   component={Videos_category}/>
-        <Route exact path="/viewNews/:id"   component={ViewNews}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>
         </BrowserRouter>  
