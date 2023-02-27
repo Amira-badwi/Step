@@ -5,9 +5,9 @@ import cate2 from '../../images/cate2.jpg'
 export default function TopCATEGORIES(){
     const [data, setData] = useState(
         [
-            { CardTitle:'Arabic',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:course1 },
-            {CardTitle:'English',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:cate2 },
-            { CardTitle:'Math', Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',Cardimg:course1},
+            { CardTitle:'Mathematics',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:course1 },
+            {CardTitle:'Mental skills',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:cate2 },
+            { CardTitle:'Techaning strategy', Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',Cardimg:course1},
             {CardTitle:'Science', Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',Cardimg:cate2},
         
         ])

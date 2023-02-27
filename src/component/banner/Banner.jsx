@@ -5,6 +5,7 @@ import Rating from "../rating/Rating";
 import ProductDescription from "../productdescription/ProductDescription";
 import Header from "../header/Header";
 
+
 const Banner = () => {
     return (
     <div className="single-product">
