@@ -60,37 +60,7 @@ breakpoints={{
     },
 }}
 >
-    {/* <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    <SwiperSlide>
-        <Card data={{imgSrc:course1,price:'10',title:'gggg'}}/>
-    </SwiperSlide>
-    */}
+
  
  {
         data.map((item)=>{
