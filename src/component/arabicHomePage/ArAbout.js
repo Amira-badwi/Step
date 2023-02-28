@@ -1,24 +1,27 @@
-import'./About.css'
+import'./arAbout.css'
 import photo2 from '../../images/education.jpg'
-const AboutCard = () => {
+const ArAboutCard = () => {
   return (
     <> 
-    <div className="container text-center mt-3">
+    <div className="container text-center mt-3" dir='rtl'>
     <div className="row">
       <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
         <h1 className="textcolor fw-bold fs-1 mt-0 h1Styles" >
-         About us
+        من نحن
         </h1>
-        <h4 className='members '>Esraa ,Amira ,Manar ,Zainab ,Yasser</h4>
+        <h4 className='armembers'>اسراء ,أميرة ,منار ,زينب , ياسر</h4>
 
         <p className="text-dark " >
-        We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters
-        </p>
+        نقوم بتدريب وتأهيل وتمكين المعلم من تدريس المنهج الجديد 
+          edu 2.0 
+        من خلال تزويد المعلم بالدورات والكتب والمقالات من قبل خبراء في هذا المجال وكذلك المناهج المهنية من خلال منصتنا التي ستكون متاحة دائمًا له. ومنحه شهادات بنهاية كل دورة تضاف له نقاط لمنحه مكافآت ومعززات
+
+     </p>
         
         <button type="button" className="btn bgcolor rounded-pill w-5" >
-          Get started</button>
+         ابدأ</button>
           <br/>
-          <p  className="text-secondary mt-4 fs-5">Follow us</p>
+          <p  className="text-secondary mt-4 fs-5">تابعنا</p>
           <span>
           <a href="https://www.facebook.com/"  style={{textDecoration:"none"}}>  <i className="fa-brands fa-facebook icon w-5"></i></a>
           <a href="https://twitter.com/?lang=en" style={{textDecoration:"none"}}> <i className="fa-brands fa-twitter icon w-5"></i></a>
@@ -40,4 +43,4 @@ const AboutCard = () => {
   )
 }
 
-export default AboutCard
+export default ArAboutCard

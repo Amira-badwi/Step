@@ -4,18 +4,17 @@
     position: absolute;
     left: 0px;
     opacity: 0;
-    transition: all .4s ease-in;
+    transition: all .6s ease-in;
     box-shadow: 1px 5px 10px black ;
+    padding-top: 90%;
 }
 
-.hoverdiv h5{
-    margin-top: 12%;
-}
+
 .hoverdiv:hover {
 opacity: 1;
+padding-top: 27%;
 }
 
 .card-titlee{
     box-shadow: 1px 5px 10px rgb(91, 85, 85) ;
-
 }

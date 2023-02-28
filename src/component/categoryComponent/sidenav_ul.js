@@ -31,10 +31,10 @@ export default function List(props) {
       <Link
        style={{"width":186}}
         to={props.to}
-        className="border border-info rounded list-group-item py-2 my-1 bg-white d-flex justify-content-between "
+        className="border  rounded list-group-item pt-1 my-1 bg-white d-flex justify-content-between "
       >
-        <i className={`${props.icon} me-3`}></i>
-        <span    onClick={() => toggle()}>{props.head}</span>
+       <hr/>
+        <span    onClick={() => toggle()}>   <i className={`${props.icon} me-1`}></i>  {props.head}</span>
         <i onClick={() => toggle()} className="fa-solid fa-caret-down me-3 px-2"></i>
 
       </Link>

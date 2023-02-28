@@ -14,7 +14,7 @@ function CourseForm() {
     })
     return (
         <div>
-            <div className="add-course-container col-lg-7 col-12" style={{marginTop:60}}>
+            <div className="add-course-container col-lg-7 col-12" >
             <div className="progress mb-3">
                 <div style={{width:page==0?"50%":"100%"}} className="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
