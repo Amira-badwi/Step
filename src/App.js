@@ -12,10 +12,16 @@ import CourseCatogry from "./pages/categorypages/course_catogrey";
 import Books_category from "./pages/categorypages/books-category";
 import Courses_details from "./pages/categorypages/courses_details";
 import Videos_category from "./pages/categorypages/video_catogry";
+import {useState} from "react"
+import { langContext } from "./component/context/langContext";
 
 function App() {
+  const [contextlang,setcontextlang]=useState("En");
+
   return (
    <>
+   <langContext.Provider  value={{contextlang,setcontextlang}}>
+
    <BrowserRouter>  
    <NavBar/>   
      <Switch>
@@ -33,6 +39,7 @@ function App() {
         <Route exact path="*"   component={Notfound}/>
         </Switch>
         </BrowserRouter>  
+        </langContext.Provider>
    </>
   );
 }
