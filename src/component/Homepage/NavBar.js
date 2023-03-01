@@ -11,13 +11,17 @@ export default function NavBar(){
  <nav className="navbar main_nav navbar-expand-lg  w-100" dir={`${contextlang=="En"?"ltr":"rtl"}`}>
   <div className="container-fluid">
     
+    <li className='nav-item' style={{listStyle:'none'}}>
     <NavLink className="navbar-brand" to="/">
-    <div className='NavbarLogo'>
-         <img 
+    
+         {/* <img 
           className="d-block img"
           src={logo}
           alt="Step logo"
-        /></div></NavLink>
+        /> */}
+        <p className=' text-light brand-name' >Step</p>
+      </NavLink>
+    </li>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -51,7 +55,7 @@ export default function NavBar(){
         {
       contextlang=="En"? "Login" :"تسجيل دخول"
      }
-        <i class="fa-solid fa-right-to-bracket"></i></NavLink></li>
+        <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
 
         </ul>  
       </li> 
