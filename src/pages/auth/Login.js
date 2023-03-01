@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import "./Login.css";
 function Login() {
-  
+ const [Error,setError]=useState("")
  const [login,setLogin]=useState({
   email:'',
   password:''
@@ -23,8 +23,16 @@ if (e.target.name=='email'){
   try {
     const user = await signInWithEmailAndPassword(auth,login.email,login.password);
 console.log(user.user);
- }catch(err){console.log(err.message);}}
-  return (
+ }catch(err){
+  if(err.message=="Firebase: Error (auth/wrong-password).")
+{
+  setError(...Error,"password invalid")
+}
+else{
+  setError(...Error,"this email not found")
+}
+}}
+  return ( 
     <div className="contentlog ">
       <div className="d-none d-lg-block">
         <img src={require('../../../src/login.png')} width="400px"/>
@@ -49,6 +57,7 @@ console.log(user.user);
           </button>
         </div>
       </Form>
+      <p className="text-danger">{Error}</p>
     </div>
     </div>
   );
