@@ -1,4 +1,3 @@
-// import Card from './CoursesCard'
 import {Swiper,SwiperSlide} from 'swiper/react'
 import { FreeMode } from 'swiper'
 import'swiper/css'
@@ -12,20 +11,11 @@ import { collection, doc, getDocs } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { db } from "../../firebase"
 import { useHistory} from 'react-router-dom/cjs/react-router-dom'
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 
 
  export default function CoursesSwipper() {
-    // const [data, setData] = useState(
-    //     [
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry.' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //     ])
+  
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
     // console.log(coursesCollectionRef)
@@ -57,8 +47,7 @@ freeMode={true}
 grabCursor={true}
 modules={[FreeMode]}
 className='mySwipper'
-// slidesPerView={5}
-// spaceBetween={30}
+
 breakpoints={{
     0:{
         slidesPerView:1,
@@ -82,12 +71,10 @@ breakpoints={{
     },
 }}
 >
-
- 
-           { courses.map((course)=>{
+  { courses.map((course)=>{
             return <SwiperSlide >
                 
-           <div>
+       <Link to={`/reviewCourse/${course.id}`}  className="text-decoration-none">    <div>
           
         <Card className='p-0 overflow-hidden h-100 shadow'>
 <div className='overflow-hidden rounded p-0 bg-light'>
@@ -102,6 +89,7 @@ breakpoints={{
         </Card>  
        
          </div>
+         </Link> 
          </SwiperSlide>
         
             
