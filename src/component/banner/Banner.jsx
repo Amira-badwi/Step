@@ -2,7 +2,9 @@ import "./banner.css";
 import {useParams} from "react-router-dom";
 import { useState } from "react";
 import {db} from "../../firebase";
+
 import { collection, doc, getDocs } from "firebase/firestore"
+
 import { products } from "../../data/products";
 import Rating from "../rating/Rating";
 import ProductDescription from "../productdescription/ProductDescription";
