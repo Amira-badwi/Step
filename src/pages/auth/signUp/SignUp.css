@@ -7,12 +7,11 @@
     margin:20px 0 40px 0;
 }
 .logContainer{
-   width:50%; 
-  /* border: 2px solid #8080ff;  */
+ 
    border-radius: 20px;  
    padding:40px; 
    box-shadow:5px 5px 5px 5px #cdcdd1 ;
-   margin-top: 100px;
+   margin-top:10px;
 }
 .btnlogin{
     background-color: #020238;

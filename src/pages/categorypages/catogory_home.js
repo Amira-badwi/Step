@@ -7,19 +7,17 @@ import Courses_details from "./courses_details";
 import React from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
 import Banner from "../../component/banner/Banner.jsx"
-import "./categoryHome.css"
 export default function Catecory_home(){
     return(
         <>
       
         <BrowserRouter>
-        <p className="split"></p>
-        <div className=" row">
+        <div className=" row mt-2">
         <div className="col-lg-2 col-md-5 col-4 mx-3 m-auto ">
         <NavCategory/>
 
         </div>
-     <div className="col-lg-9 col-md-6 col-7 ">
+     <div className="col-lg-9 col-md-6 col-7  ">
      <Switch>
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>

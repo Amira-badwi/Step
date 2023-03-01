@@ -1,22 +1,19 @@
 .img{
     height:70px;
    width: 130px;
-}
-
-
-  
+}  
  .NavbarLogo{
     height: 60px;
  }   
  .main_nav {
     z-index: 99;
-    position: fixed;
+    position: sticky;
     top: 0px;
     height: 70px;
-    background-color: #0927525c;
+    background-color: #092752;
   
  }
- .main_nav  li:hover{
-background-color: #1e2aa9;
-border-radius: 25px;
- }
+.collapse_nav{
+       background-color: #092752;
+
+}

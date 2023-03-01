@@ -84,7 +84,6 @@ breakpoints={{
 >
 
  
-        {/* data.map((item)=>{ */}
            { courses.map((course)=>{
             return <SwiperSlide >
                 
