@@ -1,7 +1,5 @@
 import Card from "../../component/categoryComponent/course_card";
-import logo1 from "../../assets/special-need-child.jpeg";
-import logo2 from "../../assets/special-need-child3.jpeg";
-import logo3 from "../../assets/special-need-child4.jpeg";
+
 import { collection, doc, getDocs } from "firebase/firestore"
 import { db } from "../../firebase";
 import { useEffect, useState } from "react"
@@ -27,7 +25,7 @@ getCourses()
 {
     courses.map((ele)=>{
       return(
-          <Card img={ele.courseImage} courseName={ele.courseName} courseDescription={ele.courseDescription} to="/viewCourse"/>
+          <Card img={ele.courseImage} courseName={ele.courseName} courseDescription={ele.courseDescription} to={`/reviewCourse/${ele.id}`}/>
 
      )  
     })

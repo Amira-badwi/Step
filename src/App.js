@@ -34,7 +34,7 @@ function App() {
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>
         <Route exact path="/course"   component={Courses_details}/>
-        <Route exact path="/viewCourse"   component={Banner}/>
+        <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="/videos"   component={Videos_category}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>

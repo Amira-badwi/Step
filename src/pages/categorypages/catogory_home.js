@@ -6,13 +6,13 @@ import Videos_category from "./video_catogry";
 import Courses_details from "./courses_details";
 import React from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
-import Banner from "../../component/banner/Banner.jsx"
+import Banner from "../../component/banner/Banner"
 export default function Catecory_home(){
     return(
         <>
       
         <BrowserRouter>
-        <div className=" row mt-2">
+        <div className=" row  ">
         <div className="col-lg-2 col-md-5 col-4 mx-3 m-auto ">
         <NavCategory/>
 
@@ -23,7 +23,7 @@ export default function Catecory_home(){
         <Route exact path="/book"   component={Books_category}/>
         <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
-        <Route exact path="/viewCourse"   component={Banner}/>
+        <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>
      </div>
