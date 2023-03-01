@@ -2,7 +2,7 @@ import CourseForm from '../component/AddCourseForm/CourseForm'
 import './AddCourse.css'
 export default function AddCourse() {
     return (
-        <div className="container p-5">
+        <div className=" p-5 container">
            <CourseForm/>
         </div>
     )

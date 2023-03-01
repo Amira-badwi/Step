@@ -1,19 +1,25 @@
-.img{
-    height:70px;
-   width: 130px;
-}  
- .NavbarLogo{
-    height: 60px;
- }   
- .main_nav {
-    z-index: 99;
-    position: sticky;
-    top: 0px;
-    height: 70px;
-    background-color: #092752;
-  
- }
-.collapse_nav{
-       background-color: #092752;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap'); */
 
+  @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+
+
+.main_nav {
+   z-index: 99;
+   position: sticky;
+   top: 0px;
+   height: 70px;
+   background-color: #092752;
+
+}
+
+.collapse_nav {
+   background-color: #092752;
+
+}
+
+.brand-name {
+   margin-top: 11px;
+   font-family: 'Tilt Warp', cursive;
+   font-size: 30px;
 }
