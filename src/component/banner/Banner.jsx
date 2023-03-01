@@ -3,6 +3,9 @@ import "./banner.css";
 // start new add two
 import {useParams} from "react-router-dom";
 import { useState } from "react";
+import {db} from "../../firebase";
+import { collection, doc, getDocs } from "firebase/firestore";
+
 
 // import Form from "../form/Form";
 // end new add two
