@@ -7,6 +7,7 @@ import {ref,uploadBytes,getDownloadURL, uploadBytesResumable} from 'firebase/sto
 import { v4 } from 'uuid'
 function CourseForm() {
     const [page,setPage]=useState(0)
+    const [isLoading,setIsLoading]=useState(false)
     const formTitles=['Course Info','Course Curriclem']
     const [courseData,setCourseData]=useState({
         courseName:'',
@@ -15,29 +16,46 @@ function CourseForm() {
         courseImage:'',
         courseSections:[]
     })
+    const [courseErrs,setCourseErrs]=useState({
+        courseName:null,
+        courseDescription:null,
+        courseCategory:null,
+        courseImage:null,
+        courseSections:null
+    })
     const coursesCollectionRef=collection(db,"courses")
     const imageURL=`courseImages/${courseData.courseImage.name+v4()}`
 
-    const handleNext=async(e)=>{
-        setPage((current)=>(current+1))
-        const imageRef=ref(storage,imageURL);
-        const imageUpload=uploadBytesResumable(imageRef,courseData.courseImage);
-        ////buggy
-        imageUpload.then(()=>{
-            console.log('image uploaded!');
-            getDownloadURL(imageUpload.snapshot.ref).then(
-                (url)=>{
-                    console.log(url);
-                setCourseData({...courseData,courseImage:url})
-                }
-            )
-        })
+    const handleNext=(e)=>{
+        if (courseData.courseCategory==="" || courseData.courseImage==="" ||courseData.courseName==""||courseData.courseDescription==''){
+            console.log("cat",courseErrs.courseCategory);
+            console.log("img",courseErrs.courseImage);
+            setCourseErrs({courseDescription:courseData.courseDescription==""?'this field is required':'',courseName:courseData.courseName==""?'this field is required':courseErrs.courseName,courseCategory:courseData.courseCategory==''?'this field is required':courseErrs.courseName,courseImage:courseData.courseImage==''?'this field is required':''})
+        }else if(courseErrs.courseName!==''){console.log('name',courseErrs.courseName);}
+        else if(courseErrs.courseDescription!==''){console.log('desc',courseErrs.courseDescription);}
+        else{
+        setPage((current)=>(current+1))}
+        
         
     }
 
     const handleSubmit=async (e)=>{
-    
-await addDoc(coursesCollectionRef,courseData)
+        
+        const imageRef=ref(storage,imageURL);
+        const imageUpload=uploadBytesResumable(imageRef,courseData.courseImage);
+        let course={}
+        setIsLoading(true)
+        imageUpload.then(()=>{
+            console.log('image uploaded!');
+            getDownloadURL(imageUpload.snapshot.ref).then(
+                async (url)=>{
+                    console.log(url);
+                    course={...courseData,courseImage:url}
+                await addDoc(coursesCollectionRef,course)
+                setIsLoading(false)
+                }
+            )
+        })
 
     }
     return (
@@ -48,9 +66,11 @@ await addDoc(coursesCollectionRef,courseData)
             </div>
             <h1 className='text-center'>{formTitles[page]}</h1>
             <form onSubmit={(e)=>{e.preventDefault()}}>
-            {page==0?<CourseInfo courseData={courseData} setCourseData={setCourseData}/>:<CourseContent courseData={courseData} setCourseData={setCourseData}/>}
+            {page==0?<CourseInfo courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData}/>:<CourseContent courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData}/>}
             <button className='btn btn-primary me-3' disabled={page==0} onClick={()=>{setPage((current)=>(current-1))}}>Prev</button>
-            <button className='btn btn-primary me-3' onClick={()=>{(formTitles.length-1)==page?handleSubmit():handleNext()}}>{(formTitles.length-1)==page?'Submit':'Next'}</button>
+            <button className='btn btn-primary me-3' onClick={()=>{(formTitles.length-1)==page?handleSubmit():handleNext()}}>{isLoading?<div className="mx-3 spinner-border spinner-border-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>:(formTitles.length-1)==page?'Submit':'Next'}</button>
             </form>
         </div>
         </div>
