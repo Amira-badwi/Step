@@ -16,11 +16,11 @@ function Login() {
   e.preventDefault()
  }
   return (
-    <div className="contentlog">
-      <div className="imgs">
+    <div className="contentlog ">
+      <div className="d-none d-lg-block">
         <img src={require('../../../src/login.png')} width="400px"/>
       </div>
-      <div className="contain">
+      <div className="contain col-md-7 col-10 col-lg-6">
       <center>
         <h2 className="logHedear">LOGIN</h2>
       </center>

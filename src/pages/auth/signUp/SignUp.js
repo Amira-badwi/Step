@@ -123,9 +123,11 @@ function Sign_Up() {
     }
   
 
-  return (
+  return ( 
+ 
 
-    <div  className=" mb-4 container logContainer">
+    <div  className=" mb-4 container logContainer  col-md-6 col-12 ">
+      
     <Form  className=""  onSubmit={handleSubmit}>
       <center>
         <h2 className="logHedear">SIGN UP</h2>
@@ -156,6 +158,7 @@ function Sign_Up() {
     )}
      {err && <span>somthing wrong</span>}
     </div>
+
   );
 }
 export default Sign_Up;

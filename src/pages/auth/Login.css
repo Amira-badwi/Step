@@ -2,11 +2,10 @@
     background-image:url();
     background-repeat: no-repeat;
     background-size:contain;
-    width: 60%;
+    
     border-radius: 20px;  
     padding:10px 50px; 
     box-shadow:3px 3px 5px 5px #c1c1c7 ;
-    margin-top: 80px;
    
     font-weight: bold;
     height:400px;

@@ -5,6 +5,7 @@
 .h1Styles{
     color: rgb(1, 1, 73);
     font-family: "Poppins", sans-serif;
+    
 }
 .icon{
     width: 40px;
@@ -30,8 +31,8 @@ color: #FFF;
     background-color:  #1eb2a6;
     color: #FFF;
 }
-.members{
-    border-right: .15em solid black;
+.armembers{
+    border-left: .15em solid black;
     text-shadow:2px 2px 3px #095f58 ;
 animation: names 10s infinite linear,
 nameborder .75s  infinite linear;
@@ -45,7 +46,7 @@ margin: 0 auto;
         width: 0px;
     }
     50%{
-        width: 80%;
+        width: 70%;
     }
 }
 @keyframes nameborder{
