@@ -1,6 +1,3 @@
-.single-product {
-    padding: 30px;
-}
 
 .product-wrapper {
     display: flex;
@@ -78,7 +75,7 @@
     display: block;
 }
 
-/* Media Queries */
+
 @media (max-width: 920px) {
     .product-wrapper {
         flex-wrap: wrap;
