@@ -1,8 +1,8 @@
-import logo from '../../images/Step.png';
 import'./Navbar.css';
 import {  NavLink } from "react-router-dom/cjs/react-router-dom";
 import { useContext } from 'react';
 import { langContext } from '../context/langContext';
+import logo from "../../assets/Teaching strategy.webp";
 
 export default function NavBar(){
   const {contextlang,setcontextlang} =useContext(langContext);
@@ -13,12 +13,6 @@ export default function NavBar(){
     
     <li className='nav-item' style={{listStyle:'none'}}>
     <NavLink className="navbar-brand" to="/">
-    
-         {/* <img 
-          className="d-block img"
-          src={logo}
-          alt="Step logo"
-        /> */}
         <p className=' text-light brand-name' >Step</p>
       </NavLink>
     </li>
@@ -45,7 +39,7 @@ export default function NavBar(){
          
      <li >
 
-     <ul className="navbar-nav d-flex justify-content-between ">
+     <ul className="navbar-nav d-flex  ">
       <li><NavLink className="nav-link  text-light" to="/register">
       {
       contextlang=="En"? "register" :"انشاء حساب"
@@ -56,7 +50,12 @@ export default function NavBar(){
       contextlang=="En"? "Login" :"تسجيل دخول"
      }
         <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
-
+<li>
+  <NavLink to="/profile" className="ms-4 me-4">
+    <img src={logo}
+     className=" img"/>
+  </NavLink>
+</li>
         </ul>  
       </li> 
            
