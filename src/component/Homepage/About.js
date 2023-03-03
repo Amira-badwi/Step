@@ -9,7 +9,9 @@ const AboutCard = () => {
         <h1 className="textcolor fw-bold fs-1 mt-0 h1Styles" >
          About us
         </h1>
-        {/* <h4 className='members '>Esraa ,Amira ,Manar ,Zainab ,Yasser</h4> */}
+        <p className='members  fw-bold'>Sustainable
+Technical Elementary-teachers’
+Programs for Edu. 2.0</p>
 
         <p className="text-dark " >
         We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters

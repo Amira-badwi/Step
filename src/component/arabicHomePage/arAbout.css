@@ -40,13 +40,14 @@ white-space: nowrap;
 margin: 0 auto;
     overflow: hidden;
     height: 30px;
+    font-size: 16px;
 }
 @keyframes names{
     from ,to{
         width: 0px;
     }
     50%{
-        width: 70%;
+        width: 100%;
     }
 }
 @keyframes nameborder{

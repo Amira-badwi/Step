@@ -9,8 +9,6 @@ import Rating from "../rating/Rating";
 import ProductDescription from "../productdescription/ProductDescription";
 import Header from "../header/Header";
 import { useEffect } from "react";
-
-
 const Banner = () => {
 
     // start new add two
@@ -62,8 +60,6 @@ return(<>
 
     })
 }
-   
-  </>) 
+ </>) 
 }
- 
 export default Banner;
