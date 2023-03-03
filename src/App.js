@@ -14,6 +14,7 @@ import Courses_details from "./pages/categorypages/courses_details";
 import Videos_category from "./pages/categorypages/video_catogry";
 import {useState} from "react"
 import { langContext } from "./component/context/langContext";
+import Profile from "./pages/profile";
 
 function App() {
   const [contextlang,setcontextlang]=useState("En");
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="/videos"   component={Videos_category}/>
+        <Route exact path="/profile"   component={Profile}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>
         </BrowserRouter>  

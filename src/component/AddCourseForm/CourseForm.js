@@ -35,8 +35,6 @@ function CourseForm() {
         else if(courseErrs.courseDescription!==''){console.log('desc',courseErrs.courseDescription);}
         else{
         setPage((current)=>(current+1))}
-        
-        
     }
 
     const handleSubmit=async (e)=>{

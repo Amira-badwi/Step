@@ -9,7 +9,7 @@ const ArAboutCard = () => {
         <h1 className="textcolor fw-bold fs-1 mt-0 h1Styles" >
         من نحن
         </h1>
-        <h4 className='armembers'>اسراء ,أميرة ,منار ,زينب , ياسر</h4>
+        <p className='armembers fw-bold'>  برامج تقنية مستدامة لتأهيل معلمى الابتدائية للمنهج الجديد</p>
 
         <p className="text-dark " >
         نقوم بتدريب وتأهيل وتمكين المعلم من تدريس المنهج الجديد 
