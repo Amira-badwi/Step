@@ -13,7 +13,6 @@ const Banner = () => {
     // start new add two
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
-    
     const {id} = useParams();
     var course ={};
     useEffect(()=>{
@@ -24,15 +23,10 @@ const getCourses=async()=>{
 }
 getCourses()
  },[] )
-var course= courses.filter(item=> item.id==id)
-
-
-  
-   
+var course= courses.filter(item=> item.id==id)   
   return (<>
   {
     course.map((ele)=>{
-
 return(<>
 
 <div >

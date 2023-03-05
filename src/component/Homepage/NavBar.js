@@ -13,7 +13,7 @@ export default function NavBar(){
     
     <li className='nav-item' style={{listStyle:'none'}}>
     <NavLink className="navbar-brand" to="/">
-        <p className=' text-light brand-name' >Step</p>
+        <p className=' text-light brand-name' >STEP</p>
       </NavLink>
     </li>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

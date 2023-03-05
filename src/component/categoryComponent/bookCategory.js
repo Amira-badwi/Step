@@ -1,5 +1,8 @@
+import Pdfpage from "../../pages/categorypages/pdf/pdfpage";
+
 import "./book_category.css";
 export default function BookCategory(props){
+
     return(<>
         <div className="cardcontainer w-100">
             <div className="photo m-auto">
@@ -10,9 +13,9 @@ export default function BookCategory(props){
             </div>
             <div className="content ">
          
-         <div className="text-center m-auto d-flex justify-content-center">
-         <button className="  btnStyle "  >Open </button>
-          <button className="  btnStyle  ">  Details</button>  
+         <div className="text-center d-flex justify-content-between">
+         <button className="  btnStyle w-10"  > enroll </button>
+       <Pdfpage/>
          </div>
           </div>
           
