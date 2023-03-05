@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./profile.css";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import HeadProfile from '../component/profile/secondhead';
@@ -6,9 +6,24 @@ import EditProfile from '../component/profile/edit';
 import logo from "../assets/Teaching strategy.webp";
 import logo1 from "../assets/evaluation methods.webp";
 import logo2 from "../assets/Mental skills.jpeg";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 
 
 export default function Profile() {
+  const [Users,setusers]=useState([])
+  const coursesCollectionRef=collection(db,"users")
+  useEffect(()=>{
+const getCourses=async()=>{
+  const data=await getDocs(coursesCollectionRef);
+  setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+
+}
+getCourses()
+  },[] )
+  // console.log(Users[0].displayName);
+  
+  
 const [flag,setflag]=useState(false)
 function edit(){
 if(flag==false){
@@ -34,14 +49,17 @@ else{
                 <div  style={{ marginTop: '130px' }}>
                   <MDBTypography tag="h5">Amira Diab</MDBTypography>
                   <MDBCardText >egypt</MDBCardText>
-
                 </div>
 
               </div>
              
               <MDBCardBody className="text-black p-3">
 <div id="edit">
-<button className='btn btn-outline-dark  m-4 ' onClick ={()=>edit()} > Edit profile</button>
+<button className='btn btn-outline-dark  m-4 ' onClick ={()=>edit()} > 
+{
+  flag==false? "Edit profile":"update"
+}
+ </button>
 {
   flag?<EditProfile/> :null
 }
@@ -49,7 +67,7 @@ else{
                 <div className="mb-5">
                   <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">english teacher</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">mjjj</MDBCardText>
                     <MDBCardText className="font-italic mb-1">Lives in Beni Suif</MDBCardText>
                   </div>
                 </div>

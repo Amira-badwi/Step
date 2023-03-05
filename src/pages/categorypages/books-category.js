@@ -2,6 +2,7 @@ import BookCategory from "../../component/categoryComponent/bookCategory";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SearchIcon from "../../component/categoryComponent/searchInput";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 export default function Books_category(){
     const [quiry,setquiry]=useState("ص");
     const [books,setbooks]=useState([{volumeInfo:{imageLinks:{thumbnail:""}
@@ -34,10 +35,11 @@ setquiry(e.target.value);
 {
 books.map((item ,index)=>{
 return(
-    <div className=" col-lg-3 col-md-6 col-12 " key={index}>
+   <div className=" col-lg-3 col-sm-6 col-md-4 col-6  " key={index}>
 
 <BookCategory title={item.volumeInfo.title} img={item.volumeInfo.imageLinks.thumbnail}/>
 </div>
+
 )
 })
 

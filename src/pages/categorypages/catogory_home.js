@@ -7,6 +7,7 @@ import Courses_details from "./courses_details";
 import React from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
 import Banner from "../../component/banner/Banner"
+// import Pdf from "./pdfview";
 export default function Catecory_home(){
     return(
         <>
@@ -24,6 +25,8 @@ export default function Catecory_home(){
         <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
+        {/* <Route exact path="/pdf"   component={Pdf}/> */}
+
         <Route exact path="*"   component={Notfound}/>
         </Switch>
      </div>
