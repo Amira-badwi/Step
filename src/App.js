@@ -15,7 +15,12 @@ import Videos_category from "./pages/categorypages/video_catogry";
 import {useState,useContext} from "react"
 import { langContext } from "./component/context/langContext";
 import Profile from "./pages/profile";
+ 
 import { AuthContext } from "./component/context/AuthContext";
+ 
+// import Pdf from "./pages/categorypages/pdfview";
+import { Buttondelete } from "./pages/categorypages/BUTTON";
+ 
 
 function App() {
   const [contextlang,setcontextlang]=useState("En");
@@ -41,6 +46,7 @@ function App() {
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="/videos"   component={Videos_category}/>
         <Route exact path="/profile"   component={Profile}/>
+        {/* <Route exact path="/pdf"   component={Pdf}/> */}
         <Route exact path="*"   component={Notfound}/>
         </Switch>
         </BrowserRouter>  
