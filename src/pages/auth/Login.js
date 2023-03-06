@@ -31,19 +31,18 @@ if (e.target.name=='email'){
  }
   
  catch(err){
+ 
   if(err.message=="Firebase: Error (auth/wrong-password).")
   {
     setError( "password invalid")
     setX(0)
   }
-  else if(err.message=="Firebase: Error (auth/user-not-found).")
+  else  
   {
     setError( "this email not found")
     setX(0)
   }
-  else{
-    setX(1)
-  }
+
 }
 
 }
@@ -73,7 +72,7 @@ if (e.target.name=='email'){
         <p>Don't have an account? <Link to={"/register"}>Sign Up</Link></p>
       </Form>
       {x==0&&login.email!=''?<p className="text-danger">{Error}</p>:null}
-      { x==1&& login.email!='' ?<p className="text-success">login success</p>:null}
+      { x==1&& login.email!='' ?<p className="text-success" >login success you can go to <Link to={"/"}> your home</Link></p>:null}
     </div>
     </div>
   );

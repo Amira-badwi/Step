@@ -48,7 +48,7 @@ function App() {
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="/CourseEnroll/:id"   component={CourseEnroll}/>
         <Route exact path="/videos"   component={Videos_category}/>
-        <Route exact path="/profile"   component={Profile}/>
+        <Route exact path="/profile"   component={currentValue==null?Login:Profile}/>
         {/* <Route exact path="/pdf"   component={Pdf}/> */}
         <Route exact path="*"   component={Notfound}/>
         </Switch>
