@@ -26,6 +26,7 @@ function App() {
   const [contextlang,setcontextlang]=useState("En");
   const currentUse=useContext(AuthContext)
   const currentValue=currentUse.currentUser;
+  console.log(currentValue)
 
   return (
    <>

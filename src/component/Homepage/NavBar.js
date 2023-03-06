@@ -13,6 +13,7 @@ export default function NavBar(){
   const [loging, setLoging] = useState("");
   
     useEffect(()=>{
+      console.log(currentValue)
      if(currentValue != null){
       setLoging("Logout");
      }
@@ -20,7 +21,7 @@ export default function NavBar(){
       setLoging("Login");
      }
      
-    },[loging])
+    },[currentValue])
 
     return (<>
  <nav className="navbar main_nav navbar-expand-lg  w-100" dir={`${contextlang=="En"?"ltr":"rtl"}`}>
