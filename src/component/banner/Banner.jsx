@@ -1,23 +1,16 @@
+/* eslint-disable no-redeclare */
 import "./banner.css";
 import {useParams} from "react-router-dom";
 import { useState } from "react";
 import {db} from "../../firebase";
-
-import { collection, doc, getDocs } from "firebase/firestore"
-
-import { products } from "../../data/products";
-import Rating from "../rating/Rating";
+import { collection, doc, getDocs } from "firebase/firestore";
 import ProductDescription from "../productdescription/ProductDescription";
 import Header from "../header/Header";
 import { useEffect } from "react";
 
-
 const Banner = () => {
-
-    // start new add two
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
-    
     const {id} = useParams();
     var course ={};
     useEffect(()=>{
@@ -28,15 +21,10 @@ const getCourses=async()=>{
 }
 getCourses()
  },[] )
-var course= courses.filter(item=> item.id==id)
-
-
-  
-   
+var course= courses.filter(item=> item.id==id)   
   return (<>
   {
     course.map((ele)=>{
-
 return(<>
 
 <div >
@@ -63,8 +51,6 @@ return(<>
 
     })
 }
-   
-  </>) 
+ </>) 
 }
- 
 export default Banner;
