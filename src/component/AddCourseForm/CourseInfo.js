@@ -42,15 +42,15 @@ function CourseInfo(props) {
                 <label htmlFor='course-category' className='form-label' name='courseCategory'>Course Category:</label>
                 <select value={props.courseData.courseCategory} className="form-select" aria-label="Default select example" id="course-category" onChange={handleInputChange}>
                     <option value="">Select Category</option>
-                    <option value="Dealing with children with special needs">Dealing with children with special needs</option>
-                    <option value="Teaching strategies">Teaching strategies</option>
+                    <option value="Dealing_with_children_with_special_needs">Dealing with children with special needs</option>
+                    <option value="Teaching_strategies">Teaching strategies</option>
                     <option value="Mathematics">Mathematics</option>
-                    <option value="Mental Skills">Mental Skills</option>
-                    <option value="Human Development">Human Development</option>
+                    <option value="Mental_Skills">Mental Skills</option>
+                    <option value="Human_Development">Human Development</option>
                     <option value="Science">Science</option>
-                    <option value="Educational games">Educational games</option>
-                    <option value="Digital transformation">Digital transformation</option>
-                    <option value="Discipline methods">Discipline methods</option>
+                    <option value="Educational_games">Educational games</option>
+                    <option value="Digital_transformation">Digital transformation</option>
+                    <option value="Discipline_methods">Discipline methods</option>
                 </select>
                 {props.courseErrs.courseCategory ? <div className='text-danger'>{props.courseErrs.courseCategory}</div> : null}
             </div>
