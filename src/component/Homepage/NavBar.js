@@ -15,7 +15,7 @@ export default function NavBar(){
   const [loging, setLoging] = useState("");
   
     useEffect(()=>{
-      console.log(currentValue)
+    //  console.log(currentValue)
      if(currentValue != null){
       setLoging("Logout");
      }
@@ -63,7 +63,7 @@ export default function NavBar(){
       contextlang=="En"? "register" :"انشاء حساب"
      }
         </NavLink></li> */}
-        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light" to="/register"> 
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/register"}> 
         {/* {
       contextlang=="En"? "Login" :"تسجيل دخول"
      } */}
