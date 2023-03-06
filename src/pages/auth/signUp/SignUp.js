@@ -123,18 +123,18 @@ function Sign_Up() {
      
       const uploadTask = uploadBytesResumable(storageRef, file );
     //  console.log(file);
-      uploadTask.on( 
+      uploadTask.then( 
         
-        (error) => {
-          setErr2(true)
+        // (error) => {
+        //   setErr2(true)
           
-        },
+        // },
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
-            
+              
            });
              await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
@@ -151,9 +151,9 @@ function Sign_Up() {
               user,
               graduate,
             });
-            await setDoc(doc(db,"userBooks",res.user.uid),{
+            // await setDoc(doc(db,"userBooks",res.user.uid),{
 
-            });
+            // });
              
           });
         }

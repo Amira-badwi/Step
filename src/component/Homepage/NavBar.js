@@ -4,6 +4,8 @@ import { useContext,useState,useEffect } from 'react';
 import { langContext } from '../context/langContext';
 import logo from "../../assets/Teaching strategy.webp";
 import { AuthContext } from '../context/AuthContext';
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function NavBar(){
   const {contextlang,setcontextlang} =useContext(langContext);
@@ -61,7 +63,7 @@ export default function NavBar(){
       contextlang=="En"? "register" :"انشاء حساب"
      }
         </NavLink></li> */}
-        <li><NavLink className="nav-link  text-light" to="/register"> 
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light" to="/register"> 
         {/* {
       contextlang=="En"? "Login" :"تسجيل دخول"
      } */}
