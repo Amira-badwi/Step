@@ -33,6 +33,11 @@ console.log(user.user);
   
 if(err.message=="Firebase: Error (auth/wrong-password).")
 {
+  // console.log(err.message)
+  setError("password invalid")
+}
+else{
+  setError("this email not found")
   setError( "password invalid")
   setX(0)
 }
@@ -60,7 +65,6 @@ else{
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" placeholder="Enter email" name="email" onChange={handelChange} />
-           
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
