@@ -1,15 +1,20 @@
 import { addDoc, collection } from 'firebase/firestore'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { db, storage } from '../../firebase'
 import CourseContent from './CourseContent'
 import CourseInfo from './CourseInfo'
 import {ref,uploadBytes,getDownloadURL, uploadBytesResumable} from 'firebase/storage'
 import { v4 } from 'uuid'
+import { AuthContext } from '../context/AuthContext'
 function CourseForm() {
+    const currentUse = useContext(AuthContext);
+    const currentValue = currentUse.currentUser;
+   console.log(currentValue)
     const [page,setPage]=useState(0)
     const [isLoading,setIsLoading]=useState(false)
     const formTitles=['Course Info','Course Curriclem']
     const [courseData,setCourseData]=useState({
+        courseCreator:'',
         courseName:'',
         courseDescription:'',
         courseCategory:'',
