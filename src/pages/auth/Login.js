@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
@@ -7,32 +7,51 @@ import { auth } from "../../firebase";
 import "./Login.css";
 function Login() {
  const [Error,setError]=useState("")
+ const [x,setX]=useState(0);
  const [login,setLogin]=useState({
   email:'',
   password:''
  })
+ 
+
  const handelChange=(e)=>{
 if (e.target.name=='email'){
   setLogin({...login,email:e.target.value})
 }else{
   setLogin({...login,password:e.target.value})
 }
- }
+}
  const handleSubmit=async (e)=>{
   e.preventDefault()
+ 
   try {
     const user = await signInWithEmailAndPassword(auth,login.email,login.password);
 console.log(user.user);
- }catch(err){
-  if(err.message=="Firebase: Error (auth/wrong-password).")
+ }
+  
+ catch(err){
+  
+if(err.message=="Firebase: Error (auth/wrong-password).")
 {
   // console.log(err.message)
   setError("password invalid")
 }
 else{
   setError("this email not found")
+  setError( "password invalid")
+  setX(0)
 }
-}}
+if(err.message=="Firebase: Error (auth/user-not-found).")
+{
+  setError( "this email not found")
+  setX(0)
+}
+else{
+  setX(1)
+}
+}
+
+}
   return ( 
     <div className="contentlog ">
       <div className="d-none d-lg-block">
@@ -46,7 +65,6 @@ else{
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" placeholder="Enter email" name="email" onChange={handelChange} />
-           
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
@@ -57,8 +75,10 @@ else{
             Login
           </button>
         </div>
+        <p>Don't have an account? <Link to={"/register"}>Sign Up</Link></p>
       </Form>
       <p className="text-danger">{Error}</p>
+      { x==1&& login.email!='' &&<p className="text-success">login success</p>}
     </div>
     </div>
   );
