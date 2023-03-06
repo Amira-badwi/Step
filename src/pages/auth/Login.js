@@ -26,10 +26,11 @@ console.log(user.user);
  }catch(err){
   if(err.message=="Firebase: Error (auth/wrong-password).")
 {
-  setError(...Error,"password invalid")
+  // console.log(err.message)
+  setError("password invalid")
 }
 else{
-  setError(...Error,"this email not found")
+  setError("this email not found")
 }
 }}
   return ( 
