@@ -12,14 +12,20 @@ import CourseCatogry from "./pages/categorypages/course_catogrey";
 import Books_category from "./pages/categorypages/books-category";
 import Courses_details from "./pages/categorypages/courses_details";
 import Videos_category from "./pages/categorypages/video_catogry";
-import {useState} from "react"
+import {useState,useContext} from "react"
 import { langContext } from "./component/context/langContext";
 import Profile from "./pages/profile";
+ 
+import { AuthContext } from "./component/context/AuthContext";
+ 
 // import Pdf from "./pages/categorypages/pdfview";
 import { Buttondelete } from "./pages/categorypages/BUTTON";
+ 
 
 function App() {
   const [contextlang,setcontextlang]=useState("En");
+  const currentUse=useContext(AuthContext)
+  const currentValue=currentUse.currentUser;
 
   return (
    <>
@@ -33,7 +39,7 @@ function App() {
         <Route exact path="/review_course" component={Banner}/>
         <Route exact path="/register"   component={Sign_Up}/>
         <Route exact path="/login"   component={Login}/>
-        <Route exact path="/addCourse"   component={AddCourse}/>
+        <Route exact path="/addCourse"   component={currentValue==null?Login:AddCourse}/>
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>
         <Route exact path="/course"   component={Courses_details}/>

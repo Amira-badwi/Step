@@ -1,11 +1,26 @@
 import'./Navbar.css';
 import {  NavLink } from "react-router-dom/cjs/react-router-dom";
-import { useContext } from 'react';
+import { useContext,useState,useEffect } from 'react';
 import { langContext } from '../context/langContext';
 import logo from "../../assets/Teaching strategy.webp";
+import { AuthContext } from '../context/AuthContext';
 
 export default function NavBar(){
   const {contextlang,setcontextlang} =useContext(langContext);
+  const currentUse = useContext(AuthContext);
+  const currentValue = currentUse.currentUser;
+ // console.log(currentValue)
+  const [loging, setLoging] = useState("");
+  
+    useEffect(()=>{
+     if(currentValue != null){
+      setLoging("Logout");
+     }
+     else{
+      setLoging("Login");
+     }
+     
+    },[loging])
 
     return (<>
  <nav className="navbar main_nav navbar-expand-lg  w-100" dir={`${contextlang=="En"?"ltr":"rtl"}`}>
@@ -40,15 +55,16 @@ export default function NavBar(){
      <li >
 
      <ul className="navbar-nav d-flex  ">
-      <li><NavLink className="nav-link  text-light" to="/register">
+      {/* <li><NavLink className="nav-link  text-light" to="/register">
       {
       contextlang=="En"? "register" :"انشاء حساب"
      }
-        </NavLink></li>
-        <li><NavLink className="nav-link  text-light" to="/login"> 
-        {
+        </NavLink></li> */}
+        <li><NavLink className="nav-link  text-light" to="/register"> 
+        {/* {
       contextlang=="En"? "Login" :"تسجيل دخول"
-     }
+     } */}
+           {loging}
         <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
 <li>
   <NavLink to="/profile" className="ms-4 me-4">
