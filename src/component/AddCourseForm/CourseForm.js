@@ -8,13 +8,12 @@ import { v4 } from 'uuid'
 import { AuthContext } from '../context/AuthContext'
 function CourseForm() {
     const currentUse = useContext(AuthContext);
-    const currentValue = currentUse.currentUser;
-   console.log(currentValue)
+    const currentValue = currentUse.currentUser.displayName;
+
     const [page,setPage]=useState(0)
     const [isLoading,setIsLoading]=useState(false)
     const formTitles=['Course Info','Course Curriclem']
     const [courseData,setCourseData]=useState({
-        courseCreator:'',
         courseName:'',
         courseDescription:'',
         courseCategory:'',
@@ -47,13 +46,16 @@ function CourseForm() {
         const imageRef=ref(storage,imageURL);
         const imageUpload=uploadBytesResumable(imageRef,courseData.courseImage);
         let course={}
+        course={...courseData,courseCreator:currentValue}
+        console.log(course);
         setIsLoading(true)
         imageUpload.then(()=>{
             console.log('image uploaded!');
             getDownloadURL(imageUpload.snapshot.ref).then(
                 async (url)=>{
-                    console.log(url);
-                    course={...courseData,courseImage:url}
+                    // console.log(url);
+                    course={...course,courseImage:url}
+                    console.log(course);
                 await addDoc(coursesCollectionRef,course)
                 setIsLoading(false)
                 }
