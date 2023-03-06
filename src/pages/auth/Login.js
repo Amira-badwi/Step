@@ -26,29 +26,24 @@ if (e.target.name=='email'){
  
   try {
     const user = await signInWithEmailAndPassword(auth,login.email,login.password);
-console.log(user.user);
+    console.log(user.user);
+    setX(1)
  }
   
  catch(err){
-  
-if(err.message=="Firebase: Error (auth/wrong-password).")
-{
-  // console.log(err.message)
-  setError("password invalid")
-}
-else{
-  setError("this email not found")
-  setError( "password invalid")
-  setX(0)
-}
-if(err.message=="Firebase: Error (auth/user-not-found).")
-{
-  setError( "this email not found")
-  setX(0)
-}
-else{
-  setX(1)
-}
+  if(err.message=="Firebase: Error (auth/wrong-password).")
+  {
+    setError( "password invalid")
+    setX(0)
+  }
+  else if(err.message=="Firebase: Error (auth/user-not-found).")
+  {
+    setError( "this email not found")
+    setX(0)
+  }
+  else{
+    setX(1)
+  }
 }
 
 }
@@ -77,8 +72,8 @@ else{
         </div>
         <p>Don't have an account? <Link to={"/register"}>Sign Up</Link></p>
       </Form>
-      <p className="text-danger">{Error}</p>
-      { x==1&& login.email!='' &&<p className="text-success">login success</p>}
+      {x==0&&login.email!=''?<p className="text-danger">{Error}</p>:null}
+      { x==1&& login.email!='' ?<p className="text-success">login success</p>:null}
     </div>
     </div>
   );
