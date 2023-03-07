@@ -23,6 +23,8 @@ import { useEffect } from "react";
 const Banner = () => {
 
 
+
+
     const [reviews,setReviews] = useState([]);
 
     const addReview = (review) => {
