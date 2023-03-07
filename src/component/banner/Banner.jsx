@@ -61,10 +61,9 @@ return(<>
     <img src={ele.courseImage} alt=""  />
         </div>
 
-        <ProductDescription />
+       
         
-        <Form addReview= {addReview}/>
-        <ReviewList  reviews={reviews}/>
+
        
        
 
@@ -85,6 +84,8 @@ return(<>
             </div>
     </div>
     <ProductDescription />
+    <Form addReview= {addReview}/>
+    <ReviewList  reviews={reviews}/>
 
 
 </div>
