@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 
 function Pg1(props) {
@@ -14,7 +15,7 @@ function Pg1(props) {
       
      props.setError({
         ...props.error,
-        userName: e.target.value.length == 0 ? "This Field is Required" : null,
+        userName: e.target.value.length == 0 ? "This Field is Required" : e.target.value.length < 10 ? "must input your at least seconde name" :null,
       });
     }
     if (e.target.name == "email") {
@@ -38,14 +39,16 @@ function Pg1(props) {
         password: e.target.value,
       });
      props.setError({
+       
         ...props.error,
         password:
-          e.target.value.length == 0
+          e.target.value.length==0
             ? "This Field is Required"
             : e.target.value.length < 8
             ? "must be at least 8 number"
             : null,
       });
+      console.log(e)
     }
     if (e.target.name == "confirmPassword") {
       props.setuserData({
@@ -66,7 +69,7 @@ if(e.target.name=="image")
 {
   props.setuserData({
     ...props.userData,
-    image:e.target.value,
+    image:e.target.files[0],
   })
 }
     if (e.target.name == "NID") {
@@ -85,7 +88,7 @@ if(e.target.name=="image")
       });
     }
   };
- 
+  
     return (
   
       <>
@@ -97,6 +100,7 @@ if(e.target.name=="image")
             value={props.userData.userName}
             name="userName"
             onChange={(e) => changeUserData(e)}
+            
           />
           <p className="text-danger">{props.error.userName}</p>
         </Form.Group>
@@ -137,22 +141,24 @@ if(e.target.name=="image")
         <Form.Group className="mb-3 must" controlId="formBasicText">
           <Form.Label>National ID</Form.Label>
           <Form.Control
-            type="password"
+     
+            type="text"
             placeholder="National ID"
             name="NID"
-            value={props.userData.NID}
+            // value={props.userData.NID}
             onChange={(e) => changeUserData(e)}
           />
           <p className="text-danger">{props.error.NID}</p>
         </Form.Group>
+      
         <Form.Group className="mb-3">
           <input type="file" style={{display:"none"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
-          <label htmlFor="img" className="diff">
+         <label htmlFor="img" className="diff">
             <img src={require('../../../images.png')} width="50px" style={{cursor:"pointer"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
-            upload identification card (only 2 image)
+            upload identification card!
           </label>
-        </Form.Group>
-          
+        </Form.Group> 
+      
       </>
      
     
