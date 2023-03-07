@@ -6,10 +6,12 @@ import CourseInfo from './CourseInfo'
 import {ref,uploadBytes,getDownloadURL, uploadBytesResumable} from 'firebase/storage'
 import { v4 } from 'uuid'
 import { AuthContext } from '../context/AuthContext'
+import { useHistory } from 'react-router-dom'
 function CourseForm() {
     const currentUse = useContext(AuthContext);
+    const history=useHistory()
     const currentValue = currentUse.currentUser.displayName;
-
+// const [addedCourse,setAddedCourse]=useState({})
     const [page,setPage]=useState(0)
     const [isLoading,setIsLoading]=useState(false)
     const formTitles=['Course Info','Course Curriclem']
@@ -32,11 +34,9 @@ function CourseForm() {
 
     const handleNext=(e)=>{
         if (courseData.courseCategory==="" || courseData.courseImage==="" ||courseData.courseName==""||courseData.courseDescription==''){
-            console.log("cat",courseErrs.courseCategory);
-            console.log("img",courseErrs.courseImage);
             setCourseErrs({courseDescription:courseData.courseDescription==""?'this field is required':'',courseName:courseData.courseName==""?'this field is required':courseErrs.courseName,courseCategory:courseData.courseCategory==''?'this field is required':courseErrs.courseName,courseImage:courseData.courseImage==''?'this field is required':''})
-        }else if(courseErrs.courseName!==''){console.log('name',courseErrs.courseName);}
-        else if(courseErrs.courseDescription!==''){console.log('desc',courseErrs.courseDescription);}
+        }else if(courseErrs.courseName!==''){}
+        else if(courseErrs.courseDescription!==''){}
         else{
         setPage((current)=>(current+1))}
     }
@@ -47,17 +47,15 @@ function CourseForm() {
         const imageUpload=uploadBytesResumable(imageRef,courseData.courseImage);
         let course={}
         course={...courseData,courseCreator:currentValue}
-        console.log(course);
         setIsLoading(true)
         imageUpload.then(()=>{
             console.log('image uploaded!');
             getDownloadURL(imageUpload.snapshot.ref).then(
                 async (url)=>{
-                    // console.log(url);
                     course={...course,courseImage:url}
-                    console.log(course);
-                await addDoc(coursesCollectionRef,course)
+                const addedCourse=await addDoc(coursesCollectionRef,course)
                 setIsLoading(false)
+                history.push(`/courseEnroll/${addedCourse.id}`)
                 }
             )
         })

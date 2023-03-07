@@ -3,4 +3,10 @@
     background-color: rgb(236, 236, 236);
     padding:20px 30px;
     margin-top: 10px;
+    position: relative;
+}
+.addCourseDeleteIcon{
+position: absolute;
+top:20px;
+right:25px;
 }
