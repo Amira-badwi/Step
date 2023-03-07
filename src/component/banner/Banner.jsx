@@ -61,17 +61,6 @@ return(<>
     <img src={ele.courseImage} alt=""  />
         </div>
 
-       
-        
-
-       
-       
-
-
-
-                
-
-
         <div className="product-info">
             <h1 className="product-title">{ele.courseName}</h1>
             {/* <Rating rating={course.rating} reviews={course.reviews} /> */}
