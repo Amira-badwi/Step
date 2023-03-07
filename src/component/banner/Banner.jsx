@@ -4,6 +4,9 @@ import "./banner.css";
 import {useParams} from "react-router-dom";
 import { useState } from "react";
 
+import Form from "../form/Form";
+import ReviewList from "../reviewlist/ReviewList";
+
 // import Form from "../form/Form";
 // end new add two
 
@@ -15,6 +18,15 @@ import { useEffect } from "react";
 
 
 const Banner = () => {
+
+    const [reviews,setReviews] = useState([]);
+
+    const addReview = (review) => {
+      setReviews([review, ...reviews]);
+  
+    }
+
+
 
     // start new add two
     const [courses,setCourses]=useState([])
@@ -55,6 +67,9 @@ getCourses()
                 </div>
         </div>
         <ProductDescription />
+        
+        <Form addReview= {addReview}/>
+        <ReviewList  reviews={reviews}/>
        
        
 
