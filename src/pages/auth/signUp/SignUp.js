@@ -72,7 +72,7 @@ function Sign_Up() {
     password: "",
     confirmPassword: "",
     image: null,
-    NID: null,
+    NID: 0,
     administration: "",
     school: "",
     yearsNo: null,
@@ -93,13 +93,13 @@ function Sign_Up() {
   });
   //////////////////handleSubmit////////////////
   
+  // const [err2, setErr2] = useState();
   const [err2, setErr2] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     //console.log(e.target[0])
     console.log(userData);
-
+  
     const displayName = userData.userName;
     const email = userData.email;
     const password = userData.password;
@@ -115,11 +115,9 @@ function Sign_Up() {
     const graduate = userData.Graduation;
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      
-      // const storageRef = ref(storage, 'imagesCard/'+displayName);
-      // console.log(res)
+     
       const storageRef = ref(storage, 'imagesCard/'+displayName);
-             
+ 
      
       const uploadTask = uploadBytesResumable(storageRef, file );
     //  console.log(file);
@@ -128,7 +126,7 @@ function Sign_Up() {
         // (error) => {
         //   setErr2(true)
           
-        // },
+        // }, 
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
             await updateProfile(res.user, {
@@ -201,7 +199,7 @@ function Sign_Up() {
         ) : null}
         {Page == 3 && (
           <div className="btnS" >
-           <button className="btnlogin" type="submit" >
+           <button className="btnlogin" type="submit" >  
              Submit
             </button> 
           </div>
@@ -224,7 +222,8 @@ function Sign_Up() {
           Back
         </button>
       )}
-      {err2 && <span className="text-danger">find wrong</span>}
+      {err2 &&<span className="text-danger">find wrong</span>}
+      
       <p>Do you have account ? <Link to={"/login"}>Login</Link></p>
     
     </div>

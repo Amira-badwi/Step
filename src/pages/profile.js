@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./profile.css";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import HeadProfile from '../component/profile/secondhead';
@@ -8,9 +8,13 @@ import logo1 from "../assets/evaluation methods.webp";
 import logo2 from "../assets/Mental skills.jpeg";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import { AuthContext } from '../component/context/AuthContext';
 
 
 export default function Profile() {
+  const currentUse=useContext(AuthContext)
+  const currentValue=currentUse.currentUser;
+  //console.log(JSON.stringify (currentValue.metadata))
   const [Users,setusers]=useState([])
   const coursesCollectionRef=collection(db,"users")
   useEffect(()=>{
@@ -19,6 +23,8 @@ const getCourses=async()=>{
   setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
 
 }
+ 
+
 getCourses()
   },[] )
   // console.log(Users[0].displayName);
@@ -42,12 +48,12 @@ else{
           <MDBCol lg="9" xl="7">
             <MDBCard>
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
-                <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
-                  <MDBCardImage src={logo}
-                    alt="Generic placeholder image" className="mt-4  img-thumbnail" fluid style={{ width: '110px', zIndex: '1' }} />
+                <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '170px' }}>
+                  <MDBCardImage src={currentValue.photoURL}
+                    alt="Generic placeholder image" className="mt-4  img-thumbnail" fluid style={{ width: '150px',height:"200px", zIndex: '1' }} />
                 </div>
                 <div  style={{ marginTop: '130px' }}>
-                  <MDBTypography tag="h5">Amira Diab</MDBTypography>
+                  <MDBTypography tag="h5">{currentValue.displayName}</MDBTypography>
                   <MDBCardText >egypt</MDBCardText>
                 </div>
 
@@ -67,8 +73,8 @@ else{
                 <div className="mb-5">
                   <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">mjjj</MDBCardText>
-                    <MDBCardText className="font-italic mb-1">Lives in Beni Suif</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">{currentValue.displayName}</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">{currentValue.email}</MDBCardText>
                   </div>
                 </div>
                 <HeadProfile name="enroll courses"/>

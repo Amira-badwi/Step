@@ -15,7 +15,7 @@ function Pg1(props) {
       
      props.setError({
         ...props.error,
-        userName: e.target.value.length == 0 ? "This Field is Required" : null,
+        userName: e.target.value.length == 0 ? "This Field is Required" : e.target.value.length < 10 ? "must input your at least seconde name" :null,
       });
     }
     if (e.target.name == "email") {
@@ -142,10 +142,10 @@ if(e.target.name=="image")
           <Form.Label>National ID</Form.Label>
           <Form.Control
      
-            type="password"
+            type="text"
             placeholder="National ID"
             name="NID"
-            value={props.userData.NID}
+            // value={props.userData.NID}
             onChange={(e) => changeUserData(e)}
           />
           <p className="text-danger">{props.error.NID}</p>
@@ -155,7 +155,7 @@ if(e.target.name=="image")
           <input type="file" style={{display:"none"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
          <label htmlFor="img" className="diff">
             <img src={require('../../../images.png')} width="50px" style={{cursor:"pointer"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
-            upload identification card (only 2 image)
+            upload identification card!
           </label>
         </Form.Group> 
       
