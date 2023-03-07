@@ -2,17 +2,44 @@
 import "./banner.css";
 import {useParams} from "react-router-dom";
 import { useState } from "react";
+
+
+import Form from "../form/Form";
+import ReviewList from "../reviewlist/ReviewList";
+
+// import Form from "../form/Form";
+// end new add two
+
+import { products } from "../../data/products";
+import Rating from "../rating/Rating";
+
 import {db} from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
+
 import ProductDescription from "../productdescription/ProductDescription";
 import Header from "../header/Header";
 import { useEffect } from "react";
 
 const Banner = () => {
+
+
+    const [reviews,setReviews] = useState([]);
+
+    const addReview = (review) => {
+      setReviews([review, ...reviews]);
+  
+    }
+
+
+
+    // start new add two
+
+
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
     const {id} = useParams();
     var course ={};
+
     useEffect(()=>{
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
@@ -33,6 +60,19 @@ return(<>
         <div className="product-image-wrapper">
     <img src={ele.courseImage} alt=""  />
         </div>
+
+        <ProductDescription />
+        
+        <Form addReview= {addReview}/>
+        <ReviewList  reviews={reviews}/>
+       
+       
+
+
+
+                
+
+
         <div className="product-info">
             <h1 className="product-title">{ele.courseName}</h1>
             {/* <Rating rating={course.rating} reviews={course.reviews} /> */}
@@ -45,6 +85,7 @@ return(<>
             </div>
     </div>
     <ProductDescription />
+
 
 </div>
 </>)
