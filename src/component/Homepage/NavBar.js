@@ -49,7 +49,7 @@ export default function NavBar(){
           <NavLink className="nav-link  text-light " to="/addCourse">
           <i class="fa-solid fa-plus"></i>
      {
-      contextlang=="En"? "Add Course" :"أضف دورة تدريبية"
+      contextlang=="En"? " Add Content" :" أضف محتوى تعليمي"
      }
           </NavLink>
           <button className=" btn btn-outline-light fs-6 fw-bold mr-4 " onClick={()=>setcontextlang(contextlang==="En"? "Ar":"En")}>{contextlang}</button>
