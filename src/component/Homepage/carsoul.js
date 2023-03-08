@@ -6,7 +6,7 @@ import bg2 from '../../images/bg2.jpg'
 import './carsoularStyle.css'
 
 function CarouselFadeExample() {
-  return (<div className='container'>
+  return (<div className='container  '>
     <Carousel fade >
       <Carousel.Item>
         

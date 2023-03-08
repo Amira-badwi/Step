@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:wght@100&display=swap');
+.imgStyle2{
+    height: 350px;
+}
+.h1Styles{
+    color: rgb(1, 1, 73);
+    font-family: "Poppins", sans-serif;
+    
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: (255,255,255,.3);
+    color: rgb(1, 1, 73);
+    transition: 0.5s;
+  }
+.icon:hover{
+    cursor: pointer;
+    background-color:  #1eb2a6;
+    color: #FFF;
+}
+.bgcolor{
+background-color: rgb(1, 1, 73) ;
+color: #FFF;
+}
+.bgcolor:hover{
+    cursor: pointer;
+    background-color:  #1eb2a6;
+    color: #FFF;
+}
+.armembers{
+    border-left: .15em solid black;
+    text-shadow:2px 2px 3px #095f58 ;
+animation: names 10s infinite linear,
+nameborder .75s  infinite linear;
+white-space: nowrap;
+margin: 0 auto;
+    overflow: hidden;
+    height: 30px;
+    font-size: 16px;
+}
+@keyframes names{
+    from ,to{
+        width: 0px;
+    }
+    50%{
+        width: 100%;
+    }
+}
+@keyframes nameborder{
+    from ,to{
+       border-color:transparent;
+    }
+    50%{
+        border-color:  black;
+
+    }
+}

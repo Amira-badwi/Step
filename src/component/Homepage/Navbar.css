@@ -1,22 +1,22 @@
-.img{
-    height:70px;
-   width: 130px;
+  @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+.main_nav {
+   z-index: 99;
+   position: sticky;
+   top: 0px;
+   height: 70px;
+   background-color: #092752;
+   box-shadow: 1px 1px 10px #000000;
+
 }
 
+.collapse_nav {
+   background-color: #092752;
 
-  
- .NavbarLogo{
-    height: 60px;
- }   
- .main_nav {
-    z-index: 99;
-    position: fixed;
-    top: 0px;
-    height: 70px;
-    background-color: #0927525c;
-  
- }
- .main_nav  li:hover{
-background-color: #1e2aa9;
-border-radius: 25px;
- }
+}
+
+.brand-name {
+   margin-top: 11px;
+   font-family: 'Tilt Warp', cursive;
+   font-size: 30px;
+}

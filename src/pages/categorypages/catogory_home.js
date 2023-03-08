@@ -6,26 +6,27 @@ import Videos_category from "./video_catogry";
 import Courses_details from "./courses_details";
 import React from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
-import Banner from "../../component/banner/Banner.jsx"
-import "./categoryHome.css"
+import Banner from "../../component/banner/Banner"
+// import Pdf from "./pdfview";
 export default function Catecory_home(){
     return(
         <>
       
         <BrowserRouter>
-        <p className="split"></p>
-        <div className=" row">
+        <div className=" row  ">
         <div className="col-lg-2 col-md-5 col-4 mx-3 m-auto ">
         <NavCategory/>
 
         </div>
-     <div className="col-lg-9 col-md-6 col-7 ">
+     <div className="col-lg-9 col-md-6 col-7  ">
      <Switch>
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book"   component={Books_category}/>
         <Route exact path="/course"   component={Courses_details}/>
         <Route exact path="/videos"   component={Videos_category}/>
-        <Route exact path="/viewCourse"   component={Banner}/>
+        <Route exact path="/reviewCourse/:id"   component={Banner}/>
+        {/* <Route exact path="/pdf"   component={Pdf}/> */}
+
         <Route exact path="*"   component={Notfound}/>
         </Switch>
      </div>

@@ -1,39 +1,85 @@
-import logo from '../../images/Step.png';
 import'./Navbar.css';
 import {  NavLink } from "react-router-dom/cjs/react-router-dom";
+import { useContext,useState,useEffect } from 'react';
+import { langContext } from '../context/langContext';
+import { AuthContext } from '../context/AuthContext';
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function NavBar(){
+  const {contextlang,setcontextlang} =useContext(langContext);
+  const currentUse = useContext(AuthContext);
+  const currentValue = currentUse.currentUser;
+
+  const [loging, setLoging] = useState("");
+  
+    useEffect(()=>{
+
+     if(currentValue != null){
+      setLoging("Logout");
+     }
+     else{
+      setLoging("Login");
+     }
+     
+    },[currentValue])
+
     return (<>
- <nav className="navbar main_nav navbar-expand-lg  w-100">
+ <nav className="navbar main_nav navbar-expand-lg  w-100" dir={`${contextlang=="En"?"ltr":"rtl"}`}>
   <div className="container-fluid">
     
+    <li className='nav-item' style={{listStyle:'none'}}>
     <NavLink className="navbar-brand" to="/">
-    <div className='NavbarLogo'>
-         <img 
-          className="d-block img"
-          src={logo}
-          alt="Step logo"
-        /></div></NavLink>
+        <p className=' text-light brand-name' >STEP</p>
+      </NavLink>
+    </li>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse"  id="navbarSupportedContent">
+    <div className="collapse collapse_nav navbar-collapse "  id="navbarSupportedContent">
       <ul className="navbar-nav w-100 d-flex justify-content-between">
-        <li className="nav-item Textcolor">
-          <NavLink className="nav-link active Textcolor text-light" aria-current="page" to="/courses">Courses</NavLink>
+        <li className="nav-item ">
+          <NavLink className="nav-link active  text-light" aria-current="page" to="/courses">
+             {
+      contextlang=="En"? "Courses" :" دورات تدريبية"
+     }</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link Textcolor text-light" to="/addCourse">
+        <li className="nav-item d-flex justify-content-between">
+          <NavLink className="nav-link  text-light " to="/addCourse">
           <i class="fa-solid fa-plus"></i>
- Add Course 
+     {
+      contextlang=="En"? " Add Content" :" أضف محتوى تعليمي"
+     }
           </NavLink>
+          <button className=" btn btn-outline-light fs-6 fw-bold mr-4 " onClick={()=>setcontextlang(contextlang==="En"? "Ar":"En")}>{contextlang}</button>
         </li>
          
      <li >
-     <ul className="navbar-nav d-flex justify-content-between ">
-      <li><NavLink className="nav-link Textcolor text-light" to="/register">register</NavLink></li>
-        <li><NavLink className="nav-link Textcolor text-light" to="/login">Login <i class="fa-solid fa-right-to-bracket"></i></NavLink></li>
 
+     <ul className="navbar-nav d-flex  ">
+<<<<<<< HEAD
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/register"}> 
+=======
+      <li><NavLink className="nav-link  text-light" to="/register">
+      {
+      contextlang=="En"? "Register" :"انشاء حساب"
+     }
+        </NavLink></li>
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/login"}> 
+        {/* {
+      contextlang=="En"? "Login" :"تسجيل دخول"
+     } */}
+>>>>>>> 1f83c20b5927fec04f82c7d27a1320fca1ad3c0b
+           {loging}
+        <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
+
+{
+  loging=="Logout"&&<li>
+  <NavLink to="/profile" className="ms-4  me-4">
+  <i class="fa-solid fa-user text-white mt-2"></i>
+  </NavLink>
+</li>
+}
         </ul>  
       </li> 
            

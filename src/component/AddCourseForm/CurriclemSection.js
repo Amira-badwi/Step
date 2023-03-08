@@ -45,9 +45,13 @@ function CurriclemSection(props) {
     props.setCourseData({...props.courseData,courseSections:newSections})
     setIsContentAdd(false)
   }
+  const handleSectionDelete=()=>{
+    
+  }
   return (
     <div className='course-section-container'>
       <h5 className='text-start'>Section {props.sectionNumber}: {props.section.sectionName}</h5>
+      <span className='addCourseDeleteIcon '><i onClick={handleSectionDelete} class="text-secondary fa-solid fa-trash"></i></span>
       <table className="table">
         <thead>
           <tr>

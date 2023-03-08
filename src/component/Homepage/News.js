@@ -67,12 +67,11 @@ breakpoints={{
           
         <Card className='p-0 overflow-hidden  shadow' style={{height:'500px'}}>
 <div className='overflow-hidden rounded p-0 bg-light'>
-  <Card.Img variant='top' src={singleNews.urlToImage} className='img-fluid ' style={{height:200}}/>  
+  <Card.Img variant='top' src={singleNews.urlToImage} className='img-fluid ' style={{height:300}}/>  
 </div>
-{/* b5d8444461bc40e88995a3a38e943f3c */}
 <Card.Body className='text-center'>
-<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' style={{height:100}}><a  href= {singleNews.url} target="_blank" className="text-decoration-none" > {singleNews.title}</a></Card.Title>
-<Card.Title className='text-dark mt-1 ' style={{height:200}}>{singleNews.description}</Card.Title>
+<Card.Title className='homeCourseCardTitle display-6 fs-col-6 fs-md-2 overflow-hidden' style={{height:50}}><a  href= {singleNews.url} target="_blank" className="text-decoration-none" > {singleNews.title}</a></Card.Title>
+<Card.Title className='text-dark mt-1 ' style={{height:150}}>{singleNews.description}</Card.Title>
 </Card.Body>
         </Card>  
        

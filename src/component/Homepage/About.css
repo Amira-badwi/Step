@@ -30,3 +30,31 @@ color: #FFF;
     background-color:  #1eb2a6;
     color: #FFF;
 }
+.members{
+    border-right: .15em solid black;
+    text-shadow:2px 2px 3px #095f58 ;
+animation: names 10s infinite linear,
+nameborder .75s  infinite linear;
+white-space: nowrap;
+margin: 0 auto;
+    overflow: hidden;
+    height: 30px;
+    font-size: 16px;
+}
+@keyframes names{
+    from ,to{
+        width: 0px;
+    }
+    50%{
+        width: 110%;
+    }
+}
+@keyframes nameborder{
+    from ,to{
+       border-color:transparent;
+    }
+    50%{
+        border-color:  black;
+
+    }
+}
