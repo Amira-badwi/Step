@@ -8,8 +8,8 @@ export default function NavCategory(){
    const content_category=[ { title:"Courses" ,to:"/courses"  ,icon:"fa-solid fa-list " },{ title:"Books" ,to:"/book" ,icon:"fa-solid fa-book" },{ title:"Videos" ,to:"/videos" ,icon:"fa-solid fa-video" }];
        
     return(<>
-<nav  className=" d-block bg-white w-100">
-    <div  style={{"top":90 ,"position":"fixed"}}>
+<nav  className=" d-block bg-white w-100" >
+    <div  style={{"top":90 ,"position":"fixed" ,overflowY:"scroll"}}>
     <img src={logo} width="200px"/>
 
      

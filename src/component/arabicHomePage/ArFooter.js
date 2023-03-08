@@ -1,36 +1,8 @@
 import'./arFooter.css'
-export default function Footer(){
+export default function ArFooter(){
     return (<>
-    
-{/* <footer class="text-center text-lg-start bg-primary text-muted text-light rounded" > 
-  <section class="p-4">
-    <div class="container text-center text-md-start mt-5">
-      <div class="row mt-3">
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4 text-dark text-light">
-            For Clients
-          </h6>
-          <br/>
-         <p class="text-light" >
-          How to Hire
-         </p>
-        </div>
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-         
-          <h6 class="text-uppercase fw-bold mb-4 text-light">
-            For Talent
-          </h6><br/>
-          <p class="text-light" >
-            How to Find Work
-           </p>
-          </div></div>
-    </div>
-  </section>
-  
-  
 
-</footer> */}
-  <footer className='mt-2'>
+  <footer className='mt-2'  dir='rtl' >
   <div className="container">
     <div className="row">
       <div className="col-md-4 footer-column">
@@ -87,8 +59,7 @@ export default function Footer(){
     
     <div className="row text-center">
       <div className="col-md-4 box">
-        {/* <span className="copyright quick-links">Copyright &copy; Your Website
-        </span> */}
+    
       </div>
       <div className="col-md-4 box">
         <ul className="list-inline social-buttons">
