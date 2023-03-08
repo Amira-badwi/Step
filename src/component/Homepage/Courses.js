@@ -11,7 +11,7 @@ return(<>
         <div class="card" style="background-color: #13544e;height: 100%;width: 100%;" >
           <h1 class="text-light">Nasdaq</h1>
   <div class="card-body" style="background-color:#13544e;">
-    <h5 class="card-title">
+    <h5 class= "card-title">
       <p class="text-light">
         upwork enables us to different ourselves from our competitors and produce content higher
       </p><br/>
