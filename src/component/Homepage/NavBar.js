@@ -57,7 +57,19 @@ export default function NavBar(){
      <li >
 
      <ul className="navbar-nav d-flex  ">
+<<<<<<< HEAD
         <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/register"}> 
+=======
+      <li><NavLink className="nav-link  text-light" to="/register">
+      {
+      contextlang=="En"? "Register" :"انشاء حساب"
+     }
+        </NavLink></li>
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/login"}> 
+        {/* {
+      contextlang=="En"? "Login" :"تسجيل دخول"
+     } */}
+>>>>>>> 1f83c20b5927fec04f82c7d27a1320fca1ad3c0b
            {loging}
         <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
 
