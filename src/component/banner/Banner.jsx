@@ -23,6 +23,8 @@ import { useEffect } from "react";
 const Banner = () => {
 
 
+
+
     const [reviews,setReviews] = useState([]);
 
     const addReview = (review) => {
@@ -61,18 +63,6 @@ return(<>
     <img src={ele.courseImage} alt=""  />
         </div>
 
-        <ProductDescription />
-        
-        <Form addReview= {addReview}/>
-        <ReviewList  reviews={reviews}/>
-       
-       
-
-
-
-                
-
-
         <div className="product-info">
             <h1 className="product-title">{ele.courseName}</h1>
             {/* <Rating rating={course.rating} reviews={course.reviews} /> */}
@@ -85,6 +75,8 @@ return(<>
             </div>
     </div>
     <ProductDescription />
+    <Form addReview= {addReview}/>
+    <ReviewList  reviews={reviews}/>
 
 
 </div>
