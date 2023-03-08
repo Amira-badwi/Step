@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./arTopcat.css";
 import course1 from '../../images/course1.jpg'
 import cate2 from '../../images/cate2.jpg'
-export default function TopCATEGORIES(){
+export default function ArTopCATEGORIES(){
     const [data, setData] = useState(
         [
             { CardTitle:'Mathematics',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:course1 },
@@ -12,7 +12,7 @@ export default function TopCATEGORIES(){
         
         ])
     return (<>
-    <div className="container">
+    <div className="container"  dir='rtl' >
         <div className="row">
             <div className="col-12">
 <h1 className="h1Style fw-bold">أهم الفئات</h1>

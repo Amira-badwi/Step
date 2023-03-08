@@ -1,14 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import {Swiper,SwiperSlide} from 'swiper/react'
 import { FreeMode } from 'swiper'
 import'swiper/css'
 import'swiper/css/free-mode'
 import {Card} from 'react-bootstrap'
-import'./CoursesSwipper.css'
+import'./arCoursesSwipper.css'
 
-function News(){
+function ArNews(){
 
     const [NewsData, setNewsData ] = useState([])
 
@@ -23,7 +22,7 @@ function News(){
     }, [])
 
     return(
-        <>
+        <> 
              <h1 className="h1HomeCoursesStyle fw-bold mt-5">موجز الأخبار</h1>
              <div className='container py-4 px-4 justify-content-center '>
                 <div className="row">
@@ -32,8 +31,8 @@ freeMode={true}
 grabCursor={true}
 modules={[FreeMode]}
 className='mySwipper'
-// slidesPerView={5}
-// spaceBetween={30}
+
+
 breakpoints={{
     0:{
         slidesPerView:1,
@@ -87,5 +86,4 @@ breakpoints={{
     )
 }
 
-export default News;
-// /viewNews/${singleNews.author}
+export default ArNews;

@@ -15,24 +15,15 @@ import { useHistory} from 'react-router-dom/cjs/react-router-dom'
 
 
 
- export default function CoursesSwipper() {
-    // const [data, setData] = useState(
-    //     [
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry.' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:cate2,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //         {imgSrc:course1,Details:'is simply dummy text of the printing and typesetting industry. ' ,title:'course1' },
-    //     ])
+ export default function ArCoursesSwipper() {
+
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
-    // console.log(coursesCollectionRef)
+ 
     useEffect(()=>{
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
-    // console.log(data)
+
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
 
 }
@@ -47,8 +38,11 @@ getCourses()
   };
   
 return(<><br/>
+<div dir='rtl'>
+
+
 <h1 className="h1HomeCoursesStyle fw-bold mt-5">اكتشف الدورات</h1>
-{/* <Carousel fade> */}
+
 
 <div className='container py-4 px-4 justify-content-center '>
     <div className='row'>
@@ -57,8 +51,7 @@ freeMode={true}
 grabCursor={true}
 modules={[FreeMode]}
 className='mySwipper'
-// slidesPerView={5}
-// spaceBetween={30}
+
 breakpoints={{
     0:{
         slidesPerView:1,
@@ -114,7 +107,7 @@ breakpoints={{
 
   </div>
  </div>
-  {/* </Carousel> */}
+ </div>
   <br/> 
 </>)
 

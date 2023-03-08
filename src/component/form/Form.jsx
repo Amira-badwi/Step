@@ -58,11 +58,6 @@ export default function Form({addReview}) {
       <Rating
         onClick={handleRating}
         ratingValue={rating}
-         /* Available Props */
-
-        // onPointerEnter={onPointerEnter}
-        // onPointerLeave={onPointerLeave}
-        // onPointerMove={onPointerMove}
        
       />
     </div>
