@@ -93,7 +93,7 @@ function Sign_Up() {
   });
   //////////////////handleSubmit////////////////
   
-  // const [err2, setErr2] = useState();
+  //const [errsup, setErrsup] = useState(1);
   const [err2, setErr2] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,10 +123,11 @@ function Sign_Up() {
     //  console.log(file);
       uploadTask.then( 
         
-        // (error) => {
-        //   setErr2(true)
+        (error) => {
+          setErr2(true)
           
-        // }, 
+          
+        }, 
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
             await updateProfile(res.user, {
@@ -161,6 +162,7 @@ function Sign_Up() {
     
       catch (err) {
        setErr2(true)
+    
         
     }
   }
@@ -199,7 +201,7 @@ function Sign_Up() {
         ) : null}
         {Page == 3 && (
           <div className="btnS" >
-           <button className="btnlogin" type="submit" >  
+           <button className="btnlogin" type="submit"  >  
              Submit
             </button> 
           </div>
