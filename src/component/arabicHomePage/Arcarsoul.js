@@ -6,7 +6,7 @@ import bg2 from '../../images/bg2.jpg'
 import './arcarsoularStyle.css'
 
 function CarouselFadeExample() {
-  return (<div className='container  '>
+  return (<div className='container '  dir='rtl'>
     <Carousel fade >
       <Carousel.Item>
         

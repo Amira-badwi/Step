@@ -2,7 +2,6 @@ import'./Navbar.css';
 import {  NavLink } from "react-router-dom/cjs/react-router-dom";
 import { useContext,useState,useEffect } from 'react';
 import { langContext } from '../context/langContext';
-import logo from "../../assets/Teaching strategy.webp";
 import { AuthContext } from '../context/AuthContext';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -11,11 +10,11 @@ export default function NavBar(){
   const {contextlang,setcontextlang} =useContext(langContext);
   const currentUse = useContext(AuthContext);
   const currentValue = currentUse.currentUser;
- // console.log(currentValue)
+
   const [loging, setLoging] = useState("");
   
     useEffect(()=>{
-    //  console.log(currentValue)
+
      if(currentValue != null){
       setLoging("Logout");
      }
@@ -58,6 +57,9 @@ export default function NavBar(){
      <li >
 
      <ul className="navbar-nav d-flex  ">
+<<<<<<< HEAD
+        <li onClick={() => signOut(auth)}><NavLink className="nav-link  text-light"  to={loging=="Logout"?"/":"/register"}> 
+=======
       <li><NavLink className="nav-link  text-light" to="/register">
       {
       contextlang=="En"? "Register" :"انشاء حساب"
@@ -67,14 +69,17 @@ export default function NavBar(){
         {/* {
       contextlang=="En"? "Login" :"تسجيل دخول"
      } */}
+>>>>>>> 1f83c20b5927fec04f82c7d27a1320fca1ad3c0b
            {loging}
         <i style={{'margin-left':'7px'}} className="fa-solid fa-right-to-bracket mh-5 d-inline-block"></i></NavLink></li>
-<li>
-  <NavLink to="/profile" className="ms-4 me-4">
-    <img src={logo}
-     className=" img"/>
+
+{
+  loging=="Logout"&&<li>
+  <NavLink to="/profile" className="ms-4  me-4">
+  <i class="fa-solid fa-user text-white mt-2"></i>
   </NavLink>
 </li>
+}
         </ul>  
       </li> 
            
