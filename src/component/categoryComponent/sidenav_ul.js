@@ -1,7 +1,8 @@
 /* eslint-disable no-sparse-arrays */
 import { useState } from "react";
 import { Link} from "react-router-dom/cjs/react-router-dom";
-import Li from "./nav_li";
+import BookLi from "./bookLi";
+import CoursesLi from "./nav_li";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function List(props) {
   const catogry=[ { title:"Discipline methods" ,id:"Discipline_methods"} , {title:"Dealing with special needs children" ,id:"Dealing_with_children_with_special_needs"}
@@ -40,7 +41,7 @@ id:"Human_Development"}
         {catogry.map((ele ,index) => {
           return (
             <>
-             <Li val={ele} keys={index} />
+             <props.name val={ele} keys={index}  />
             </>
           );
         })}

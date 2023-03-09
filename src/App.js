@@ -38,7 +38,7 @@ function App() {
         <Route exact path="/login"   component={Login}/>
         <Route exact path="/addCourse"   component={currentValue==null?Login:AddCourse}/>
         <Route  exact path="/courses"  component={currentValue==null?Login:CourseCatogry}/>
-        <Route exact path="/book"    component={currentValue==null?Login:Books_category}/>
+        <Route exact path="/book/:id"    component={currentValue==null?Login:Books_category}/>
         <Route exact path="/course/:id"   component={Courses_details}/>
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="/CourseEnroll/:id"  component={currentValue==null?Login:CourseEnroll} />
