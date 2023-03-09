@@ -10,8 +10,6 @@ export default function NavCategory(){
 <nav  className=" d-block bg-white w-100"  >
     <div  style={{"top":90 ,"position":"fixed" ,overflowY:"scroll"  ,height:550 ,width:230}}>
     <img src={logo} width="200px"/>
-
-     
 {
     content_category.map((item)=>{
         return(<>
@@ -21,7 +19,5 @@ export default function NavCategory(){
 }      
     </div>
   </nav>
-
- 
     </>)
 }
