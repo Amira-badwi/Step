@@ -97,8 +97,7 @@ function Sign_Up() {
     phone: null,
   });
   //////////////////handleSubmit////////////////
-  
-  
+ 
   const [err2, setErr2] = useState(false);
  
   const handleSubmit = async (e) => {
@@ -131,8 +130,9 @@ function Sign_Up() {
         
         (error) => {
           setErr2(true)
-          
+ 
          }, 
+ 
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
             await updateProfile(res.user, {
@@ -165,6 +165,7 @@ function Sign_Up() {
     
       catch (err) {
        setErr2(true)
+    
         
     }
   }
@@ -203,7 +204,9 @@ function Sign_Up() {
         ) : null}
         {Page == 3 && (
           <div className="btnS" >
+ 
            <button className="btnlogin" type="submit"  disabled={error.phone ||error.specialization || userData.specialization==""||userData.phone==""}>  
+ 
              Submit
             </button> 
           </div>
