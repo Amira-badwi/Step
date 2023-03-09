@@ -9,16 +9,12 @@ export default function BookCategory(props){
                 <img  src={props.img} alt=""/>
                 <div className="photos">The originals</div>
                 <p className="txt4 " >{props.title}</p>
-
             </div>
             <div className="content ">
-         
          <div className="text-center d-flex justify-content-between">
          <button className="  btnStyle w-10"  > enroll </button>
-       <Pdfpage/>
-         </div>
+       <Pdfpage pdf={props.pdf}/>  </div>
           </div>
-          
         </div>
    
     </>)

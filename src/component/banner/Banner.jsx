@@ -7,11 +7,6 @@ import { useState } from "react";
 import Form from "../form/Form";
 import ReviewList from "../reviewlist/ReviewList";
 
-// import Form from "../form/Form";
-// end new add two
-
-import { products } from "../../data/products";
-import Rating from "../rating/Rating";
 
 import {db} from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
