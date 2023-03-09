@@ -2,7 +2,6 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { langContext } from "../context/langContext";
-import logo from "../../assets/Teaching strategy.webp";
 import { AuthContext } from "../context/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -100,7 +99,9 @@ export default function NavBar() {
                   </li>
                   <li>
                     <NavLink to="/profile" className="ms-4 me-4">
-                      <img src={logo} className=" img" width={"20px"} />
+{
+  loging !== "Login" && <i class="fa-solid fa-user w-25 text-white mt-3"></i>
+}
                     </NavLink>
                   </li>
                 </ul>
