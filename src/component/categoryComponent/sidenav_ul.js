@@ -41,7 +41,10 @@ id:"Human_Development"}
         {catogry.map((ele ,index) => {
           return (
             <>
-             <props.name val={ele} keys={index}  />
+            {
+              props.name=="BookLi"?<BookLi val={ele} keys={index}  />:<CoursesLi val={ele} keys={index}  />
+            }
+             
             </>
           );
         })}
