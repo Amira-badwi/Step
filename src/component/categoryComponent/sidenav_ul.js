@@ -42,7 +42,7 @@ id:"Human_Development"}
           return (
             <>
             {
-              props.name=="BookLi"?<BookLi val={ele} keys={index}  />:<CoursesLi val={ele} keys={index}  />
+              props.namee=="BookLi"?<BookLi val={ele} keys={index}  />:<CoursesLi val={ele} keys={index}  />
             }
              
             </>

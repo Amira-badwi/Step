@@ -15,7 +15,7 @@ export default function NavCategory(){
 {
     content_category.map((item)=>{
         return(<>
-                <List name={item.componentname} to={item.to} icon={item.icon} head={item.title} />
+                <List namee={item.componentname} to={item.to} icon={item.icon} head={item.title} />
         </>)
     })
 }      
