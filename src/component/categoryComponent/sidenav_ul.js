@@ -1,20 +1,15 @@
 /* eslint-disable no-sparse-arrays */
 import { useState } from "react";
 import { Link} from "react-router-dom/cjs/react-router-dom";
-import Li from "./nav_li";
+import BookLi from "./bookLi";
+import CoursesLi from "./nav_li";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function List(props) {
-  const catogry = [
-    "evaluation methods",
-    "Dealing children with special needs ",
-    "Teaching strategy",
-    "mathematics",
-    "Mental skills",
-    "Human development ",
-    "Sciences",
-    "Educational games",
-    "Digital transformation",
-  ];
+  const catogry=[ { title:"Discipline methods" ,id:"Discipline_methods"} , {title:"Dealing with special needs children" ,id:"Dealing_with_children_with_special_needs"}
+  ,{title:"Teaching strategy" ,id:"Teaching_strategies"} ,{title:"mathematics",id:"Mathematics"} ,{title: "Mental skills",id:"Mental_Skills"} ,{title:"Human development " ,
+id:"Human_Development"}
+  ,{title:"Sciences" ,id:"Science"},{title:"Educational games",id:"Educational_games"} ,{title:"Digital transformation",id:"Digital_transformation"}];
+   
   var [show, setshow] = useState("hide");
   function toggle() {
     if (show === "show") {
@@ -60,7 +55,10 @@ export default function List(props) {
         {catogry.map((ele ,index) => {
           return (
             <>
-             <Li val={ele} keys={index}/>
+            {
+              props.namee=="BookLi"?<BookLi val={ele} keys={index}  />:<CoursesLi val={ele} keys={index}  />
+            }
+             
             </>
           );
         })}

@@ -110,7 +110,6 @@ function CourseForm() {
                                 book={...book,book:url}
                                 const addedBook=await addDoc(booksCollectionRef,book)
                     setIsLoading(false)
-                    // history.push(`/courseEnroll/${addedCourse.id}`)
                             }
                         )
                     })
