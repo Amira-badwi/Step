@@ -62,7 +62,7 @@ export default function NavBar() {
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/addCourse">
                   <i class="fa-solid fa-plus"></i>
-                  {contextlang == "En" ? "Add Course" : "أضف دورة تدريبية"}
+                  {contextlang == "En" ? "Add Content" : "أضف محتوى تعليمي"}
                 </NavLink>
                 <button
                   className=" btn btn-outline-light fs-6 fw-bold mr-4 "
@@ -89,7 +89,7 @@ export default function NavBar() {
                       className="nav-link  text-light"
                       to={loging == "Logout" ? "/" : "/login"}
                     >
-                   {loging}
+                      {loging}
 
                       <i
                         style={{ "margin-left": "7px" }}
@@ -99,9 +99,9 @@ export default function NavBar() {
                   </li>
                   <li>
                     <NavLink to="/profile" className="ms-4 me-4">
-{
-  loging !== "Login" && <i class="fa-solid fa-user w-25 text-white mt-3"></i>
-}
+                      {
+                        loging !== "Login" && <i class="fa-solid fa-user w-25 text-white mt-3"></i>
+                      }
                     </NavLink>
                   </li>
                 </ul>
