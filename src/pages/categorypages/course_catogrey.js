@@ -9,18 +9,24 @@ import logo5 from "../../assets/Human Development.webp";
 import logo6 from "../../assets/science.webp";
 import logo7 from "../../assets/Educational games.webp";
 import logo8 from "../../assets/Digital transformation.webp";
+import TS from "../../assets/TS2.jpg";
+import Math from "../../assets/Math.jpg";
+import SC from "../../assets/SC.jpg";
+import DT from "../../assets/DT.jpg";
+import MS from "../../assets/MS.jpg";
+import EG from "../../assets/EG.jpg";
 import "./catogry.css";
 import Course_Catogry from "../../component/categoryComponent/coursecatogery";
 
 export default  function CourseCatogry(){
 const catogry=[ { title:"Discipline methods" , src: logo , count:6  ,id:"Discipline_methods"} , {title:"Dealing with special needs children",src: logo1 , count:10 ,id:"Dealing_with_children_with_special_needs"}
-,{title:"Teaching strategy",src: logo3 , count:6 ,id:"Teaching_strategies"} ,{title:"mathematics",src: logo2 , count:7 ,id:"Mathematics"} ,{title: "Mental skills",src: logo4 , count:20 ,id:"Mental_Skills"} ,{title:"Human development " ,
+,{title:"Teaching strategy",src: TS , count:6 ,id:"Teaching_strategies"} ,{title:"mathematics",src: Math , count:7 ,id:"Mathematics"} ,{title: "Mental skills",src: MS , count:20 ,id:"Mental_Skills"} ,{title:"Human development " ,
 src: logo5 , count:6 ,id:"Human_Development"}
-,{title:"Sciences",src: logo6 , count:8 ,id:"Science"},{title:"Educational games",src: logo7 , count:6 ,id:"Educational_games"} ,{title:"Digital transformation",src: logo8 , count:16 ,id:"Digital_transformation"}];
+,{title:"Sciences",src: SC , count:8 ,id:"Science"},{title:"Educational games",src: EG , count:6 ,id:"Educational_games"} ,{title:"Digital transformation",src: DT , count:16 ,id:"Digital_transformation"}];
     return(<>
        
         
-        <h2 className="text-center text-light clip  "><strong>Courses Categories</strong></h2>   
+        {/* <h2 className="text-center text-light clip  "><strong>Courses Categories</strong></h2>    */}
 
     <div className="container ">
 
