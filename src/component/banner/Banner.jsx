@@ -10,96 +10,42 @@ import ReviewList from "../reviewlist/ReviewList";
 
 import {db} from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
-
-import ProductDescription from "../productdescription/ProductDescription";
-import Header from "../header/Header";
 import { useEffect } from "react";
 import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
-
-
 const Banner = () => {
-
-
-
-
+    
+//list reviews
     const [reviews,setReviews] = useState([]);
+    const coursesCollectionRefReview=collection(db,"review");
 
     const addReview = (review) => {
-      setReviews([review, ...reviews]);
-  
+      setReviews([ ...reviews]);
     }
-
-
-
-    // start new add two
-
-
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
     const {id} = useParams();
     var course ={};
-
     useEffect(()=>{
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
    
 }
+const getReviews=async()=>{
+    const data=await getDocs(coursesCollectionRefReview);
+    setReviews(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+   
+}
+getReviews()
 getCourses()
- },[] )
-var course= courses.filter(item=> item.id==id)   
+ } )
+var course= courses.filter(item=> item.id===id)   
   return (<>
   {
     course.map((ele)=>{
 return(<>
-
-{/* <div > */}
-    {/* <Header /> */}
-    {/* <div className="product-wrapper">
-        <div className="product-image-wrapper">
-    <img src={ele.courseImage} alt=""  />
-        </div> */}
-
-        {/* <div className="product-info">
-            <h1 className="product-title">{ele.courseName}</h1> */}
-            {/* <Rating rating={course.rating} reviews={course.reviews} /> */}
-            {/* <div className="product-add-to-cart">
-    
-            <button className="add-to-cart-btn">
-               Enroll in the course
-            </button>
-            </div>
-            </div>
-    </div>
-    <ProductDescription />
-    <Form addReview= {addReview}/>
-    <ReviewList  reviews={reviews}/>
-
-
-</div> */}
 <div className="coursebackground">
-    {/* <div className="container">
-        <div className="row">
-            <div className="col-6">
-    <p className="coursepartof">This course is part of {ele.courseCategory}</p>
-<h2 className="coursepriviewTitle">{ele.courseName}</h2>
-<div>
-<div className="circle ">
-    <img src={ele.courseImage} alt="instructor image not found"/>
-</div>
-</div>
-<button type="button" class="btn bgcolor rounded-pill w-5">Enroll for free</button>
-</div>
-
-
-
-
-</div>
-<div className="col-2">
-    <p>sddddd</p>
-</div>
-</div> */}
 <div className="container text-center mt-3">
     <div className="row">
       <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
@@ -109,7 +55,6 @@ return(<>
         <h2 className="coursepriviewTitle" >
         {ele.courseName}
         </h2>
-        
           <br/>
           <button type="button" className="btn bgcolor rounded-pill w-5" >
         Enroll for free</button>
@@ -130,15 +75,19 @@ return(<>
     <div className="row">
         <div className="col-9 spansStyle">
             <span>
-                <Link to='#About'/>
-              About
+                <Link to='#About'>
+              About </Link>
             </span>
             <span className="spanInstructor">
-           Instructor
+            <Link to='#Review'>
+           Review </Link>
             </span>
-           
             <span className="spanInstructor">
-           Review
+
+         <Link to="#Instructor">
+         Instructor  
+         </Link>   
+          
             </span>
             
         </div>
@@ -152,7 +101,7 @@ return(<>
 <LineSection/>
 <div className="row mt-2">
 <div className="col-8 ">
-    <h3 className="Aboutthiscourse">
+    <h3 className="Aboutthiscourse" id ="Instructor">
         Instructor
     </h3>
    <p className="reviewparagraphs">{ele.courseCreator}</p>
@@ -164,7 +113,6 @@ return(<>
     </h3>
 <Form addReview= {addReview}/>
     <ReviewList  reviews={reviews}/>
-    {/* <Rating rating={course.rating} reviews={course.reviews} /> */}
 <LineSection/>
 <h3 className="Aboutthiscourse" id="offer">
     Offered By
