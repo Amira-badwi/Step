@@ -9,12 +9,11 @@ import logo2 from "../assets/Mental skills.jpeg";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthContext } from '../component/context/AuthContext';
-
-
+ 
 export default function Profile() {
   const currentUse=useContext(AuthContext)
   const currentValue=currentUse.currentUser;
-  //console.log(JSON.stringify (currentValue.metadata))
+  //console.log(currentValue.photoURL)
   const [Users,setusers]=useState([])
   const coursesCollectionRef=collection(db,"users")
   useEffect(()=>{
@@ -26,10 +25,10 @@ const getCourses=async()=>{
  
 
 getCourses()
+ 
   },[] )
-  // console.log(Users[0].displayName);
-  
-  
+ 
+ 
 const [flag,setflag]=useState(false)
 function edit(){
 if(flag==false){
@@ -44,13 +43,17 @@ else{
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#9de2ff' }}>
       <MDBContainer className="py-1">
-        <MDBRow className="justify-content-center align-items-center ">
+         
+        <MDBRow className="justify-content-center align-items-center " >
           <MDBCol lg="9" xl="7">
             <MDBCard>
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '170px' }}>
-                  <MDBCardImage src={currentValue.photoURL}
+ 
+                  <img
+                   src={currentValue.photoURL}
                     alt="Generic placeholder image" className="mt-4  img-thumbnail" fluid style={{ width: '150px',height:"200px", zIndex: '1' }} />
+ 
                 </div>
                 <div  style={{ marginTop: '130px' }}>
                   <MDBTypography tag="h5">{currentValue.displayName}</MDBTypography>
@@ -70,6 +73,7 @@ else{
   flag?<EditProfile/> :null
 }
 </div>
+ 
                 <div className="mb-5">
                   <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>

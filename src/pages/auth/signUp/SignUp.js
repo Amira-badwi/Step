@@ -17,7 +17,7 @@ import NavBar from "../../../component/Homepage/NavBar";
 function Sign_Up() {
   
   ///////////////handleNaxt////////////////////
-  const handleNext = () => {};
+  
   const [err, setErr] = useState();
   const [Page, setPage] = useState(1);
  
@@ -47,17 +47,20 @@ function Sign_Up() {
         const prog = Prog + 30;
         setProg(prog);
         setErr(false);
+        console.log(err ,"2")
       } else {
         setErr(true);
       }
     }
      
-    if (Page == 3){if (error.specialization == null  &&  userData.phone != "") {
-      setErr(false)
-      } else {
-        setErr(true);
-      }
-    }
+    // if (Page === 3){if (error.specialization == null && userData.specialization!="" &&  userData.phone != "") {
+    //   setErr(false)
+    // console.log(err)
+    //   } else {
+    //     setErr( false);
+    //     console.log(err)
+    //   }
+    // }
   };
   const changePagedec = () => {
     const prog = Prog - 30;
@@ -80,6 +83,8 @@ function Sign_Up() {
     specialization: "",
     phone: "",
     user: "",
+    booksUser:[],
+    coursesUser:[]
   });
   const [error, setError] = useState({
     userName: null,
@@ -92,12 +97,12 @@ function Sign_Up() {
     phone: null,
   });
   //////////////////handleSubmit////////////////
-  
-  //const [errsup, setErrsup] = useState(1);
+ 
   const [err2, setErr2] = useState(false);
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(e.target[0])
+    
     console.log(userData);
   
     const displayName = userData.userName;
@@ -120,14 +125,14 @@ function Sign_Up() {
  
      
       const uploadTask = uploadBytesResumable(storageRef, file );
-    //  console.log(file);
+ 
       uploadTask.then( 
         
         (error) => {
           setErr2(true)
-          
-          
-        }, 
+ 
+         }, 
+ 
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
             await updateProfile(res.user, {
@@ -150,9 +155,7 @@ function Sign_Up() {
               user,
               graduate,
             });
-            // await setDoc(doc(db,"userBooks",res.user.uid),{
-
-            // });
+             
              
           });
         }
@@ -166,7 +169,7 @@ function Sign_Up() {
         
     }
   }
- 
+
   return (
     <div className=" mb-4 container logContainer  col-md-6 col-12 ">
       <Form className="" onSubmit={handleSubmit}>
@@ -201,7 +204,9 @@ function Sign_Up() {
         ) : null}
         {Page == 3 && (
           <div className="btnS" >
-           <button className="btnlogin" type="submit"  >  
+ 
+           <button className="btnlogin" type="submit"  disabled={error.phone ||error.specialization || userData.specialization==""||userData.phone==""}>  
+ 
              Submit
             </button> 
           </div>
@@ -210,21 +215,22 @@ function Sign_Up() {
         {err && <span className="text-danger">must fill all faild</span>}
       </Form>
 
-      {Page < 3 && Page >= 1 && (
-        <button
-          className="Twobtn"
-          onClick={() => changePageinc()}
-          onChange={handleNext}
-        >
-          Next
-        </button>
-      )}
+    
       {Page > 1 && (
         <button className="Twobtn" onClick={() => changePagedec()}>
           Back
         </button>
       )}
-      {err2 &&<span className="text-danger">find wrong</span>}
+       {Page < 3 && Page >= 1 && (
+        <button
+          className="Twobtn"
+          onClick={() => changePageinc()}
+      
+        >
+          Next
+        </button>
+      )}
+      {err2 &&<span className="text-danger">this mail is repeat change it please</span>}
       
       <p>Do you have account ? <Link to={"/login"}>Login</Link></p>
     

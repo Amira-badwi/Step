@@ -13,10 +13,10 @@ import "./catogry.css";
 import Course_Catogry from "../../component/categoryComponent/coursecatogery";
 
 export default  function CourseCatogry(){
-const catogry=[ { title:"calendar methods" , src: logo , count:6} , {title:"Dealing with special needs children",src: logo1 , count:10}
-,{title:"Teaching strategy",src: logo3 , count:6} ,{title:"mathematics",src: logo2 , count:7} ,{title: "Mental skills",src: logo4 , count:20} ,{title:"Human development and psychological counseling" ,
-src: logo5 , count:6}
-,{title:"Sciences",src: logo6 , count:8 },{title:"Educational games",src: logo7 , count:6} ,{title:"Digital transformation",src: logo8 , count:16}];
+const catogry=[ { title:"Discipline methods" , src: logo , count:6  ,id:"Discipline_methods"} , {title:"Dealing with special needs children",src: logo1 , count:10 ,id:"Dealing_with_children_with_special_needs"}
+,{title:"Teaching strategy",src: logo3 , count:6 ,id:"Teaching_strategies"} ,{title:"mathematics",src: logo2 , count:7 ,id:"Mathematics"} ,{title: "Mental skills",src: logo4 , count:20 ,id:"Mental_Skills"} ,{title:"Human development " ,
+src: logo5 , count:6 ,id:"Human_Development"}
+,{title:"Sciences",src: logo6 , count:8 ,id:"Science"},{title:"Educational games",src: logo7 , count:6 ,id:"Educational_games"} ,{title:"Digital transformation",src: logo8 , count:16 ,id:"Digital_transformation"}];
     return(<>
        
         
@@ -28,7 +28,7 @@ src: logo5 , count:6}
         
 {catogry.map((category)=>{
 return (<>
-    <Course_Catogry src={category.src} title={category.title} count={category.count} />
+    <Course_Catogry src={category.src} title={category.title} count={category.count} id={category.id} />
 
 </>)
 })}
