@@ -34,7 +34,21 @@ export default function List(props) {
         className="border  rounded list-group-item pt-1 my-1 bg-white d-flex justify-content-between "
       >
        <hr/>
-        <span    onClick={() => toggle()}>   <i className={`${props.icon} me-1`}></i>  {props.head}</span>
+        <span    onClick={() => toggle()}>   <i className={`${props.icon} me-1`}></i>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {props.head}</span>
         <i onClick={() => toggle()} className="fa-solid fa-caret-down me-3 px-2"></i>
 
       </Link>
