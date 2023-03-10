@@ -39,16 +39,13 @@ const getReviews=async()=>{
 }
 getReviews()
 getCourses()
- },[reviews] )
-var course= courses.filter(item=> item.id==id)   
+ } )
+var course= courses.filter(item=> item.id===id)   
   return (<>
   {
     course.map((ele)=>{
 return(<>
-
-
 <div className="coursebackground">
-
 <div className="container text-center mt-3">
     <div className="row">
       <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
@@ -58,7 +55,6 @@ return(<>
         <h2 className="coursepriviewTitle" >
         {ele.courseName}
         </h2>
-        
           <br/>
           <button type="button" className="btn bgcolor rounded-pill w-5" >
         Enroll for free</button>

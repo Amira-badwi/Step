@@ -14,9 +14,6 @@ export default function ListItem({review}) {
                     }
                 </p>
             </div>  
-      
-                               
-
         </li>
 
     )
