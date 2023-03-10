@@ -1,3 +1,4 @@
+
 export const showRating = (rating) =>{
     switch(rating){
         case 1:

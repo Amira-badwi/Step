@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import '../../component/Homepage/About.css'
-
+import {db} from "../../firebase";
+import { collection, doc, getDocs ,addDoc } from "firebase/firestore";
 export default function Form({addReview}) {
 
     const [name,setName] =useState('');
@@ -13,6 +14,7 @@ export default function Form({addReview}) {
     setRating(rate);
     
   }
+
   const formSubmit = (e) => {
     e.preventDefault();
     const review = {
@@ -22,14 +24,18 @@ export default function Form({addReview}) {
       rating: rating 
     }
     addReview(review);
+    addtofirebase();
   }
   const isDisabled = () => {
     if (!name || !message || !rating){
       return true;
     }
   }
+  const coursesCollectionRef=collection(db,"review");
 
-
+  const addtofirebase=async ()=>{
+   await addDoc(coursesCollectionRef ,{username:name ,message:message , rate: rating})  
+  }
     
     return (
         <form className='mt-2' onSubmit= {(e) => formSubmit(e)}>
