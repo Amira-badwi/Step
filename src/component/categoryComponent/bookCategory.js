@@ -4,7 +4,7 @@ import "./book_category.css";
 export default function BookCategory(props){
 
     return(<>
-        <div className="cardcontainer w-100">
+        {/* <div className="cardcontainer w-100">
             <div className="photo m-auto">
                 <img  src={props.img} alt=""/>
                 <div className="photos">The originals</div>
@@ -15,6 +15,11 @@ export default function BookCategory(props){
          <button className="  btnStyle w-10"  > enroll </button>
        <Pdfpage pdf={props.pdf}/>  </div>
           </div>
+        </div> */}
+        <div className="card-container">
+            <div className="image-contauner">
+                <img src={props.img} alt=''/>
+            </div>
         </div>
    
     </>)
