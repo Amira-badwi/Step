@@ -43,7 +43,7 @@ function App() {
             <Route exact path="/course/:id" component={Courses_details} />
             <Route exact path="/reviewCourse/:id" component={Banner} />
             <Route exact path="/CourseEnroll/:id" component={currentValue == null ? Login : CourseEnroll} />
-            <Route exact path="/:courseName" component={currentValue == null ? Login : CourseContentSideBar} />
+            <Route exact path="/CourseContent/:courseName" component={currentValue == null ? Login : CourseContentSideBar} />
             <Route exact path="/profile" component={currentValue == null ? Login : Profile} />
             <Route exact path="*" component={Notfound} />
           </Switch>

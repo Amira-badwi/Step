@@ -1,8 +1,10 @@
 import React from 'react'
 
 function CourseContentSideBar() {
-    return (
-        <div>CourseContentSideBar</div>
+    return (<>
+        <h1>Helllllllllllllllllo</h1>
+        <p>do I work???</p>
+    </>
     )
 }
 
