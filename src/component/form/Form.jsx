@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
-
+import '../../component/Homepage/About.css'
 
 export default function Form({addReview}) {
 
@@ -58,16 +58,16 @@ export default function Form({addReview}) {
       <Rating
         onClick={handleRating}
         ratingValue={rating}
-       
       />
     </div>
 
 
 <div className='mb-3'>
     <button 
+     className='btn bgcolor rounded-pill w-5'
     disabled = {isDisabled()}
     type='submit' 
-    className='btn btn-primary mb-3'>
+   >
         Submit
     </button>
   </div>
