@@ -62,7 +62,7 @@ export default function NavBar() {
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/addCourse">
                   <i class="fa-solid fa-plus"></i>
-                  {contextlang == "En" ? "Add Content" : "أضف محتوى تعليمي"}
+                  {contextlang == "En" ? " Add Content" : "أضف محتوى تعليمي "}
                 </NavLink>
                 <button
                   className=" btn btn-outline-light fs-6 fw-bold mr-4 "
