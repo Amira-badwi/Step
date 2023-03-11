@@ -95,6 +95,8 @@ const Banner = () => {
             </div>
           </div>
           <LineSection />
+          <div className="container">
+            <div className="row">
           <h3 className="Aboutthiscourse" id="About">
             About this course
           </h3>
@@ -130,6 +132,8 @@ const Banner = () => {
                 </div>
               </div>
             </div>
+          </div>
+          </div>
           </div>
         </>)
 
