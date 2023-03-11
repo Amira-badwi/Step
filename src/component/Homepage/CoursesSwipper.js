@@ -19,7 +19,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
     // console.log(coursesCollectionRef)
-    useEffect(()=>{
+useEffect(()=>{
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
     // console.log(data)

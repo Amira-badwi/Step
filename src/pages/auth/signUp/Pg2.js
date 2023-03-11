@@ -29,7 +29,7 @@ const changeUserData=(e)=>{
 }
     return(
       <>
-      <Form.Group className="mb-3 " controlId="formBasicText">
+      <Form.Group className="mb-3 must" controlId="formBasicText">
         <Form.Label>Administration Name</Form.Label>
         <Form.Control type="text" name="administration" value={props.userData.administration}  onChange={(e) => changeUserData(e)}   placeholder="Enter your administration" />
          
