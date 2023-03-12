@@ -2,30 +2,30 @@
 export const showRating = (rating) =>{
     switch(rating){
         case 1:
-        return  <i className="bi bi-star-fill text-warning"></i>
+        return  <i className="fa-solid fa-star text-warning"></i>
         case 2:
         return (
             <>
-                <i className="bi bi-star-fill text-warning"></i>
-                <i className="bi bi-star-fill text-warning"></i>
+                <i className="fa-solid fa-star text-warning"></i>
+                <i className="fa-solid fa-star text-warning"></i>
             </>
          )
         case 3:
         return  (
             <>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
 
          </>
          )
         case 4:
         return  (
             <>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
 
 
          </>
@@ -33,11 +33,11 @@ export const showRating = (rating) =>{
         case 5:
         return (
             <>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
-         <i className="bi bi-star-fill text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
+         <i className="fa-solid fa-star text-warning"></i>
          </>
          )
          default:
