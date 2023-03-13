@@ -18,6 +18,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
   
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
+
      console.log(coursesCollectionRef)
 //     useEffect(()=>{
 // const getCourses=async()=>{
@@ -25,9 +26,15 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
 //     // console.log(data)
 //     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
 
-// }
-// getCourses()
-//     },[] )
+    // console.log(coursesCollectionRef)
+useEffect(()=>{
+const getCourses=async()=>{
+    const data=await getDocs(coursesCollectionRef);
+    // console.log(data)
+    setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+}
+getCourses()
+    },[] )
 
 
     const history=useHistory();

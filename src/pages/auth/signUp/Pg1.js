@@ -155,12 +155,11 @@ if(e.target.name=="image")
           <input type="file" style={{display:"none"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
          <label htmlFor="img" className="diff">
             <img src={require('../../../images.png')} width="50px" style={{cursor:"pointer"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
-            upload identification card!
+           upload personal image
           </label>
         </Form.Group> 
       
       </>
-     
     
     );
   };

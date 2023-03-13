@@ -25,7 +25,8 @@ function CourseForm() {
         courseDescription: '',
         courseCategory: '',
         courseImage: '',
-        courseSections: []
+        courseSections: [],
+        courseReviews: []
     })
     const [courseErrs, setCourseErrs] = useState({
         courseName: null,
@@ -39,7 +40,8 @@ function CourseForm() {
         bookDescription: '',
         bookCategory: '',
         bookImage: '',
-        book: ''
+        book: '',
+        bookReviews: []
     })
     const [bookErrs, setBookErrs] = useState({
         bookName: null,
