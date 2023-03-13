@@ -44,14 +44,15 @@ var course= courses.filter(item=> item.id===id)
     course.map((ele)=>{
       console.log(reviews)
 return(<>
+<div className="container ms-2">
 <div className="coursebackground">
 <div className="container text-center mt-3">
     <div className="row">
-      <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
-        <p className="coursepartof" >
+      <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto ">
+        <p className="coursepartof mt-5 w-100" >
         This course is part of {ele.courseCategory}
         </p>
-        <h2 className="coursepriviewTitle" >
+        <h2 className="coursepriviewTitle ms-2" >
         {ele.courseName}
         </h2>
           <br/>
@@ -128,7 +129,7 @@ return(<>
       </div>
     </div>
   </div>
-</div>
+</div></div>
 </>)
 
   
