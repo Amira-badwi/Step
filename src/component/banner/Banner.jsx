@@ -1,4 +1,3 @@
-/* eslint-disable no-redeclare */
 import "./banner.css";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
@@ -19,9 +18,10 @@ const Banner = () => {
   const [reviews, setReviews] = useState([]);
   const coursesCollectionRefReview = collection(db, "review");
 
-    const addReview = (review) => {
-      setReviews([ ...reviews]);
-    }
+  const addReview = (review) => {
+    setReviews([...reviews]);
+  }
+
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
     const {id} = useParams();
@@ -34,16 +34,17 @@ const getCourses=async()=>{
 }
 const getReviews=async()=>{
     const data=await getDocs(coursesCollectionRefReview);
-    setReviews(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+    setReviews(data.docs.map((doc)=>({...doc.data(),reviews ,id:doc.id})))
    
 }
 getReviews()
 getCourses()
- } )
+ },[] )
 var course= courses.filter(item=> item.id===id)   
   return (<>
   {
     course.map((ele)=>{
+      
 return(<>
 <div className="coursebackground">
 <div className="container text-center mt-3">
@@ -111,7 +112,7 @@ return(<>
 <h3 className="Aboutthiscourse" id="Review">
         Review
     </h3>
-<Form addReview= {addReview}/>
+<Form addReview= {addReview}  ele={ele}/>
     <ReviewList  reviews={reviews}/>
 <LineSection/>
 <h3 className="Aboutthiscourse" id="offer">
@@ -132,6 +133,7 @@ return(<>
 </div>
 </>)
 
+  
       })
     }
   </>)
