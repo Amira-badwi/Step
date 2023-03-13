@@ -414,11 +414,14 @@
   }
   
   .loader-container {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.313);
+    position: absolute;
+    top: 0px;
+    width:100%;
   }
   .loader-container .dribbble {
     position: fixed;
