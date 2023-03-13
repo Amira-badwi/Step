@@ -2,13 +2,17 @@ import { useState } from "react";
 import "./Topcat.css";
 import course1 from '../../images/course1.jpg'
 import cate2 from '../../images/cate2.jpg'
+import Math from "../../assets/Math.jpg";
+import MS from "../../assets/MS.jpg";
+import TS from "../../assets/TS2.jpg";
+import SC from "../../assets/SC.jpg";
 export default function TopCATEGORIES(){
     const [data, setData] = useState(
         [
-            { CardTitle:'Mathematics',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:course1 },
-            {CardTitle:'Mental skills',Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' ,Cardimg:cate2 },
-            { CardTitle:'Techaning strategy', Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',Cardimg:course1},
-            {CardTitle:'Science', Details:'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',Cardimg:cate2},
+            { CardTitle:'Mathematics',Details:'Mathematics is the science and study of quality, structure, space, and change. Mathematicians seek out patterns, formulate new conjectures.' ,Cardimg:Math },
+            {CardTitle:'Mental skills',Details:'A mental skill enables you to regulate thoughts, feelings, and actions. For example, staying focused, managing emotions, building confidence.' ,Cardimg:MS },
+            { CardTitle:'Techaning strategy', Details:'Teaching strategies refer to the methods, and processes that a teacher uses during instruction and these strategies are multidimensional',Cardimg:TS},
+            {CardTitle:'Science', Details:'Science is the pursuit and application of knowledge of the natural and social world following a systematic methodology based on evidence',Cardimg:SC},
         
         ])
     return (<>

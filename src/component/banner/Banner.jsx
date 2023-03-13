@@ -1,6 +1,6 @@
 /* eslint-disable no-redeclare */
 import "./banner.css";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -8,20 +8,21 @@ import Form from "../form/Form";
 import ReviewList from "../reviewlist/ReviewList";
 
 
-import {db} from "../../firebase";
+import { db } from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
 import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
 const Banner = () => {
-    
-//list reviews
-    const [reviews,setReviews] = useState([]);
-    const coursesCollectionRefReview=collection(db,"review");
 
-    const addReview = (review) => {
-      setReviews([ ...reviews]);
-    }
+  //list reviews
+  const [reviews, setReviews] = useState([]);
+  const coursesCollectionRefReview = collection(db, "review");
+
+  const addReview = (review) => {
+    setReviews([...reviews]);
+  }
+
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
     const {id} = useParams();
@@ -133,8 +134,9 @@ return(<>
 </div>
 </>)
 
-    })
-}
- </>) 
+  
+      })
+    }
+  </>)
 }
 export default Banner;
