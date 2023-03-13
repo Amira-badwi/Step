@@ -2,12 +2,17 @@ import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import '../../component/Homepage/About.css'
 import {db} from "../../firebase";
-import { collection, doc, getDocs ,addDoc } from "firebase/firestore";
-export default function Form({addReview}) {
+import { collection, doc, getDocs ,addDoc, setDoc } from "firebase/firestore";
+export default function Form({addReview ,ele}) {
 
     const [name,setName] =useState('');
     const [message,setMessage] =useState('');
     const [rating, setRating] = useState(0) // initial rating value
+const setarray_review=async()=>{
+  await setDoc(doc(db ,"courses" ,ele.id),
+  ...ele ,[{name:name , message:message ,rate:rating}]);
+}
+
 
   // Catch Rating value
   const handleRating = (rate) => {
@@ -25,6 +30,10 @@ export default function Form({addReview}) {
     }
     addReview(review);
     addtofirebase();
+setarray_review()
+    setMessage("")
+    setName("")
+    setRating(0)
   }
   const isDisabled = () => {
     if (!name || !message || !rating){
