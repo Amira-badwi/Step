@@ -12,7 +12,7 @@ function Pg3(props) {
       props.setError({
         ...props.error,
         specialization:
-          e.target.value.length == 0 ? "This Field is Required" : null,
+          e.target.value.length == 0 ? "This Field is Required" : /^[A-Za-z\s]*$/.test(e.target.value)?null:"must input letters",
       });
     }
     if (e.target.name == "phone") {
@@ -25,7 +25,7 @@ function Pg3(props) {
         phone:
           e.target.value.length == 0
             ? "This Field is Required"
-            : e.target.value.length < 11
+            : e.target.value.length < 11 && /^[0-9]+$/.test(e.target.value)
             ? "Not valid"
             : null,
       });
@@ -41,11 +41,29 @@ function Pg3(props) {
       if (e.target.name== "user") {
         props.setuserData({
           ...props.userData,
-           
            user: e.target.value,
           
         });
-       
+        //console.log(e.target)
+        function test(){
+        if(e.target.value=="trainer")
+        {
+          return  e.target.value
+        }
+        else if(e.target.value=="trainee")
+        {
+          return e.target.value
+        }
+        else
+        return null
+      }
+      console.log(test())
+      props.setError({
+        ...props.error,
+        user:
+          test() == null
+            ? "This Field is Required":null
+      })
     }
   };
 
@@ -97,6 +115,8 @@ function Pg3(props) {
         <input type="radio" id="trainee" name="user" value="trainee" />
         <label htmlFor="trainee">Trainee</label>
         <br />
+        <p className="text-danger">{props.error.user}</p>
+
       </Form.Group>
     </>
   );

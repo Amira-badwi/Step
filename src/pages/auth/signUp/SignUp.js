@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Form } from "react-bootstrap";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "../../../firebase";
+import { app, auth, db, storage } from "../../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { async } from "@firebase/util";
 //import { useNavigate } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import Pg1 from "./Pg1";
 import "./SignUp.css";
 import Pg2 from "./Pg2";
 import Pg3 from "./Pg3";
 import { Link } from "react-router-dom";
 import NavBar from "../../../component/Homepage/NavBar";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 function Sign_Up() {
   
@@ -20,6 +21,8 @@ function Sign_Up() {
   
   const [err, setErr] = useState();
   const [Page, setPage] = useState(1);
+  
+ 
  
   /////////////proress/////////////////
   const [Prog, setProg] = useState(40);
@@ -31,6 +34,7 @@ function Sign_Up() {
         error.password == null &&
         error.confirmPassword == null &&
         error.NID == null &&
+        error.image==null&&
         userData.email !=""
       ) {
         setPage(2);
@@ -42,25 +46,18 @@ function Sign_Up() {
       }
     }
     if (Page == 2) {
-      if (error.administration == null&&userData.administration!="") {
+      if (error.administration == null&& error.school==null&&userData.administration!="") {
         setPage(3);
         const prog = Prog + 30;
         setProg(prog);
         setErr(false);
-        console.log(err ,"2")
+        // nconsole.log(err ,"2")
       } else {
         setErr(true);
       }
     }
      
-    // if (Page === 3){if (error.specialization == null && userData.specialization!="" &&  userData.phone != "") {
-    //   setErr(false)
-    // console.log(err)
-    //   } else {
-    //     setErr( false);
-    //     console.log(err)
-    //   }
-    // }
+    
   };
   const changePagedec = () => {
     const prog = Prog - 30;
@@ -95,15 +92,18 @@ function Sign_Up() {
     NID: null,
     specialization: null,
     phone: null,
+    school:null,
+    administration:null,
+    user:null
   });
   //////////////////handleSubmit////////////////
  
   const [err2, setErr2] = useState(false);
- 
+ const history=useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    console.log(userData);
+   // console.log(userData);
   
     const displayName = userData.userName;
     const email = userData.email;
@@ -120,7 +120,7 @@ function Sign_Up() {
     const graduate = userData.Graduation;
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-     
+         console.log(res.user)
       const storageRef = ref(storage, 'imagesCard/'+displayName);
  
      
@@ -128,10 +128,10 @@ function Sign_Up() {
  
       uploadTask.then( 
         
-        (error) => {
-          setErr2(true)
+        // (error) => {
+        //   setErr2(true)
  
-         }, 
+        //  }, 
  
         () => {
          getDownloadURL(uploadTask.snapshot.ref).then( async(downloadURL) => {
@@ -156,23 +156,24 @@ function Sign_Up() {
               graduate,
             });
              
-             
+              
           });
-        }
-        
+        },
+         
      );
+     history.push("/")
     } 
     
       catch (err) {
        setErr2(true)
-    
-        
     }
+ 
+ 
   }
 
   return (
     <div className=" mb-4 container logContainer  col-md-6 col-12 ">
-      <Form className="" onSubmit={handleSubmit}>
+      <Form className="" onSubmit={handleSubmit} >
         <center>
           <h2 className="logHedear">SIGN UP</h2>
         </center>
@@ -212,7 +213,7 @@ function Sign_Up() {
           </div>
         )}
     
-        {err && <span className="text-danger">must fill all faild</span>}
+        {err && <span className="text-danger">must all inputs is valid</span>}
       </Form>
 
     
@@ -230,7 +231,7 @@ function Sign_Up() {
           Next
         </button>
       )}
-      {err2 &&<span className="text-danger">this mail is repeat change it please</span>}
+      {err2 &&<span className="text-danger">this mail is repeat change it please or internet is lower</span>}
       
       <p>Do you have account ? <Link to={"/login"}>Login</Link></p>
     
