@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import CurriclemSection from './CurriclemSection'
+import { v4 } from 'uuid'
 
 function CourseContent(props) {
   const [isAdd, setIsAdd] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
-  const [singleSection, setSingleSection] = useState({ sectionName: '', sectionContent: [] })
+  const [singleSection, setSingleSection] = useState({ sectionId: 0, sectionName: '', sectionContent: [] })
   const handleSectionNameChange = (e) => {
     setSingleSection({ ...singleSection, sectionName: e.target.value })
   }
   const addSection = () => {
     console.log(props.courseData.courseSections);
     console.log(singleSection);
-    props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, singleSection] })
-    setSingleSection({ sectionName: '', sectionContent: [] })
+    props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, { ...singleSection, sectionId: singleSection.sectionName.replace(/\s/g, "") + v4() }] })
+    setSingleSection({ sectionId: '', sectionName: '', sectionContent: [] })
     setIsAdd(false)
-
   }
   const handleSectionDelete = (num) => {
     // setTodos(todos.filter((value) => value.taskId != id))
