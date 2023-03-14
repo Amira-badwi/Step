@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import "./SignUp.css";
 
 function Pg1(props) {
- // console.log(props)
+  //console.log(props)
   const changeUserData = (e) => {
+    
     if (e.target.name == "userName") {
      props.setuserData({
         ...props.userData,
@@ -15,7 +16,7 @@ function Pg1(props) {
       
      props.setError({
         ...props.error,
-        userName: e.target.value.length == 0 ? "This Field is Required" : e.target.value.length < 10 ? "must input your at least seconde name" :null,
+        userName: e.target.value.length == 0 ? "This Field is Required" : e.target.value.length < 10 ? "must input your at least seconde name" : /^[A-Za-z\s]*$/.test(e.target.value)?null:"must input letters",
       });
     }
     if (e.target.name == "email") {
@@ -70,6 +71,12 @@ if(e.target.name=="image")
   props.setuserData({
     ...props.userData,
     image:e.target.files[0],
+  });
+  
+  props.setError({
+    ...props.error,
+    image:
+    /\.(jpg|png|gif)$/i.test(e.target.files[0].name)?null:"must upload image"
   })
 }
     if (e.target.name == "NID") {
@@ -82,7 +89,7 @@ if(e.target.name=="image")
         NID:
           e.target.value.length == 0
             ? "This Field is Required"
-            : e.target.value.length == 14
+            : e.target.value.length == 14 &&  /^[0-9]+$/.test(e.target.value)
             ? null
             : "Not valid must be 14 numbers",
       });
@@ -152,11 +159,12 @@ if(e.target.name=="image")
         </Form.Group>
       
         <Form.Group className="mb-3">
-          <input type="file" style={{display:"none"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
+          <input type="file" style={{display:"none"}} accept="image/*" name="image" id="img" onChange={(e) => changeUserData(e)}/>
          <label htmlFor="img" className="diff">
             <img src={require('../../../images.png')} width="50px" style={{cursor:"pointer"}} name="image" id="img" onChange={(e) => changeUserData(e)}/>
            upload personal image
           </label>
+          <p className="text-danger">{props.error.image}</p>
         </Form.Group> 
       
       </>

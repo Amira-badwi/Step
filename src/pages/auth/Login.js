@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { auth } from "../../firebase";
 import "./Login.css";
 function Login() {
  const [Error,setError]=useState("")
  const [x,setX]=useState(0);
+ const history=useHistory();
  const [login,setLogin]=useState({
   email:'',
   password:''
@@ -28,6 +30,7 @@ if (e.target.name=='email'){
     const user = await signInWithEmailAndPassword(auth,login.email,login.password);
     console.log(user.user);
     setX(1)
+    history.push("/")
  }
   
  catch(err){

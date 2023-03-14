@@ -13,22 +13,13 @@ import { AuthContext } from '../component/context/AuthContext';
 export default function Profile() {
   const currentUse=useContext(AuthContext)
   const currentValue=currentUse.currentUser;
+  const currentData=currentUse.userData;
+  
+  // console.log(currentData.user)
   //console.log(currentValue.photoURL)
-  const [Users,setusers]=useState([])
-  const coursesCollectionRef=collection(db,"users")
-  useEffect(()=>{
-const getCourses=async()=>{
-  const data=await getDocs(coursesCollectionRef);
-  setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-
-}
  
-
-getCourses()
- 
-  },[] )
- 
- 
+   
+  
 const [flag,setflag]=useState(false)
 function edit(){
 if(flag==false){
@@ -77,8 +68,13 @@ else{
                 <div className="mb-5">
                   <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                    
                     <MDBCardText className="font-italic mb-1">{currentValue.displayName}</MDBCardText>
                     <MDBCardText className="font-italic mb-1">{currentValue.email}</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">This user is {currentData.user}</MDBCardText> 
+                     <MDBCardText className="font-italic mb-1">specialization is {currentData.specialization}</MDBCardText> 
+
+
                   </div>
                 </div>
                 <HeadProfile name="enroll courses"/>
@@ -95,6 +91,7 @@ else{
                   </MDBCol>
                 </MDBRow>
                 <HeadProfile name=" courses added"/>
+                
                 <HeadProfile name=" Saved Books"/>
               </MDBCardBody>
             </MDBCard>
