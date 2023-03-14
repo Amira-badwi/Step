@@ -17,7 +17,7 @@ function CourseSection(props) {
                             <table class="table table-borderless">
                                 <tbody>
                                     {props.section.sectionContent.map((content, index) => (<tr key={index}>
-                                        <Link to={`/CourseContent/${content.curriclemName}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>
+                                        <Link to={`/lecture/${props.courseId}/${content.curriclemId}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>
                                     </tr>))}
                                 </tbody>
                             </table></div></div>
