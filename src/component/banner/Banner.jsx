@@ -1,41 +1,30 @@
 import "./banner.css";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
-
-
+import { useContext, useState } from "react";
 import Form from "../form/Form";
 import ReviewList from "../reviewlist/ReviewList";
-
-
 import { db } from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
 import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
+import { loadContext } from "../context/langContext";
 const Banner = () => {
-
+  const {contextload, setcontextload} =useContext(loadContext);
   //list reviews
   const [reviews, setReviews] = useState([]);
-  // const coursesCollectionRefReview = collection(db, "review");
-
-  
     const [courses,setCourses]=useState([]);
     const coursesCollectionRef=collection(db,"courses");
     const {id} = useParams();
     var course ={};
-    useEffect(()=>{
+    useEffect(()=>{  setcontextload(true)
 const getCourses=async()=>{
-    const data=await getDocs(coursesCollectionRef);
+  const data=await getDocs(coursesCollectionRef);
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-   
+    setcontextload(false)
 }
-// const getReviews=async()=>{
-//     const data=await getDocs(coursesCollectionRefReview);
-//     setReviews(data.docs.map((doc)=>({...doc.data(),reviews ,id:doc.id})))
-   
-// }
-// getReviews()
 getCourses()
+
  },[] )
 var course= courses.filter(item=> item.id===id)   
 

@@ -8,16 +8,19 @@ import cate2 from '../../images/cate2.jpg'
 import'./CoursesSwipper.css'
 import Carousel from 'react-bootstrap/Carousel';
 import { collection, doc, getDocs } from "firebase/firestore"
-import { useEffect, useState } from "react"
+import { useEffect, useState ,useContext} from "react"
 import { db } from "../../firebase"
 import { useHistory} from 'react-router-dom/cjs/react-router-dom'
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import { loadContext } from '../context/langContext'
 
 
  export default function CoursesSwipper() {
-  
+    const {contextload, setcontextload} =useContext(loadContext);
+
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
+<<<<<<< HEAD
 
      console.log(coursesCollectionRef)
 //     useEffect(()=>{
@@ -27,13 +30,20 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
 //     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
 
     // console.log(coursesCollectionRef)
+=======
+>>>>>>> viewContent
 useEffect(()=>{
+    setcontextload(true)
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
-    // console.log(data)
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+<<<<<<< HEAD
+=======
+    setcontextload(false)
+>>>>>>> viewContent
 }
 getCourses()
+
     },[] )
 
 
@@ -112,9 +122,5 @@ breakpoints={{
   {/* </Carousel> */}
   <br/> 
 </>)
-
-
-
-
 
  }
