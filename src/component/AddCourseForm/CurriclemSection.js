@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { v4 } from 'uuid'
+
 import './CurriclemSection.css'
 function CurriclemSection(props) {
   const [isAdd, setIsAdd] = useState(false)
@@ -42,9 +44,9 @@ function CurriclemSection(props) {
 
     const section = props.courseData.courseSections.filter((section) => section.sectionName == props.section.sectionName)[0]
     if (curriclemItem.curriclemType == 'Lecture') {
-      newSections[objIndex].sectionContent = [...section.sectionContent, { ...curriclemItem, curriclemContent: videoLink }]
+      newSections[objIndex].sectionContent = [...section.sectionContent, { ...curriclemItem, curriclemContent: videoLink, curriclemId: curriclemItem.replace(/\s/g, "") + v4() }]
     } else {
-      newSections[objIndex].sectionContent = [...section.sectionContent, { ...curriclemItem, curriclemContent: questions }]
+      newSections[objIndex].sectionContent = [...section.sectionContent, { ...curriclemItem, curriclemContent: questions, curriclemId: curriclemItem.replace(/\s/g, "") + v4() }]
     }
     props.setCourseData({ ...props.courseData, courseSections: newSections })
     setIsContentAdd(false)

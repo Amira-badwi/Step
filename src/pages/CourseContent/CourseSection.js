@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CourseSection(props) {
     return (
@@ -7,21 +8,16 @@ function CourseSection(props) {
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
-                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${props.index}`} aria-expanded="true" aria-controls={`collapse${props.index}`}>
                             {props.section.sectionName}
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id={`collapse${props.index}`} class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <table class="table table-borderless">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     {props.section.sectionContent.map((content, index) => (<tr key={index}>
-                                        <td>({content.curriclemType}){content.curriclemName}</td>
+                                        <Link to={`/CourseContent/${content.curriclemName}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>
                                     </tr>))}
                                 </tbody>
                             </table></div></div>
