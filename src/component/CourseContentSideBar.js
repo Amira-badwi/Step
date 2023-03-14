@@ -1,21 +1,19 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import './CourseContentSideBar.css'
 function CourseContentSideBar() {
-
+    const [ isShow, setIsShow ] = useState(true)
+    console.log(isShow);
+    const classN = `offcanvas offcanvas-start ${isShow?'show':''}`
     return (<>
-        <div class="container-fluid fixed-top">
-            <div class="row">
-                <div class="col-3 bg-light sidebar">
-                    <nav class="nav nav-pills flex-column">
-                        <a class="nav-link active" href="#">Home</a>
-                        <a class="nav-link" href="#">About</a>
-                        <a class="nav-link" href="#">Contact</a>
-                    </nav>
-                </div>
-                <div class="col-9 content">
-                    <h1>Page Content</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+        <button class="sideBarToggle" type="button" onClick={()=>setIsShow(true)} data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa-solid fa-arrow-right"></i></button>
+
+        <div class={classN} offcanvas-start data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                <button type="button" class="btn-close" onClick={()=>setIsShow(false)} aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Try scrolling the rest of the page to see this option in action.</p>
             </div>
         </div>
     </>
