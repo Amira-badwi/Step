@@ -9,22 +9,27 @@ import cate2 from '../../images/cate2.jpg'
 import'./arCoursesSwipper.css'
 import Carousel from 'react-bootstrap/Carousel';
 import { collection, doc, getDocs } from "firebase/firestore"
-import { useEffect, useState } from "react"
+import { useEffect, useState ,useContext} from "react"
 import { db } from "../../firebase"
 import { useHistory} from 'react-router-dom/cjs/react-router-dom'
+import { loadContext } from '../context/langContext'
 
 
 
  export default function ArCoursesSwipper() {
+    const {contextload, setcontextload} =useContext (loadContext);
 
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
  
     useEffect(()=>{
+        setcontextload(true)
 const getCourses=async()=>{
+
     const data=await getDocs(coursesCollectionRef);
 
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+    setcontextload(false)
 
 }
 getCourses()

@@ -17,7 +17,6 @@ import Profile from "./pages/profile";
 import { AuthContext } from "./component/context/AuthContext";
 import CourseEnroll from "./pages/CourseContent/CourseEnroll";
 import CourseContentSideBar from "./component/CourseContentSideBar";
-
 import Loader from "./component/loader/Loader";
 
 function App() {
