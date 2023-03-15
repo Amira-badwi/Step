@@ -118,6 +118,8 @@ function Sign_Up() {
     const phone = userData.phone;
     const user = userData.user;
     const graduate = userData.Graduation;
+    const booksUser=userData.booksUser;
+    const coursesUser=userData.coursesUser
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
          console.log(res.user)
@@ -140,7 +142,7 @@ function Sign_Up() {
               photoURL: downloadURL,
               
            });
-             await setDoc(doc(db, "users", res.user.uid), {
+             await setDoc(doc(db,"users", res.user.uid), {
               uid: res.user.uid,
               displayName,
               email,
@@ -154,6 +156,8 @@ function Sign_Up() {
               phone,
               user,
               graduate,
+              booksUser,
+              coursesUser
             });
              
               

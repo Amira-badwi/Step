@@ -20,7 +20,7 @@ import { loadContext } from '../context/langContext'
 
     const [courses,setCourses]=useState([])
     const coursesCollectionRef=collection(db,"courses")
-<<<<<<< HEAD
+ 
 
      console.log(coursesCollectionRef)
 //     useEffect(()=>{
@@ -30,17 +30,15 @@ import { loadContext } from '../context/langContext'
 //     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
 
     // console.log(coursesCollectionRef)
-=======
->>>>>>> viewContent
+ 
 useEffect(()=>{
     setcontextload(true)
 const getCourses=async()=>{
     const data=await getDocs(coursesCollectionRef);
     setCourses(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-<<<<<<< HEAD
-=======
+ 
     setcontextload(false)
->>>>>>> viewContent
+     
 }
 getCourses()
 

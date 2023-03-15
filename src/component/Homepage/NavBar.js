@@ -16,13 +16,15 @@ export default function NavBar() {
    console.log(currentValue)
   const [loging, setLoging] = useState("");
   const [userType,setUserType]=useState("");
-
+ 
   useEffect(() => {
     //  console.log(currentValue)
     if (currentValue != null) {
       setLoging("Logout");
+      
     } else {
       setLoging("Login");
+      
     }
   }, [currentValue]);
 
@@ -63,8 +65,8 @@ export default function NavBar() {
           >
             <ul className="navbar-nav w-100 d-flex justify-content-between">
              
-             
-              {currentData.user =="trainee" || loging == "Login"?
+              
+            {currentData.user=="trainee" || (loging == "Login"&&currentData.user=="user") ?
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/courses">
                 
@@ -124,7 +126,7 @@ export default function NavBar() {
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul>      
           </div>
         </div>
       </nav>

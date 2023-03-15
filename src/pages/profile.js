@@ -91,7 +91,6 @@ else{
                   </MDBCol>
                 </MDBRow>
                 <HeadProfile name=" courses added"/>
-                
                 <HeadProfile name=" Saved Books"/>
               </MDBCardBody>
             </MDBCard>

@@ -7,8 +7,8 @@ import { auth, db } from "../../firebase";
 export const AuthContext=createContext();
 export const AuthContextProvider=({children})=>{
      
-    
-    
+    let result;
+   
      const [userData,setUserData]=useState()
     const [currentUser,setCurrenUser]=useState({})
     useEffect(()=>{
@@ -17,7 +17,7 @@ export const AuthContextProvider=({children})=>{
            console.log(user);
             //console.log(user.email);
             //console.log(user.uid)
-           
+            
        
         ;(async()=>{
             const colRef=collection(db,'users')
@@ -29,10 +29,10 @@ export const AuthContextProvider=({children})=>{
          
       
           console.log(docs)
-           const result=docs.filter((item)=>item.uid==user.uid)
-    
+         {user==null ? setUserData({user:"user"}):
+           result=docs.filter((item)=>item.uid==user.uid)
           setUserData(result[0])
-       
+        }
           })()
         });
         return()=>{
