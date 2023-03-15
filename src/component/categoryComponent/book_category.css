@@ -28,12 +28,7 @@ color: #FFF;
     animation: ease-in;
     
 }
-/* .cardcontainer:hover{
-    box-shadow: 0 0 45px gray;
-     transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
-    
-} */
+
 
 .photo{
     height: 300px;
@@ -79,21 +74,11 @@ color: #FFF;
     font-size: 20px;
 }
 
-/* .cardcontainer:hover > .photo{
-    height: 150px;
-    animation: move1 0.5s ease both;
-} */
+
 @keyframes move1{
     0%{height: 300px}
     100%{height: 240px}
 }
-/* .cardcontainer:hover > .content{
-    height:100px;
-}  */
-
-
-
-
 
 
 
@@ -104,10 +89,7 @@ color: #FFF;
     transition: 0.3s;
     animation: ease-in;
 }
-/* .card-contauner:hover{
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
-} */
+
 .image-contauner{
     overflow: hidden;  
     height: 300px;

@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { loadContext } from "../../component/context/langContext";
 export default function Books_category(){
     const {contextload, setcontextload} =useContext(loadContext);
-
     const param=useParams()
     const [books,setbooks]=useState([{ bookImage:"",bookName:"no item" , 
     bookImage:""}]);
@@ -23,7 +22,6 @@ export default function Books_category(){
  getCourses()
      },[] )
  var    coursescategory=books.filter(itm=>itm.bookCategory===param.id)
-
     return(<>
 
       <div className="container-fluid">
