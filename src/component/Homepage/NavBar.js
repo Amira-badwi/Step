@@ -91,10 +91,13 @@ export default function NavBar() {
                     >
                       {loging}
 
+                     {
+                      loging == "Logout"? <i style={{ "margin-left": "7px" }}  class ="fa-solid fa-right-from-bracket">  </i>: 
                       <i
-                        style={{ "margin-left": "7px" }}
-                        className="fa-solid fa-right-to-bracket mh-5 d-inline-block"
-                      ></i>
+                      style={{ "margin-left": "7px" }}
+                      className="fa-solid fa-right-to-bracket mh-5 d-inline-block"
+                    ></i>
+                     }
                     </NavLink>
                   </li>
                   <li>

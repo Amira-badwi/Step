@@ -34,15 +34,15 @@ var course= courses.filter(item=> item.id===id)
       console.log(reviews)
 return(<>
 <div className="coursebackground">
-<div className="container text-center mt-3">
+<div className="container text-center mt-3 ">
     <div className="row">
       <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
-        <p className="coursepartof" >
+        <p className="coursepartof fs-5" >
         This course is part of {ele.courseCategory}
         </p>
-        <h2 className="coursepriviewTitle" >
+        <h4 className="coursepriviewTitle" >
         {ele.courseName}
-        </h2>
+        </h4>
           <br/>
           <button type="button" className="btn bgcolor rounded-pill w-5" >
         Enroll for free</button>
@@ -59,8 +59,8 @@ return(<>
     </div></div><br/><br/>
 </div>
 <br/>
-<div className="container">
-    <div className="row">
+<div className="container ">
+    <div className="row m-3">
         <div className="col-9 spansStyle">
             <span>
                 <Link to='#About'>
@@ -110,8 +110,8 @@ return(<>
     <div class="col-md-4" style={{height:'300px'}}>
       <img  src={photo2}  alt="step photo" class="img-fluid rounded-start" style={{backgroundColor:'',height:'300px',marginTop:'20px'}}/>
     </div>
-    <div class="col-md-8">
-      <div class="card-body" style={{textAlign:'center',marginTop:'50px'}}>
+    <div class="col-md-12">
+      <div  style={{textAlign:'center',marginTop:'50px'}}  >
         <h5 class="card-title offerdTitle">Step</h5>
         <p class="card-text reviewparagraphs"> We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters</p>
       </div>
