@@ -37,19 +37,16 @@ return(<>
 <div className="coursebackground">
 <div className="container text-center mt-3 ">
     <div className="row">
-<<<<<<< HEAD
+
       <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto ">
         <p className="coursepartof mt-5 w-100" >
         This course is part of {ele.courseCategory}
         </p>
-        <h2 className="coursepriviewTitle ms-2" >
-=======
-      <div className="col-12 mt-5 col-md-6 col-lg-6 m-auto">
-        <p className="coursepartof fs-5" >
-        This course is part of {ele.courseCategory}
-        </p>
+
+
+
+     
         <h4 className="coursepriviewTitle" >
->>>>>>> viewContent
         {ele.courseName}
         </h4>
           <br/>
