@@ -11,10 +11,10 @@ export default function Catecory_home(){
         <>
          <BrowserRouter>
         <div className=" row  ">
-        <div className="col-lg-2 col-md-5 col-3 mx-3 m-auto ">
+        <div className="col-lg-2 col-md-5 col-4 mx-3 m-auto ">
         <NavCategory/>
         </div>
-     <div className="col-lg-9 col-md-6 col-7  ">
+     <div className="col-lg-9 col-md-6 col-6   text-center " >
      <Switch>
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book/:id"   component={Books_category}/>
