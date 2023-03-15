@@ -2,19 +2,24 @@ import BookCategory from "../../component/categoryComponent/bookCategory";
 import {db} from "../../firebase";
 import { collection, doc, getDocs } from "firebase/firestore";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useContext } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { loadContext } from "../../component/context/langContext";
 export default function Books_category(){
-    const param=useParams();
+    const {contextload, setcontextload} =useContext(loadContext);
 
+    const param=useParams()
     const [books,setbooks]=useState([{ bookImage:"",bookName:"no item" , 
     bookImage:""}]);
      const coursesCollectionRef=collection(db,"books")
      useEffect(()=>{
+        setcontextload(true)
  const getCourses=async()=>{
      const data=await getDocs(coursesCollectionRef);
     
-     setbooks(data.docs.map((doc)=>({...doc.data(),id:doc.id}))) }
+     setbooks(data.docs.map((doc)=>({...doc.data(),id:doc.id}))) 
+     setcontextload(false)
+    }
  getCourses()
      },[] )
  var    coursescategory=books.filter(itm=>itm.bookCategory===param.id)
