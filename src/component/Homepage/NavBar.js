@@ -10,15 +10,21 @@ export default function NavBar() {
   const { contextlang, setcontextlang } = useContext(langContext);
   const currentUse = useContext(AuthContext);
   const currentValue = currentUse.currentUser;
-  // console.log(currentValue)
+  const currentData=currentUse.userData;
+  console.log(currentData)
+  
+   console.log(currentValue)
   const [loging, setLoging] = useState("");
-
+  const [userType,setUserType]=useState("");
+ 
   useEffect(() => {
     //  console.log(currentValue)
     if (currentValue != null) {
       setLoging("Logout");
+      
     } else {
       setLoging("Login");
+      
     }
   }, [currentValue]);
 
@@ -33,6 +39,14 @@ export default function NavBar() {
             <NavLink className="navbar-brand" to="/">
               <p className=" text-light brand-name">STEP</p>
             </NavLink>
+            <button
+                  className=" btn btn-outline-light fs-6 fw-bold mr-4 "
+                  onClick={() =>
+                    setcontextlang(contextlang === "En" ? "Ar" : "En")
+                  }
+                >
+                  {contextlang}
+                </button>
           </li>
           <button
             className="navbar-toggler"
@@ -50,29 +64,35 @@ export default function NavBar() {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav w-100 d-flex justify-content-between">
-              <li className="nav-item ">
-                <NavLink
-                  className="nav-link active  text-light"
-                  aria-current="page"
-                  to="/courses"
-                >
-                  {contextlang == "En" ? "Courses" : " دورات تدريبية"}
-                </NavLink>
-              </li>
+             
+              
+            {currentData.user=="trainee" || (loging == "Login"&&currentData.user=="user") ?
               <li className="nav-item d-flex justify-content-between">
-                <NavLink className="nav-link  text-light " to="/addCourse">
-                  <i class="fa-solid fa-plus"></i>
-                  {contextlang == "En" ? " Add Content" : "أضف محتوى تعليمي "}
+                <NavLink className="nav-link  text-light " to="/courses">
+                
+                  {contextlang == "En" ? " Content" : "أضف محتوى تعليمي "}
                 </NavLink>
-                <button
-                  className=" btn btn-outline-light fs-6 fw-bold mr-4 "
-                  onClick={() =>
-                    setcontextlang(contextlang === "En" ? "Ar" : "En")
-                  }
-                >
-                  {contextlang}
-                </button>
+               
               </li>
+              :
+              <>
+              <li className="nav-item ">
+              <NavLink
+                className="nav-link active  text-light"
+                aria-current="page"
+                to="/courses"
+              >
+                {contextlang == "En" ? "Content" : " دورات تدريبية"}
+              </NavLink>
+            </li>
+               <li className="nav-item d-flex justify-content-between">
+              <NavLink className="nav-link  text-light " to="/addCourse">
+                <i class="fa-solid fa-plus"></i>
+                {contextlang == "En" ? " Add Content" : "أضف محتوى تعليمي "}
+              </NavLink>
+             
+            </li></>}
+                
               <li>
                 <ul className="navbar-nav d-flex  ">
                   <li>
@@ -109,7 +129,7 @@ export default function NavBar() {
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul>      
           </div>
         </div>
       </nav>

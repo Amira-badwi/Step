@@ -104,8 +104,11 @@
     /* background-image: linear-gradient(90deg, rgb(0, 37, 76), rgb(150, 169, 189)); */
     background-image: linear-gradient(90deg, rgb(150, 169, 189), rgb(0, 44, 91));
     width:'100%';
+
     height: 300px;
    
+    justify-content: center;
+
 }
 .coursepriviewTitle{
     color: antiquewhite;
@@ -115,7 +118,12 @@
 }
 .coursepartof{
 color: antiquewhite;
+
 /* font-size: 25px; */
+
+font-size: 25px;
+
+
 }
 .circle{
     width: 100px;

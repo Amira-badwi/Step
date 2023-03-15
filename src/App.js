@@ -18,6 +18,7 @@ import { AuthContext } from "./component/context/AuthContext";
 import CourseEnroll from "./pages/CourseContent/CourseEnroll";
 import CourseContentSideBar from "./component/CourseContentSideBar";
 import Loader from "./component/loader/Loader";
+import CourseLecture from "./component/CourseLecture";
 
 function App() {
   const [contextlang, setcontextlang] = useState("En");
@@ -32,7 +33,7 @@ function App() {
         <langContext.Provider value={{ contextlang, setcontextlang }}>
           <BrowserRouter>
             <NavBar />
-            {contextload == true && <Loader/>}
+            {contextload == true && <Loader />}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route
@@ -67,13 +68,23 @@ function App() {
               />
               <Route
                 exact
-                path="/CourseContent/:courseName"
+                path="/CourseContent/:courseName/:id"
                 component={currentValue == null ? Login : CourseContentSideBar}
               />
               <Route
                 exact
                 path="/profile"
                 component={currentValue == null ? Login : Profile}
+              />
+              <Route
+                exact
+                path="/lecture/:courseName/:id"
+                component={currentValue == null ? Login : CourseLecture}
+              />
+              <Route
+                exact
+                path="/quiz/:courseName/:id"
+                component={currentValue == null ? Login : CourseLecture}
               />
               <Route exact path="*" component={Notfound} />
             </Switch>

@@ -33,7 +33,7 @@ function CourseEnroll() {
   return (
     <div className='container'>
       <div><h1>{course.courseName}</h1></div>
-      {course.courseSections.map((section) => <CourseSection />)}
+      {course.courseSections.map((section, index) => <CourseSection index={index} section={section} courseId={id} />)}
     </div>
   )
 }

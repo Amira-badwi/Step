@@ -46,7 +46,7 @@ updateUser(ele.id,ele.courseReviews);
   const updateUser= async(id,courseReview)=>
   {
   const reviewDoc= doc(db,"courses",id);
-  const newfield={  courseReviews:[... courseReview,{name:name ,message:message ,rating:rating}]};
+  const newfield={courseReviews:[...courseReview,{name:name ,message:message ,rating:rating}]};
   await updateDoc(reviewDoc ,newfield);
   }
     return (

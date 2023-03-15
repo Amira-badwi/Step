@@ -1,0 +1,13 @@
+.sideBarToggle{
+    padding: 10px;
+    background-color: #092752;
+    color: white;
+    /* width:2%; */
+}
+/* .sideBarToggle:hover{
+    width:10%;
+    transition: width 1s;
+} */
+.offcanvasCourse{
+    margin-top: 71px;
+}
