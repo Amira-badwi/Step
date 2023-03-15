@@ -69,7 +69,7 @@ function App() {
               />
               <Route
                 exact
-                path="/CourseContent/:courseName"
+                path="/CourseContent/:courseName/:id"
                 component={currentValue == null ? Login : CourseContentSideBar}
               />
               <Route
