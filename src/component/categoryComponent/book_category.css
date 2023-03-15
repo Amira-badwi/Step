@@ -28,12 +28,14 @@ color: #FFF;
     animation: ease-in;
     
 }
+
 /* .cardcontainer:hover{
     box-shadow: 0 0 45px gray;
      transform: scale(1.1);
     box-shadow: 0px 0px 15px 0px;
     
 } */
+
 
 .photo{
     height: 300px;
@@ -90,11 +92,6 @@ color: #FFF;
 /* .cardcontainer:hover > .content{
     height:100px;
 }  */
-
-
-
-
-
 
 
 .card-contauner{
