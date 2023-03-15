@@ -18,7 +18,8 @@ function CourseSection(props) {
                                 <tbody>
                                     {props.section.sectionContent.map((content, index) => (<tr key={index}>
                                         
-                                        <Link to={`/courseContent/${props.courseId}/${content.curriclemId}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>
+                                        {props.isOffCanvas?<span className='sectionName' onClick={()=>props.showCourse(content.curriclemId,props.section.sectionId)}><td>({content.curriclemType}) {content.curriclemName}</td></span>
+                                        :<Link to={`/courseContent/${props.courseId}/${content.curriclemId}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>}
                                     </tr>))}
                                 </tbody>
                             </table></div></div>
