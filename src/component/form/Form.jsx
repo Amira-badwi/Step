@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import '../../component/Homepage/About.css'
 import {db} from "../../firebase";
-import { collection, doc, getDocs ,addDoc } from "firebase/firestore";
-export default function Form({addReview}) {
+import { collection, doc, getDocs ,addDoc, setDoc, updateDoc } from "firebase/firestore";
+
+export default function Form({addReview ,ele}) {
 
     const [name,setName] =useState('');
     const [message,setMessage] =useState('');
-    const [rating, setRating] = useState(0) // initial rating value
+    const [rating, setRating] = useState(0) ;
+
 
   // Catch Rating value
   const handleRating = (rate) => {
@@ -24,19 +26,29 @@ export default function Form({addReview}) {
       rating: rating 
     }
     addReview(review);
-    addtofirebase();
+    // addtofirebase();
+updateUser(ele.id,ele.courseReviews);
+    setMessage("")
+    setName("")
+   
   }
   const isDisabled = () => {
     if (!name || !message || !rating){
       return true;
     }
   }
-  const coursesCollectionRef=collection(db,"review");
+  // const coursesCollectionRef=collection(db,"review");
 
-  const addtofirebase=async ()=>{
-   await addDoc(coursesCollectionRef ,{username:name ,message:message , rate: rating})  
+  // const addtofirebase=async ()=>{
+  //  await addDoc(coursesCollectionRef ,{username:name ,message:message , rate: rating})  
+  // }
+  
+  const updateUser= async(id,courseReview)=>
+  {
+  const reviewDoc= doc(db,"courses",id);
+  const newfield={courseReviews:[...courseReview,{name:name ,message:message ,rating:rating}]};
+  await updateDoc(reviewDoc ,newfield);
   }
-    
     return (
         <form className='mt-2' onSubmit= {(e) => formSubmit(e)}>
             <div className='mb-3'>

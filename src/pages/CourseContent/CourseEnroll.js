@@ -2,9 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from '../../firebase';
+import CourseSection from './CourseSection';
 
 function CourseEnroll() {
-  const [course, setCourse] = useState()
+  const [course, setCourse] = useState({
+    courseName: '',
+    courseDescription: '',
+    courseCategory: '',
+    courseImage: '',
+    courseSections: []
+  })
   const params = useParams()
   const id = params.id
   const docRef = doc(db, "courses", id);
@@ -12,11 +19,11 @@ function CourseEnroll() {
     // const 
     const getCourse = async () => {
       const docSnap = await getDoc(docRef);
-      setCourse(docSnap)
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
+        setCourse(docSnap.data())
+        console.log(course);
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     }
@@ -24,7 +31,10 @@ function CourseEnroll() {
 
   }, [])
   return (
-    <div><h1>{id}</h1></div>
+    <div className='container'>
+      <div><h1>{course.courseName}</h1></div>
+      {course.courseSections.map((section, index) => <CourseSection index={index} section={section} courseId={id} />)}
+    </div>
   )
 }
 

@@ -57,7 +57,6 @@ function Pg3(props) {
         else
         return null
       }
-      console.log(test())
       props.setError({
         ...props.error,
         user:

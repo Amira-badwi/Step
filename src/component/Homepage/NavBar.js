@@ -11,18 +11,19 @@ export default function NavBar() {
   const currentUse = useContext(AuthContext);
   const currentValue = currentUse.currentUser;
   const currentData=currentUse.userData;
-  console.log(currentData)
   
    console.log(currentValue)
   const [loging, setLoging] = useState("");
   const [userType,setUserType]=useState("");
-
+ 
   useEffect(() => {
     //  console.log(currentValue)
     if (currentValue != null) {
       setLoging("Logout");
+      
     } else {
       setLoging("Login");
+      
     }
   }, [currentValue]);
 
@@ -63,8 +64,8 @@ export default function NavBar() {
           >
             <ul className="navbar-nav w-100 d-flex justify-content-between">
              
-             
-              {currentData.user =="trainee" || loging == "Login"?
+              
+            {currentData.user=="trainee" || currentData.user=="user" ?
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/courses">
                 
@@ -109,10 +110,13 @@ export default function NavBar() {
                     >
                       {loging}
 
+                     {
+                      loging == "Logout"? <i style={{ "margin-left": "7px" }}  class ="fa-solid fa-right-from-bracket">  </i>: 
                       <i
-                        style={{ "margin-left": "7px" }}
-                        className="fa-solid fa-right-to-bracket mh-5 d-inline-block"
-                      ></i>
+                      style={{ "margin-left": "7px" }}
+                      className="fa-solid fa-right-to-bracket mh-5 d-inline-block"
+                    ></i>
+                     }
                     </NavLink>
                   </li>
                   <li>
@@ -124,7 +128,7 @@ export default function NavBar() {
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul>      
           </div>
         </div>
       </nav>

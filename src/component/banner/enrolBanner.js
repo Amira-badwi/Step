@@ -10,26 +10,14 @@ import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
 import { loadContext } from "../context/langContext";
 import { AuthContext } from "../context/AuthContext";
-import { stringify } from "@firebase/util";
-const Banner = () => {
+const EnrollBanner = () => {
   const [coursesEnroll,setCoursEnroll]=useState("");
 
   const currentUse=useContext(AuthContext)
   var currentDataCourses=[];
   const currentValue=currentUse.currentUser;
   const currentData=currentUse.userData;
-  const  [flag,setflag] =useState(false);
   const {contextload, setcontextload} =useContext(loadContext);
-
-const enroll= async(idd,coursesUser ,element)=>
-  {
-  const reviewDoc= doc(db,"users",idd);
-  const newfield={coursesUser:[...coursesUser,element]};
-  await updateDoc(reviewDoc ,newfield);
-
-  setflag(true)
-}
-
 
   //list reviews
   const [reviews, setReviews] = useState([]);
@@ -45,12 +33,12 @@ const getCourses=async()=>{
 }
 getCourses()
 
-if(currentUse.userData.booksUser !==undefined)
-{   
-  currentDataCourses=currentUse.userData.coursesUser;
-setCoursEnroll( currentDataCourses.filter(ele=>ele.id==id))
-console.log(coursesEnroll)
-}
+// if(currentUse.userData.booksUser !==undefined)
+// {   
+//   currentDataCourses=currentUse.userData.coursesUser;
+// setCoursEnroll( currentDataCourses.filter(ele=>ele.id==id))
+// console.log(coursesEnroll)
+// }
  } ,[currentUse])
  var course= courses.filter(item=> item.id===id)   
 
@@ -71,15 +59,10 @@ return(<>
         <h4 className="coursepriviewTitle" >
         {ele.courseName}
         </h4>
-          <br/>
-        { flag==false &&
-            <button type="button" className="btn bgcolor rounded-pill w-5" onClick={()=>enroll(currentValue.uid,currentData.coursesUser ,ele)}>
-            Enroll for free</button>
-        }
-        { flag==true &&
-      <Link to={`/CourseEnroll/${ele.id}`}>      <button type="button" className="btn bgcolor rounded-pill w-5" >
+          <br/>    
+          <Link to={`/CourseEnroll/${ele.id}`}>      <button type="button" className="btn bgcolor rounded-pill w-5">
             open</button> </Link>
-        }
+        
         </div>
         <div className="col-6 d-none d-lg-block">
             <div>
@@ -93,9 +76,9 @@ return(<>
     </div></div><br/><br/>
 </div>
 <br/>
-<div style={{ alignItems:"center", textAlign:"center"}} className="container ">
-    <div className="row">
-        <div className="  spansStyle">
+<div className="container ">
+    <div className="row m-3">
+        <div className="col-9 spansStyle">
             <span>
                 <Link to='#About'>
               About </Link>
@@ -122,7 +105,7 @@ return(<>
 <p className="reviewparagraphs">{ele.courseDescription}</p>
 <LineSection/>
 <div className="row mt-2">
-<div  >
+<div className="col-8 ">
     <h3 className="Aboutthiscourse" id ="Instructor">
         Instructor
     </h3>
@@ -133,9 +116,8 @@ return(<>
 <h3 className="Aboutthiscourse" id="Review">
         Review
     </h3>
-{
-  flag==true && <Form addReview= {setReviews}  ele={ele}/>
-}
+<Form addReview= {setReviews}  ele={ele}/>
+
     <ReviewList  reviews={[...ele.courseReviews,reviews]}/>
 <LineSection/>
 <h3 className="Aboutthiscourse" id="offer">
@@ -146,8 +128,8 @@ return(<>
     <div class="col-md-4" style={{height:'300px'}}>
       <img  src={photo2}  alt="step photo" class="img-fluid rounded-start" style={{backgroundColor:'',height:'300px',marginTop:'20px'}}/>
     </div>
-    <div class="col-md-8">
-      <div className="card-body" style={{textAlign:'center',marginTop:'50px'}}  >
+    <div class="col-md-12">
+      <div  style={{textAlign:'center',marginTop:'50px'}}  >
         <h5 class="card-title offerdTitle">Step</h5>
         <p class="card-text reviewparagraphs"> We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters</p>
       </div>
@@ -161,4 +143,4 @@ return(<>
     }
   </>)
 }
-export default Banner;
+export default  EnrollBanner;
