@@ -145,8 +145,8 @@ function CourseForm() {
                 <h1 className='text-center'>{formTitles[page]}</h1>
                 <form onSubmit={(e) => { e.preventDefault() }}>
                     {page == 0 ? <ContentType handleContentType={handleContentType} contentTypeErr={contentTypeErr} /> : (page == 1 && contentType == 'course') ? <CourseInfo courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData} /> : (page == 1 && contentType == 'book') ? <BookInfo bookData={bookData} setBookData={setBookData} bookErrs={bookErrs} setBookErrs={setBookErrs} /> : <CourseContent courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData} />}
-                    <button className='btn btn-primary me-3' disabled={page == 0} onClick={() => { setPage((current) => (current - 1)) }}>Prev</button>
-                    <button className='btn btn-primary me-3' onClick={() => { (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? handleSubmit() : handleNext() }}>{isLoading ? <div className="mx-3 spinner-border spinner-border-sm" role="status">
+                    <button className='btn btn-primary me-3' disabled={page == 0 ||isLoading} onClick={() => { setPage((current) => (current - 1)) }}>Prev</button>
+                    <button disabled={isLoading} className='btn btn-primary me-3' onClick={() => { (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? handleSubmit() : handleNext() }}>{isLoading ? <div className="mx-3 spinner-border spinner-border-sm" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div> : (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? 'Submit' : 'Next'}</button>
                 </form>
