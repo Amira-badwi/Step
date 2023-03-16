@@ -22,8 +22,6 @@ function Sign_Up() {
   const [err, setErr] = useState();
   const [Page, setPage] = useState(1);
   
- 
- 
   /////////////proress/////////////////
   const [Prog, setProg] = useState(40);
   const changePageinc = () => {
