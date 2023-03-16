@@ -6,8 +6,10 @@ function CourseContent(props) {
   const [isAdd, setIsAdd] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
   const [singleSection, setSingleSection] = useState({ sectionId: 0, sectionName: '', sectionContent: [] })
+  const [singleSectionErr, setSingleSectionErr] = useState({ sectionId: null, sectionName: null, sectionContent: null })
   const handleSectionNameChange = (e) => {
     setSingleSection({ ...singleSection, sectionName: e.target.value })
+    setSingleSectionErr({ ...singleSectionErr, sectionName: e.target.value.length==0?'This field is required':'' })
   }
   const addSection = () => {
     props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, { ...singleSection, sectionId: singleSection.sectionName.replace(/\s/g, "") + v4() }] })
@@ -39,9 +41,12 @@ function CourseContent(props) {
         <label htmlFor="section-name" className="form-label">Section Name:</label>
         <div className='d-flex'>
           <input placeholder='Section Name' id='section-name' value={singleSection.sectionName} type="text" className="form-control" name='sectionName' onChange={handleSectionNameChange} />
+
           <button className='btn btn-secondary ms-3' onClick={addSection}><i className="fa-solid fa-plus"></i></button>
 
-        </div></div> : null}
+        </div>          
+        {singleSectionErr.sectionName ? <div className='text-danger'>{singleSectionErr.sectionName}</div> : null}
+</div> : null}
       <button className='btn btn-secondary m-4' onClick={() => setIsAdd(true)}><i className="fa-solid fa-plus"></i> Add Section</button>
     </div>
   )
