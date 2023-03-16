@@ -4,21 +4,25 @@ import { useContext, useEffect, useState } from "react";
 import { db } from "../../firebase";
 import BookCategory from "../categoryComponent/bookCategory";
 import { AuthContext } from "../context/AuthContext";
-
+import Card from "./../categoryComponent/course_card"
 function HeadProfile(props) {
   const currentUse=useContext(AuthContext)
   var currentData=[{bookImage:"" ,bookName:"" ,book:"" ,id:0}];
+  var currentDataCourses=[];
 
   if(currentUse.userData.booksUser !==undefined)
   {
     currentData=currentUse.userData.booksUser;
   }
+  if(currentUse.userData.coursesUser !==undefined)
+  {
+    currentDataCourses=currentUse.userData.coursesUser;
+  }
+
 
 useEffect(()=>{
 
- 
-
- },[currentUse ] )
+ },[] )
 
 
      return ( <>
@@ -36,9 +40,21 @@ useEffect(()=>{
               </>)}
 )
       
-      }
-             
+      }</div>
+  <div className="bg-danger w-100 ">
+{  props.name=="courses added"&&  currentDataCourses.map(ele=>
+         {     return(<>
+              <div className=" col-lg-12  col-md-12 col-12  " >
+<Card img={ele.courseImage} courseName={ele.courseName}  courseDescription={ele.courseDescription} to={`/enrolreviewCourse/${ele.id}`} />
               </div>
+              </>)}
+)
+      
+      } </div>
+
+
+             
+              
     </> );
 }
 

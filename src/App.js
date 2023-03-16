@@ -19,6 +19,7 @@ import CourseEnroll from "./pages/CourseContent/CourseEnroll";
 import CourseContentSideBar from "./component/CourseContentSideBar";
 import Loader from "./component/loader/Loader";
 import CourseLecture from "./component/CourseLecture";
+import EnrollBanner from "./component/banner/enrolBanner";
 
 function App() {
   const [contextlang, setcontextlang] = useState("En");
@@ -61,6 +62,7 @@ function App() {
               />
               <Route exact path="/course/:id" component={Courses_details} />
               <Route exact path="/reviewCourse/:id" component={Banner} />
+              <Route exact path="/enrolreviewCourse/:id" component={EnrollBanner} />
               <Route
                 exact
                 path="/CourseEnroll/:id"

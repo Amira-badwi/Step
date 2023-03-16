@@ -10,26 +10,14 @@ import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
 import { loadContext } from "../context/langContext";
 import { AuthContext } from "../context/AuthContext";
-import { stringify } from "@firebase/util";
-const Banner = () => {
+const EnrollBanner = () => {
   const [coursesEnroll,setCoursEnroll]=useState("");
 
   const currentUse=useContext(AuthContext)
   var currentDataCourses=[];
   const currentValue=currentUse.currentUser;
   const currentData=currentUse.userData;
-  const  [flag,setflag] =useState(false);
   const {contextload, setcontextload} =useContext(loadContext);
-
-const enroll= async(idd,coursesUser ,element)=>
-  {
-  const reviewDoc= doc(db,"users",idd);
-  const newfield={coursesUser:[...coursesUser,element]};
-  await updateDoc(reviewDoc ,newfield);
-
-  setflag(true)
-}
-
 
   //list reviews
   const [reviews, setReviews] = useState([]);
@@ -45,12 +33,12 @@ const getCourses=async()=>{
 }
 getCourses()
 
-if(currentUse.userData.booksUser !==undefined)
-{   
-  currentDataCourses=currentUse.userData.coursesUser;
-setCoursEnroll( currentDataCourses.filter(ele=>ele.id==id))
-console.log(coursesEnroll)
-}
+// if(currentUse.userData.booksUser !==undefined)
+// {   
+//   currentDataCourses=currentUse.userData.coursesUser;
+// setCoursEnroll( currentDataCourses.filter(ele=>ele.id==id))
+// console.log(coursesEnroll)
+// }
  } ,[currentUse])
  var course= courses.filter(item=> item.id===id)   
 
@@ -71,15 +59,10 @@ return(<>
         <h4 className="coursepriviewTitle" >
         {ele.courseName}
         </h4>
-          <br/>
-        { flag==false &&
-            <button type="button" className="btn bgcolor rounded-pill w-5" onClick={()=>enroll(currentValue.uid,currentData.coursesUser ,ele)}>
-            Enroll for free</button>
-        }
-        { flag==true &&
-      <Link to={`/CourseEnroll/${ele.id}`}>      <button type="button" className="btn bgcolor rounded-pill w-5" >
+          <br/>    
+          <Link to={`/CourseEnroll/${ele.id}`}>      <button type="button" className="btn bgcolor rounded-pill w-5">
             open</button> </Link>
-        }
+        
         </div>
         <div className="col-6 d-none d-lg-block">
             <div>
@@ -133,9 +116,8 @@ return(<>
 <h3 className="Aboutthiscourse" id="Review">
         Review
     </h3>
-{
-  flag==true && <Form addReview= {setReviews}  ele={ele}/>
-}
+<Form addReview= {setReviews}  ele={ele}/>
+
     <ReviewList  reviews={[...ele.courseReviews,reviews]}/>
 <LineSection/>
 <h3 className="Aboutthiscourse" id="offer">
@@ -161,4 +143,4 @@ return(<>
     }
   </>)
 }
-export default Banner;
+export default  EnrollBanner;
