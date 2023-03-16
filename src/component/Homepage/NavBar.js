@@ -11,7 +11,6 @@ export default function NavBar() {
   const currentUse = useContext(AuthContext);
   const currentValue = currentUse.currentUser;
   const currentData=currentUse.userData;
-  console.log(currentData)
   
    console.log(currentValue)
   const [loging, setLoging] = useState("");

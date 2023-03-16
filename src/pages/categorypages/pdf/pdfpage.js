@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { Buttondelete } from "../BUTTON";
 import { Pdf } from "./pdfview";
-import resume from "../../../assets/my cv.pdf"
 function Pdfpage(props) {
 
   const [modal, setModal]=useState(false);
-  const [resumee, setResume]=useState(resume);
 
 
 
@@ -13,7 +11,7 @@ function Pdfpage(props) {
     <div className="container pdfstyle">
       <br></br>
 
-      <Buttondelete setModal={setModal}/>
+      <Buttondelete setModal={setModal} id={props.id} saved={props.saved}/>
 
       {modal===true&&(
         <Pdf setModal={setModal} resume={props.pdf}/>

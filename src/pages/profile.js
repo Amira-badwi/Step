@@ -14,11 +14,7 @@ export default function Profile() {
   const currentUse=useContext(AuthContext)
   const currentValue=currentUse.currentUser;
   const currentData=currentUse.userData;
-  
-  // console.log(currentData.user)
-  //console.log(currentValue.photoURL)
- 
-   
+
   
 const [flag,setflag]=useState(false)
 function edit(){
@@ -90,8 +86,8 @@ else{
                       alt="image 1" className="w-100 rounded-3" />
                   </MDBCol>
                 </MDBRow>
-                <HeadProfile name=" courses added"/>
-                <HeadProfile name=" Saved Books"/>
+                <HeadProfile name="courses added"/>
+                <HeadProfile name="Saved Books"/>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

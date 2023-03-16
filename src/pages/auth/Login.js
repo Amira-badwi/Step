@@ -28,7 +28,6 @@ if (e.target.name=='email'){
  
   try {
     const user = await signInWithEmailAndPassword(auth,login.email,login.password);
-    console.log(user.user);
     setX(1)
     history.push("/")
  }

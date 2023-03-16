@@ -10,8 +10,6 @@ function CourseContent(props) {
     setSingleSection({ ...singleSection, sectionName: e.target.value })
   }
   const addSection = () => {
-    console.log(props.courseData.courseSections);
-    console.log(singleSection);
     props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, { ...singleSection, sectionId: singleSection.sectionName.replace(/\s/g, "") + v4() }] })
     setSingleSection({ sectionId: '', sectionName: '', sectionContent: [] })
     setIsAdd(false)
@@ -21,7 +19,6 @@ function CourseContent(props) {
     props.setCourseData({
       ...props.courseData, courseSections: props.courseData.courseSections.filter((value, index) => index != (num - 1))
     })
-    console.log(props.courseData);
   }
   const [editedSection, setEditedSection] = useState(0);
   const handleSectionEdit = (num) => {
@@ -30,7 +27,6 @@ function CourseContent(props) {
   }
   const Edit = (name) => {
     const newSections = [...props.courseData.courseSections]
-    console.log(newSections);
     newSections[editedSection - 1] = { ...singleSection, sectionName: name }
     props.setCourseData({ ...props.courseData, courseSections: newSections })
     setIsEdit(false)

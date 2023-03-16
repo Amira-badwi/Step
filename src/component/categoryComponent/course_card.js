@@ -22,7 +22,6 @@ export default function Card(props){
       <div className="card-body">
       <div className="courestitleeStyle">  <h5 className="card-titlee text-center col-12 col-lg-9"> {props.courseName}</h5></div>
         <p className="card-text couresdescStyle"> {props.courseDescription} </p>
-        {/* <p className="card-text"><small className="text-muted">Last </small></p> */}
 <span style={{color:' rgb(1, 1, 73)'}}><i  className="fa-solid fa-person personIcon"></i>
  123</span>
   </div>

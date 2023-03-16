@@ -4,12 +4,26 @@ import { useContext, useState } from "react";
 import Form from "../form/Form";
 import ReviewList from "../reviewlist/ReviewList";
 import { db } from "../../firebase";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import { useEffect } from "react";
 import photo2 from '../../assets/Step.png'
 import LineSection from "./Line";
 import { loadContext } from "../context/langContext";
+import { AuthContext } from "../context/AuthContext";
 const Banner = () => {
+
+  const currentUse=useContext(AuthContext)
+  const currentValue=currentUse.currentUser;
+  const currentData=currentUse.userData;
+  
+  // const updateUser= async(idd,booksUser)=>
+  // {
+  // const reviewDoc= doc(db,"users",idd);
+  // const newfield={booksUser:[...booksUser,id]};
+  // await updateDoc(reviewDoc ,newfield);
+  // }
+
+
   const {contextload, setcontextload} =useContext(loadContext);
   //list reviews
   const [reviews, setReviews] = useState([]);
@@ -31,7 +45,6 @@ var course= courses.filter(item=> item.id===id)
   return (<>
   { 
     course.map((ele)=>{
-      console.log(reviews)
 return(<>
 <div className="container ms-2">
 <div className="coursebackground">
