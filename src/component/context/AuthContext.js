@@ -9,7 +9,9 @@ export const AuthContextProvider=({children})=>{
      
     let result;
    
+ 
      const [userData,setUserData]=useState({user:'user',specialization:''})
+
     const [currentUser,setCurrenUser]=useState({})
     useEffect(()=>{
       const unsub= onAuthStateChanged(auth,(user)=>{
