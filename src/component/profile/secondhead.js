@@ -7,7 +7,9 @@ import { AuthContext } from "../context/AuthContext";
 import Card from "./../categoryComponent/course_card"
 function HeadProfile(props) {
   const currentUse=useContext(AuthContext)
+  
   var currentData=[{bookImage:"" ,bookName:"" ,book:"" ,id:0}];
+ 
   var currentDataCourses=[];
 
   if(currentUse.userData.booksUser !==undefined)
@@ -19,11 +21,10 @@ function HeadProfile(props) {
     currentDataCourses=currentUse.userData.coursesUser;
   }
 
-
-useEffect(()=>{
-
- },[] )
-
+ 
+ 
+   
+ 
 
      return ( <>
      <div className="d-flex justify-content-between align-items-center mb-4">
@@ -32,7 +33,7 @@ useEffect(()=>{
                   <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
                   </div>
              <div className="bg-danger w-100 d-flex">
-        {  props.name=="Saved Books"&&  currentData.map(ele=>
+        {  props.name=="Saved Books" &&  currentData.map(ele=>
          {     return(<>
               <div className=" col-lg-6  col-md-6 col-12  " >
    <BookCategory element={ele}  saved="true"/> 

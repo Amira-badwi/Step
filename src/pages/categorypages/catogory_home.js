@@ -3,10 +3,15 @@ import Books_category from "./books-category";
 import CourseCatogry from "./course_catogrey";
 import Notfound from "./notfound";
 import Courses_details from "./courses_details";
-import React from "react";
+import React, { useContext } from "react";
 import NavCategory from "../../component/categoryComponent/category_nav";
 import Banner from "../../component/banner/Banner"
+import CourseEnroll from "../CourseContent/CourseEnroll";
+import { AuthContext } from "../../component/context/AuthContext";
+import Login from "../auth/Login";
 export default function Catecory_home(){
+    const currentUse = useContext(AuthContext);
+    const currentValue = currentUse.currentUser;
     return(
         <>
          <BrowserRouter>
@@ -19,6 +24,11 @@ export default function Catecory_home(){
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book/:id"   component={Books_category}/>
         <Route exact path="/course/:id"   component={Courses_details}/>
+        <Route
+                exact
+                path="/CourseEnroll/:id"
+                component={currentValue == null ? Login : CourseEnroll}
+              />
         <Route exact path="/reviewCourse/:id"   component={Banner}/>
         <Route exact path="*"   component={Notfound}/>
         </Switch>

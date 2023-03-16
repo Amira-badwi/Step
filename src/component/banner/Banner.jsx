@@ -93,9 +93,9 @@ return(<>
     </div></div><br/><br/>
 </div>
 <br/>
-<div className="container ">
-    <div className="row m-3">
-        <div className="col-9 spansStyle">
+<div style={{ alignItems:"center", textAlign:"center"}} className="container ">
+    <div className="row">
+        <div className="  spansStyle">
             <span>
                 <Link to='#About'>
               About </Link>
@@ -122,7 +122,7 @@ return(<>
 <p className="reviewparagraphs">{ele.courseDescription}</p>
 <LineSection/>
 <div className="row mt-2">
-<div className="col-8 ">
+<div  >
     <h3 className="Aboutthiscourse" id ="Instructor">
         Instructor
     </h3>
@@ -146,8 +146,8 @@ return(<>
     <div class="col-md-4" style={{height:'300px'}}>
       <img  src={photo2}  alt="step photo" class="img-fluid rounded-start" style={{backgroundColor:'',height:'300px',marginTop:'20px'}}/>
     </div>
-    <div class="col-md-12">
-      <div  style={{textAlign:'center',marginTop:'50px'}}  >
+    <div class="col-md-8">
+      <div className="card-body" style={{textAlign:'center',marginTop:'50px'}}  >
         <h5 class="card-title offerdTitle">Step</h5>
         <p class="card-text reviewparagraphs"> We train, qualify and enable the teacher to teach the new curriculum edu 2.0 by providing the teacher with courses, books and articles by experts in the field and also professional curriculums through our platform that will be always available for him. and give him certificates by the end of each course that will be added points to give him rewards and boosters</p>
       </div>
