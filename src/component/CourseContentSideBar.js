@@ -16,7 +16,7 @@ function CourseContentSideBar() {
         courseImage: '',
         courseSections: []
       })
-    const { courseName, id } = useParams()
+    const { courseName,section, id } = useParams()
     const docRef = doc(db, "courses", courseName);
   useEffect(() => {
     // const 
@@ -24,7 +24,17 @@ function CourseContentSideBar() {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
+        const Scourse=docSnap.data()
         setCourse(docSnap.data())
+        const curriclem=Scourse.courseSections.filter((el)=>el.sectionId==section)[0].sectionContent.filter((el)=>el.curriclemId==id)[0]
+      setContent(curriclem);
+      if(curriclem.curriclemType=='Lecture'){
+        setIsLecture(true)
+        setVideoId(curriclem.curriclemContent.split('=')[1]);
+      }
+      else{
+        setIsLecture(false)
+      }
         console.log(course);
       } else {
         console.log("No such document!");
