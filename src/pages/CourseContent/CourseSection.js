@@ -19,7 +19,7 @@ function CourseSection(props) {
                                     {props.section.sectionContent.map((content, index) => (<tr key={index}>
                                         
                                         {props.isOffCanvas?<span className='sectionName' onClick={()=>props.showCourse(content.curriclemId,props.section.sectionId)}><td>({content.curriclemType}) {content.curriclemName}</td></span>
-                                        :<Link to={`/courseContent/${props.courseId}/${content.curriclemId}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>}
+                                        :<Link to={`/courseContent/${props.courseId}/${props.section.sectionId}/${content.curriclemId}`} ><td>({content.curriclemType}) {content.curriclemName}</td></Link>}
                                     </tr>))}
                                 </tbody>
                             </table></div></div>
