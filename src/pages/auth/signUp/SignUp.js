@@ -18,7 +18,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 function Sign_Up() {
   
   ///////////////handleNaxt////////////////////
-  
+  const [loading,setLoading]=useState(false)
   const [err, setErr] = useState();
   const [Page, setPage] = useState(1);
   
@@ -100,7 +100,7 @@ function Sign_Up() {
  const history=useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true)
    // console.log(userData);
   
     const displayName = userData.userName;
@@ -125,7 +125,7 @@ function Sign_Up() {
  
      
       const uploadTask = uploadBytesResumable(storageRef, file );
- 
+     
       uploadTask.then( 
         
         // (error) => {
@@ -158,12 +158,13 @@ function Sign_Up() {
               coursesUser
             });
              
-              
+           setLoading(false)   
+          history.push("/")
           });
         },
-         
-     );
-     history.push("/")
+      
+      );
+    
     } 
     
       catch (err) {
@@ -208,9 +209,11 @@ function Sign_Up() {
         {Page == 3 && (
           <div className="btnS" >
  
-           <button className="btnlogin" type="submit"  disabled={error.phone ||error.specialization || userData.specialization==""||userData.phone==""}>  
+           <button className="btnlogin" type="submit"  disabled={loading||error.phone ||error.specialization || userData.specialization==""||userData.phone==""}>  
  
-             Submit
+           {loading? <div className="mx-3 spinner-border spinner-border-sm" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>  : 'Submit' }
             </button> 
           </div>
         )}

@@ -10,8 +10,11 @@ export default function NavBar() {
   const { contextlang, setcontextlang } = useContext(langContext);
   const currentUse = useContext(AuthContext);
   const currentValue = currentUse.currentUser;
-  const currentData=currentUse.userData;
-  
+  let currentData={user:"user",specialization:''}
+ if(currentUse.userData!==undefined)
+ {
+  currentData=currentUse.userData;
+ }
    console.log(currentValue)
   const [loging, setLoging] = useState("");
   const [userType,setUserType]=useState("");
@@ -23,7 +26,7 @@ export default function NavBar() {
       
     } else {
       setLoging("Login");
-      
+       
     }
   }, [currentValue]);
 
@@ -65,7 +68,11 @@ export default function NavBar() {
             <ul className="navbar-nav w-100 d-flex justify-content-between">
              
               
+<<<<<<< Updated upstream
             {currentData.user=="trainee" || (currentData.user=="user"&&loging=='Login') ?
+=======
+            {currentData.user=="trainee" || currentData.user=="user" || loging=="Login"?
+>>>>>>> Stashed changes
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/courses">
                 
