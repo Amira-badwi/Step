@@ -68,11 +68,7 @@ export default function NavBar() {
             <ul className="navbar-nav w-100 d-flex justify-content-between">
              
               
-<<<<<<< Updated upstream
-            {currentData.user=="trainee" || (currentData.user=="user"&&loging=='Login') ?
-=======
             {currentData.user=="trainee" || currentData.user=="user" || loging=="Login"?
->>>>>>> Stashed changes
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/courses">
                 

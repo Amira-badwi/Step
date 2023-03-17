@@ -25,7 +25,7 @@ function Pg3(props) {
         phone:
           e.target.value.length == 0
             ? "This Field is Required"
-            : e.target.value.length < 11 && /^[0-9]+$/.test(e.target.value)
+            : !/^01[0-2,5]{1}[0-9]{8}$/.test(e.target.value)
             ? "Not valid"
             : null,
       });
