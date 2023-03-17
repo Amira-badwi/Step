@@ -125,8 +125,6 @@ function CourseForm() {
                         }
                     )
                 })
-                console.log(bookData);
-                console.log("Yay!!!");
             }
         }
     }

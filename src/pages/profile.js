@@ -96,7 +96,7 @@ useEffect(()=>{
  
  
                 <div className="mb-5">
-                  <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p>
+                  {/* <p className="lead fw-normal  pt-5"  onClick ={()=>edit()}>About</p> */}
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
                     
                     <MDBCardText className="font-italic mb-1">{currentValue.displayName}</MDBCardText>
