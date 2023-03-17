@@ -15,12 +15,15 @@ function CourseForm() {
     const currentValue = currentUse.currentUser.displayName;
     // const [addedCourse,setAddedCourse]=useState({})
     const [page, setPage] = useState(0)
+    const [isNoSections,setIsNoSections]=useState(false)
+    const [isEmptySection,setIsEmptySection]=useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [contentType, setContentType] = useState("")
     const [contentTypeErr, setContentTypeErr] = useState(null)
     const secondPage = contentType == 'book' ? 'Book Info' : 'Course Info'
     const formTitles = ['Content Type', secondPage, 'Course Curriclem']
     const [courseData, setCourseData] = useState({
+        courseCreator:'Step',
         courseName: '',
         courseDescription: '',
         courseCategory: '',
@@ -36,6 +39,7 @@ function CourseForm() {
         courseSections: null
     })
     const [bookData, setBookData] = useState({
+        bookCreator:'Step',
         bookName: '',
         bookDescription: '',
         bookCategory: '',
@@ -77,7 +81,18 @@ function CourseForm() {
 
     const handleSubmit = async (e) => {
         if (contentType == 'course') {
-            const imageRef = ref(storage, imageURL);
+            console.log(courseData.courseSections);
+if(courseData.courseSections.length===0){
+    // console.log("Here");
+    setIsNoSections(true)
+}else if(courseData.courseSections.some((section)=>section.sectionContent.length==0)){
+    console.log("There is an empty section!");
+    setIsEmptySection(true)
+}
+            else{
+                setIsEmptySection(false)
+                setIsNoSections(false)
+                const imageRef = ref(storage, imageURL);
             const imageUpload = uploadBytesResumable(imageRef, courseData.courseImage);
             let course = {}
             course = { ...courseData, courseCreator: currentValue }
@@ -92,8 +107,10 @@ function CourseForm() {
                         history.push(`/courseEnroll/${addedCourse.id}`)
                     }
                 )
-            })
+            })}
         } else {
+            setIsEmptySection(false)
+            setIsNoSections(false)
             console.log("Are we here");
             if (bookData.bookCategory === "" || bookData.bookImage === "" || bookData.book === "" || bookData.bookName == "" || bookData.bookDescription == '') {
                 setBookErrs({ book: bookData.book == "" ? "this field is required" : "", bookDescription: bookData.bookDescription == "" ? 'this field is required' : '', bookName: bookData.bookName == "" ? 'this field is required' : bookErrs.bookName, bookCategory: bookData.bookCategory == '' ? 'this field is required' : bookErrs.bookName, bookImage: bookData.bookImage == '' ? 'this field is required' : '' })
@@ -144,11 +161,27 @@ function CourseForm() {
                 <form onSubmit={(e) => { e.preventDefault() }}>
                     {page == 0 ? <ContentType handleContentType={handleContentType} contentTypeErr={contentTypeErr} /> : (page == 1 && contentType == 'course') ? <CourseInfo courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData} /> : (page == 1 && contentType == 'book') ? <BookInfo bookData={bookData} setBookData={setBookData} bookErrs={bookErrs} setBookErrs={setBookErrs} /> : <CourseContent courseErrs={courseErrs} setCourseErrs={setCourseErrs} courseData={courseData} setCourseData={setCourseData} />}
                     <button className='btn btn-primary me-3' disabled={page == 0 ||isLoading} onClick={() => { setPage((current) => (current - 1)) }}>Prev</button>
-                    <button disabled={isLoading} className='btn btn-primary me-3' onClick={() => { (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? handleSubmit() : handleNext() }}>{isLoading ? <div className="mx-3 spinner-border spinner-border-sm" role="status">
+                    <button disabled={isLoading} className='btn btn-primary me-3' data-bs-toggle={(isNoSections)?'Modal':null} data-bs-target={(isNoSections)?"#exampleModal":null} onClick={() => { (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? handleSubmit() : handleNext() }}>{isLoading ? <div className="mx-3 spinner-border spinner-border-sm" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div> : (formTitles.length - 1) == page || (page == 1 && contentType == 'book') ? 'Submit' : 'Next'}</button>
                 </form>
             </div>
+            {isNoSections||isEmptySection?<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div className="modal-body">
+          {isEmptySection?<p>You can't have empty sections</p>:<p>Course Must contain at least 1 section</p>}
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>:null}
         </div>
     )
 }

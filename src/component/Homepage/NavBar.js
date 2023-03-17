@@ -65,7 +65,7 @@ export default function NavBar() {
             <ul className="navbar-nav w-100 d-flex justify-content-between">
              
               
-            {currentData.user=="trainee" || currentData.user=="user" ?
+            {currentData.user=="trainee" || (currentData.user=="user"&&loging=='Login') ?
               <li className="nav-item d-flex justify-content-between">
                 <NavLink className="nav-link  text-light " to="/courses">
                 
