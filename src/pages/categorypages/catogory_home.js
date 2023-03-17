@@ -9,6 +9,10 @@ import Banner from "../../component/banner/Banner"
 import CourseEnroll from "../CourseContent/CourseEnroll";
 import { AuthContext } from "../../component/context/AuthContext";
 import Login from "../auth/Login";
+import EnrollBanner from "../../component/banner/enrolBanner";
+import CourseLecture from "../../component/CourseLecture";
+import CourseContentSideBar from "../../component/CourseContentSideBar";
+
 export default function Catecory_home(){
     const currentUse = useContext(AuthContext);
     const currentValue = currentUse.currentUser;
@@ -24,6 +28,26 @@ export default function Catecory_home(){
         <Route  exact path="/courses" component={CourseCatogry}/>
         <Route exact path="/book/:id"   component={Books_category}/>
         <Route exact path="/course/:id"   component={Courses_details}/>
+        <Route exact path="/enrolreviewCourse/:id" component={EnrollBanner} />
+        <Route
+                exact
+                path="/lecture/:courseName/:id"
+                component={currentValue == null ? Login : CourseLecture}
+              />
+
+
+ <Route
+                exact
+                path="/CourseContent/:courseName/:section/:id"
+                component={currentValue == null ? Login : CourseContentSideBar}
+              />
+
+              <Route
+                exact
+                path="/quiz/:courseName/:id"
+                component={currentValue == null ? Login : CourseLecture}
+              />
+
         <Route
                 exact
                 path="/CourseEnroll/:id"
