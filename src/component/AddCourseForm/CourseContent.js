@@ -12,9 +12,12 @@ function CourseContent(props) {
     setSingleSectionErr({ ...singleSectionErr, sectionName: e.target.value.length==0?'This field is required':'' })
   }
   const addSection = () => {
-    props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, { ...singleSection, sectionId: singleSection.sectionName.replace(/\s/g, "") + v4() }] })
+    if(singleSection.sectionName==''){
+      setSingleSectionErr({ ...singleSectionErr,sectionName: singleSection.sectionName == "" ? 'this field is required' : ''})
+    }
+    else{props.setCourseData({ ...props.courseData, courseSections: [...props.courseData.courseSections, { ...singleSection, sectionId: singleSection.sectionName.replace(/\s/g, "") + v4() }] })
     setSingleSection({ sectionId: '', sectionName: '', sectionContent: [] })
-    setIsAdd(false)
+    setIsAdd(false)}
   }
   const handleSectionDelete = (num) => {
     // setTodos(todos.filter((value) => value.taskId != id))
