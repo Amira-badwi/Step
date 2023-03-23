@@ -62,7 +62,7 @@ function CourseContentSideBar() {
 
         <div class={`${classN} offcanvasCourse`} offcanvas-start data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                <h5 class="offcanvas-title " style={{marginTop:"70%"}} id="offcanvasScrollingLabel">course content</h5>
                 <button type="button" class="btn-close" onClick={() => setIsShow(false)} aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
